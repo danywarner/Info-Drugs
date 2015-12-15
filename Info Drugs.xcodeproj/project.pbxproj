@@ -12,6 +12,7 @@
 		65F72DA41C20C31A0010BAE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F72DA21C20C31A0010BAE5 /* Main.storyboard */; };
 		65F72DA61C20C31A0010BAE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65F72DA51C20C31A0010BAE5 /* Assets.xcassets */; };
 		65F72DA91C20C31A0010BAE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F72DA71C20C31A0010BAE5 /* LaunchScreen.storyboard */; };
+		65F72DB41C20C5730010BAE5 /* Drug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F72DB31C20C5730010BAE5 /* Drug.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		65F72DA51C20C31A0010BAE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65F72DA81C20C31A0010BAE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65F72DAA1C20C31A0010BAE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65F72DB31C20C5730010BAE5 /* Drug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drug.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,9 @@
 		65F72D9D1C20C31A0010BAE5 /* Info Drugs */ = {
 			isa = PBXGroup;
 			children = (
+				65F72DB21C20C5370010BAE5 /* Model */,
+				65F72DB11C20C5340010BAE5 /* View */,
+				65F72DB01C20C5320010BAE5 /* Controller */,
 				65F72D9E1C20C31A0010BAE5 /* AppDelegate.swift */,
 				65F72DA01C20C31A0010BAE5 /* ViewController.swift */,
 				65F72DA21C20C31A0010BAE5 /* Main.storyboard */,
@@ -62,6 +67,28 @@
 				65F72DAA1C20C31A0010BAE5 /* Info.plist */,
 			);
 			path = "Info Drugs";
+			sourceTree = "<group>";
+		};
+		65F72DB01C20C5320010BAE5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		65F72DB11C20C5340010BAE5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		65F72DB21C20C5370010BAE5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				65F72DB31C20C5730010BAE5 /* Drug.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +164,7 @@
 			files = (
 				65F72DA11C20C31A0010BAE5 /* ViewController.swift in Sources */,
 				65F72D9F1C20C31A0010BAE5 /* AppDelegate.swift in Sources */,
+				65F72DB41C20C5730010BAE5 /* Drug.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
