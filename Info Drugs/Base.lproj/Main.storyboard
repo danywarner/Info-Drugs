@@ -152,15 +152,15 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Riesgos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mvd-eQ-xRY">
-                                        <rect key="frame" x="20" y="513" width="80" height="21"/>
+                                        <rect key="frame" x="20" y="513" width="250" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Qué es?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9t-MD-aaj">
-                                        <rect key="frame" x="20" y="165" width="80" height="21"/>
+                                        <rect key="frame" x="20" y="165" width="250" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="k9b-eW-gpx"/>
+                                            <constraint firstAttribute="width" constant="250" id="k9b-eW-gpx"/>
                                             <constraint firstAttribute="width" constant="73" id="wIt-0u-Rb5"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
@@ -340,7 +340,7 @@ Es importante tomar en cuenta el historial familiar de psicosis, esquizofrenia u
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5a-6R-zED">
-                                        <rect key="frame" x="177" y="13" width="247" height="30"/>
+                                        <rect key="frame" x="177" y="18" width="247" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="V0F-ez-oOX"/>
                                             <constraint firstAttribute="width" constant="247" id="u5r-4b-zkm"/>
@@ -350,7 +350,7 @@ Es importante tomar en cuenta el historial familiar de psicosis, esquizofrenia u
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEL-sL-lR8">
-                                        <rect key="frame" x="8" y="16" width="35" height="24"/>
+                                        <rect key="frame" x="8" y="20" width="35" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="4dG-Ha-ZSx"/>
                                             <constraint firstAttribute="width" constant="52" id="Sue-5Q-gAh"/>
@@ -374,15 +374,17 @@ Es importante tomar en cuenta el historial familiar de psicosis, esquizofrenia u
                                     <constraint firstItem="N5a-6R-zED" firstAttribute="centerX" secondItem="mRa-E0-hw4" secondAttribute="centerX" id="5Uj-ho-28H"/>
                                     <constraint firstItem="MEL-sL-lR8" firstAttribute="leading" secondItem="mRa-E0-hw4" secondAttribute="leading" constant="13" id="74r-qE-MTg"/>
                                     <constraint firstAttribute="bottom" secondItem="MEL-sL-lR8" secondAttribute="bottom" constant="15" id="Nf5-wt-w1o"/>
-                                    <constraint firstAttribute="bottom" secondItem="MEL-sL-lR8" secondAttribute="bottom" constant="15" id="Vgs-eh-chu"/>
+                                    <constraint firstAttribute="bottom" secondItem="MEL-sL-lR8" secondAttribute="bottom" constant="11" id="Vgs-eh-chu"/>
                                     <constraint firstItem="N5a-6R-zED" firstAttribute="centerY" secondItem="mRa-E0-hw4" secondAttribute="centerY" id="Y15-47-tSH"/>
                                     <constraint firstItem="MEL-sL-lR8" firstAttribute="leading" secondItem="mRa-E0-hw4" secondAttribute="leading" constant="8" id="Z99-Ub-2Ux"/>
                                     <constraint firstAttribute="height" constant="55" id="lMx-Hg-kYR"/>
+                                    <constraint firstAttribute="bottom" secondItem="N5a-6R-zED" secondAttribute="bottom" constant="7" id="vwp-sf-hDr"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="74r-qE-MTg"/>
                                         <exclude reference="Nf5-wt-w1o"/>
+                                        <exclude reference="Y15-47-tSH"/>
                                     </mask>
                                 </variation>
                             </view>
