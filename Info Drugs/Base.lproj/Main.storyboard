@@ -51,18 +51,18 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLS-M0-j6H">
                                                     <rect key="frame" x="0.0" y="89" width="110" height="21"/>
-                                                    <color key="backgroundColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="5Bb-vy-DbM"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="1" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="qLS-M0-j6H" firstAttribute="top" secondItem="9Vi-sH-gN0" secondAttribute="bottom" id="8zp-mW-hXf"/>
                                             <constraint firstItem="qLS-M0-j6H" firstAttribute="leading" secondItem="viR-O9-TiZ" secondAttribute="leading" id="BIs-AR-qjU"/>
@@ -79,7 +79,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="bS4-sl-EBY">
+                            <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" searchBarStyle="minimal" placeholder="Buscar Droga" translatesAutoresizingMaskIntoConstraints="NO" id="bS4-sl-EBY">
                                 <rect key="frame" x="0.0" y="55" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -110,6 +110,7 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="wON-hR-i1g" id="kyK-bZ-i0e"/>
+                        <outlet property="searchBar" destination="bS4-sl-EBY" id="cKh-du-6gS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

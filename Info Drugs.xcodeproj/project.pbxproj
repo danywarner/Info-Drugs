@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65A46F651C20EDE9009F6274 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A46F641C20EDE9009F6274 /* UIDevice.swift */; };
 		65F72D9F1C20C31A0010BAE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F72D9E1C20C31A0010BAE5 /* AppDelegate.swift */; };
 		65F72DA11C20C31A0010BAE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F72DA01C20C31A0010BAE5 /* ViewController.swift */; };
 		65F72DA41C20C31A0010BAE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F72DA21C20C31A0010BAE5 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		65A46F641C20EDE9009F6274 /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		65F72D9B1C20C31A0010BAE5 /* Info Drugs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Info Drugs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65F72D9E1C20C31A0010BAE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65F72DA01C20C31A0010BAE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				65F72DB31C20C5730010BAE5 /* Drug.swift */,
+				65A46F641C20EDE9009F6274 /* UIDevice.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65A46F651C20EDE9009F6274 /* UIDevice.swift in Sources */,
 				65F72DA11C20C31A0010BAE5 /* ViewController.swift in Sources */,
 				65F72D9F1C20C31A0010BAE5 /* AppDelegate.swift in Sources */,
 				65F72DB41C20C5730010BAE5 /* Drug.swift in Sources */,
@@ -318,6 +322,7 @@
 				65F72DAF1C20C31A0010BAE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,17 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
 
     @IBOutlet weak var collection: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var drugs = [Drug]()
+    var filteredDrugs = [Drug]()
+    var inSearchMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collection.delegate = self
         collection.dataSource = self
-        
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.Done
         createInitialDrugs()
     }
     
@@ -35,7 +39,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("DrugCell", forIndexPath: indexPath) as? DrugCell {
             
-            let drug = drugs[indexPath.row]
+            let drug: Drug!
+            
+            if inSearchMode {
+                drug = filteredDrugs[indexPath.row]
+            } else {
+               drug = drugs[indexPath.row]
+            }
+            
             cell.configureCell(drug)
             return cell
         } else {
@@ -45,10 +56,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         
-        
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if inSearchMode {
+            return filteredDrugs.count
+        }
         return drugs.count
     }
     
@@ -57,8 +70,27 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-
-        return CGSizeMake(105, 105)
+        
+        return CGSizeMake(85, 85)
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+    
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == nil || searchBar.text == "" {
+            inSearchMode = false
+            view.endEditing(true)
+            collection.reloadData()
+        } else {
+            inSearchMode = true
+            let lower = searchBar.text!.lowercaseString
+            filteredDrugs = drugs.filter({$0.name.lowercaseString.rangeOfString(lower) != nil})
+            collection.reloadData()
+        }
+        
     }
 
 }

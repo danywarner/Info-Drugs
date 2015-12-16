@@ -18,7 +18,7 @@ class DrugCell: UICollectionViewCell {
     func configureCell(drug: Drug) {
         self.drug = drug
         
-        nameLbl.text = self.drug.name.capitalizedString
+        nameLbl.text = self.drug.name
         thumbImg.image = UIImage(named: "\(drug.name)")
     }
     
