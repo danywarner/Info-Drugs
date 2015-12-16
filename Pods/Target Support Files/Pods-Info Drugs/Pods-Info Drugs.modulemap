@@ -1,0 +1,6 @@
+framework module Pods_Info_Drugs {
+  umbrella header "Pods-Info Drugs-umbrella.h"
+
+  export *
+  module * { export * }
+}
