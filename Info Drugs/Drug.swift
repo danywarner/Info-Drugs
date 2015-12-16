@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Drugs {
+class Drug {
     private var _name: String!
     private var _effects: [String]?
     private var _risks: [String]?
