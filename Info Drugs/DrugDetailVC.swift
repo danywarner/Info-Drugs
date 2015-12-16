@@ -50,7 +50,17 @@ class DrugDetailVC: UIViewController {
         print("language: \(pre)")
         super.viewDidLoad()
         drugNameLabel.text = _drug.name
-        self.view.clipsToBounds = true;
+        self.view.clipsToBounds = true
+        let lang: String = (pre as NSString).substringToIndex(2)
+        if lang == "es" {print(lang)
+            DataService.ds.REF_ES_DRUGS.observeEventType(.Value, withBlock: { snapshot in
+                print(snapshot.value)
+            })
+        } else {
+            print("NOLLANNGNGNGNNG: \(lang)")
+        }
+        
+        
         //scrollView.contentSize = CGSizeMake(320,758)
     }
     
