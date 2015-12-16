@@ -152,15 +152,15 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Riesgos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mvd-eQ-xRY">
-                                        <rect key="frame" x="20" y="513" width="73" height="21"/>
+                                        <rect key="frame" x="20" y="513" width="80" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qué es?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9t-MD-aaj">
-                                        <rect key="frame" x="20" y="165" width="73" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Qué es?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9t-MD-aaj">
+                                        <rect key="frame" x="20" y="165" width="80" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="73" id="k9b-eW-gpx"/>
+                                            <constraint firstAttribute="width" constant="80" id="k9b-eW-gpx"/>
                                             <constraint firstAttribute="width" constant="73" id="wIt-0u-Rb5"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
@@ -393,6 +393,9 @@ Es importante tomar en cuenta el historial familiar de psicosis, esquizofrenia u
                                     <segment title="Efectos"/>
                                     <segment title="Mezclas"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedControlActionChanged:" destination="crY-eN-6hk" eventType="valueChanged" id="yWD-1F-fPH"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -413,11 +416,16 @@ Es importante tomar en cuenta el historial familiar de psicosis, esquizofrenia u
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="2050"/>
                     <connections>
+                        <outlet property="addictiveText" destination="4fJ-r1-m3v" id="8Iv-Rx-aa8"/>
                         <outlet property="addictiveTitle" destination="LgE-Js-HmJ" id="7wP-sZ-TXI"/>
+                        <outlet property="damageReduceText" destination="n6R-HN-HQr" id="DnH-rr-dzE"/>
                         <outlet property="damageReduceTitle" destination="2yX-Rb-Bc1" id="BQ0-kD-T1C"/>
                         <outlet property="definitionText" destination="q1q-y7-lTx" id="pgr-hJ-pBd"/>
                         <outlet property="definitionTitle" destination="e9t-MD-aaj" id="puS-vq-DPe"/>
-                        <outlet property="label" destination="N5a-6R-zED" id="h2D-2T-3LG"/>
+                        <outlet property="drugNameLabel" destination="N5a-6R-zED" id="XwP-kf-b13"/>
+                        <outlet property="drugPhoto" destination="NW5-BV-tnV" id="fWN-w1-KmD"/>
+                        <outlet property="drugPhotoHeight" destination="ctP-gr-mCx" id="mPy-9u-uPE"/>
+                        <outlet property="risksText" destination="jvY-9j-m1b" id="ler-bC-bCc"/>
                         <outlet property="risksTitle" destination="Mvd-eQ-xRY" id="6M6-LX-UqB"/>
                     </connections>
                 </viewController>
