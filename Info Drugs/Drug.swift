@@ -22,7 +22,7 @@ class Drug {
                 return _name
         }
         set {
-            _name = name
+            _name = newValue
         }
     }
     

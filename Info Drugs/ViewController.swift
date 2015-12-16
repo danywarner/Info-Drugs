@@ -54,11 +54,23 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
 
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
+        var drug: Drug!
+        
+        if inSearchMode {
+            drug = filteredDrugs[indexPath.row]
+        } else {
+            drug = drugs[indexPath.row]
+        }
+        
+        performSegueWithIdentifier("DrugDetailVC", sender: drug)
     }
+    
+    
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         if inSearchMode {
             return filteredDrugs.count
         }
@@ -93,5 +105,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "DrugDetailVC" {
+            if let detailsVC = segue.destinationViewController as? DrugDetailVC {
+                if let drug = sender as? Drug {
+                    detailsVC.drug = drug
+                }
+            }
+        }
+    }
 }
 
