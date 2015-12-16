@@ -10,20 +10,14 @@ import UIKit
 
 class DrugDetailVC: UIViewController {
 
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var definitionTitle: UILabel!
     @IBOutlet weak var definitionText: UILabel!
     @IBOutlet weak var effectsTitle: UILabel!
-    @IBOutlet weak var effectsText: UILabel!
     @IBOutlet weak var risksTitle: UILabel!
-    @IBOutlet weak var risksText: UILabel!
     @IBOutlet weak var addictiveTitle: UILabel!
-    @IBOutlet weak var addictiveText: UILabel!
     @IBOutlet weak var legalTitle: UILabel!
-    @IBOutlet weak var legalText: UILabel!
     @IBOutlet weak var damageReduceTitle: UILabel!
-    @IBOutlet weak var damageReduceText: UILabel!
     
     private var _drug: Drug!
     
@@ -46,7 +40,7 @@ class DrugDetailVC: UIViewController {
         super.viewDidLoad()
         label.text = _drug.name
         self.view.clipsToBounds = true;
-        scrollView.contentSize = CGSizeMake(320,758)
+        //scrollView.contentSize = CGSizeMake(320,758)
     }
     
     @IBAction func backBtnPressed(sender: AnyObject) {

@@ -127,169 +127,209 @@
                         <viewControllerLayoutGuide type="bottom" id="cYx-Lc-i9E"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Q2S-ey-dbq">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="740"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="2400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fHL-63-uFq">
-                                <rect key="frame" x="20" y="116" width="560" height="615"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWf-lD-app">
+                                <rect key="frame" x="8" y="116" width="578" height="2271"/>
                                 <subviews>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CGN-Mg-rKc" customClass="UIScrollView">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="595"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLX-1e-uI7">
-                                                <rect key="frame" x="8" y="476" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1q-y7-lTx">
-                                                <rect key="frame" x="8" y="199" width="319" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="319" id="nyx-Vm-cM8"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Es Adictiva?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgE-Js-HmJ">
-                                                <rect key="frame" x="8" y="372" width="100" height="21"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1p8-rb-PBW">
-                                                <rect key="frame" x="8" y="343" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Riesgos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mvd-eQ-xRY">
-                                                <rect key="frame" x="8" y="308" width="73" height="21"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Reducción de daños" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yX-Rb-Bc1">
-                                                <rect key="frame" x="8" y="510" width="167" height="21"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNN-rR-SeX">
-                                                <rect key="frame" x="8" y="406" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efectos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43p-xI-DuC">
-                                                <rect key="frame" x="8" y="233" width="62" height="21"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qué es?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9t-MD-aaj">
-                                                <rect key="frame" x="8" y="165" width="73" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="73" id="wIt-0u-Rb5"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Legalidad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ys8-w6-r3z">
-                                                <rect key="frame" x="8" y="442" width="80" height="21"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUl-g6-sDj">
-                                                <rect key="frame" x="8" y="267" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yerba" translatesAutoresizingMaskIntoConstraints="NO" id="NW5-BV-tnV">
-                                                <rect key="frame" x="160" y="14" width="240" height="128"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="240" id="A0R-BW-K0H"/>
-                                                    <constraint firstAttribute="height" constant="128" id="tCj-32-dj8"/>
-                                                    <constraint firstAttribute="width" constant="240" id="vGl-ov-UwL"/>
-                                                    <constraint firstAttribute="height" constant="128" id="yYC-F8-ah1"/>
-                                                </constraints>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="A0R-BW-K0H"/>
-                                                        <exclude reference="tCj-32-dj8"/>
-                                                    </mask>
-                                                </variation>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bL7-Pb-f6m">
-                                                <rect key="frame" x="8" y="547" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="clip" numberOfLines="20" baselineAdjustment="alignBaselines" minimumFontSize="9" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="q1q-y7-lTx">
+                                        <rect key="frame" x="20" y="199" width="538" height="300"/>
                                         <constraints>
-                                            <constraint firstItem="e9t-MD-aaj" firstAttribute="leading" secondItem="bL7-Pb-f6m" secondAttribute="leading" id="02W-Ea-Fxy"/>
-                                            <constraint firstItem="tNN-rR-SeX" firstAttribute="top" secondItem="LgE-Js-HmJ" secondAttribute="bottom" constant="13" id="6Uz-v1-nxh"/>
-                                            <constraint firstItem="e9t-MD-aaj" firstAttribute="leading" secondItem="LgE-Js-HmJ" secondAttribute="leading" id="6iK-55-v3s"/>
-                                            <constraint firstAttribute="height" constant="1000" id="7zN-vI-4yh"/>
-                                            <constraint firstItem="q1q-y7-lTx" firstAttribute="top" secondItem="e9t-MD-aaj" secondAttribute="bottom" constant="13" id="8By-w8-CBU"/>
-                                            <constraint firstItem="ys8-w6-r3z" firstAttribute="top" secondItem="tNN-rR-SeX" secondAttribute="bottom" constant="13" id="ACi-yh-Fse"/>
-                                            <constraint firstItem="e9t-MD-aaj" firstAttribute="leading" secondItem="tNN-rR-SeX" secondAttribute="leading" id="ADv-XY-fNA"/>
-                                            <constraint firstItem="43p-xI-DuC" firstAttribute="top" secondItem="q1q-y7-lTx" secondAttribute="bottom" constant="13" id="FAU-11-HXO"/>
-                                            <constraint firstItem="FLX-1e-uI7" firstAttribute="top" secondItem="ys8-w6-r3z" secondAttribute="bottom" constant="13" id="HPr-4I-116"/>
-                                            <constraint firstItem="Mvd-eQ-xRY" firstAttribute="trailing" secondItem="e9t-MD-aaj" secondAttribute="trailing" id="IS0-aY-qOD"/>
-                                            <constraint firstItem="e9t-MD-aaj" firstAttribute="leading" secondItem="ys8-w6-r3z" secondAttribute="leading" id="IfE-DY-NMb"/>
-                                            <constraint firstItem="e9t-MD-aaj" firstAttribute="leading" secondItem="FLX-1e-uI7" secondAttribute="leading" id="N3B-Db-GcW"/>
-                                            <constraint firstItem="NW5-BV-tnV" firstAttribute="top" secondItem="CGN-Mg-rKc" secondAttribute="top" constant="14" id="NCZ-9I-Plz"/>
-                                            <constraint firstItem="Mvd-eQ-xRY" firstAttribute="top" secondItem="uUl-g6-sDj" secondAttribute="bottom" constant="20" id="PpY-N4-7Kp"/>
-                                            <constraint firstItem="q1q-y7-lTx" firstAttribute="top" secondItem="NW5-BV-tnV" secondAttribute="bottom" constant="57" id="QVv-Xt-l4J"/>
-                                            <constraint firstItem="LgE-Js-HmJ" firstAttribute="top" secondItem="1p8-rb-PBW" secondAttribute="bottom" constant="13" id="Rsb-ho-PqD"/>
-                                            <constraint firstItem="NW5-BV-tnV" firstAttribute="centerX" secondItem="CGN-Mg-rKc" secondAttribute="centerX" id="V0U-06-IjU"/>
-                                            <constraint firstItem="NW5-BV-tnV" firstAttribute="centerX" secondItem="CGN-Mg-rKc" secondAttribute="centerX" id="cb9-XX-9e8"/>
-                                            <constraint firstItem="e9t-MD-aaj" firstAttribute="top" secondItem="CGN-Mg-rKc" secondAttribute="top" constant="165" id="cvE-yX-Cd4"/>
-                                            <constraint firstItem="NW5-BV-tnV" firstAttribute="top" secondItem="CGN-Mg-rKc" secondAttribute="top" constant="14" id="dmr-bV-Rtw"/>
-                                            <constraint firstItem="e9t-MD-aaj" firstAttribute="leading" secondItem="1p8-rb-PBW" secondAttribute="leading" id="fB7-r2-DUl"/>
-                                            <constraint firstItem="bL7-Pb-f6m" firstAttribute="top" secondItem="2yX-Rb-Bc1" secondAttribute="bottom" constant="13" id="fKF-cg-va3"/>
-                                            <constraint firstItem="1p8-rb-PBW" firstAttribute="top" secondItem="Mvd-eQ-xRY" secondAttribute="bottom" constant="14" id="laL-XP-z0F"/>
-                                            <constraint firstItem="e9t-MD-aaj" firstAttribute="leading" secondItem="2yX-Rb-Bc1" secondAttribute="leading" id="n0c-aj-4jv"/>
-                                            <constraint firstItem="q1q-y7-lTx" firstAttribute="leading" secondItem="e9t-MD-aaj" secondAttribute="leading" id="qud-B4-0hw"/>
-                                            <constraint firstItem="q1q-y7-lTx" firstAttribute="leading" secondItem="43p-xI-DuC" secondAttribute="leading" id="sBD-Xf-NiC"/>
-                                            <constraint firstItem="e9t-MD-aaj" firstAttribute="leading" secondItem="CGN-Mg-rKc" secondAttribute="leadingMargin" id="sHR-eQ-3j5"/>
-                                            <constraint firstItem="Mvd-eQ-xRY" firstAttribute="leading" secondItem="1p8-rb-PBW" secondAttribute="leading" id="seX-SM-cd6"/>
-                                            <constraint firstItem="uUl-g6-sDj" firstAttribute="top" secondItem="43p-xI-DuC" secondAttribute="bottom" constant="13" id="y90-fZ-ec9"/>
-                                            <constraint firstItem="uUl-g6-sDj" firstAttribute="leading" secondItem="43p-xI-DuC" secondAttribute="leading" id="ywr-YH-zPF"/>
-                                            <constraint firstItem="2yX-Rb-Bc1" firstAttribute="top" secondItem="FLX-1e-uI7" secondAttribute="bottom" constant="13" id="zBr-tW-aKE"/>
+                                            <constraint firstAttribute="width" constant="54" id="3Ca-7f-4d1"/>
+                                            <constraint firstAttribute="height" constant="300" id="Om3-to-Pe2"/>
+                                            <constraint firstAttribute="height" constant="300" id="taC-Yj-fAD"/>
+                                        </constraints>
+                                        <string key="text">El LSD es el psicodélico más potente que se ha descubierto, ya que en cantidades muy pequeñas puede provocar efectos muy intensos. Este grupo de sustancias también son erróneamente llamadas alucinógenos.  Sus presentaciones son diversas, siendo las más comunes las planillas de papel secante que se cortan en pequeños cuadritos, los micropuntos o disoluciones líquidas de diferentes concentraciones. Por lo general se ingiere oralmente pero se puede absorber a través de la piel por lo que se debe manejar con cuidado.</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="3Ca-7f-4d1"/>
+                                                <exclude reference="Om3-to-Pe2"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Riesgos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mvd-eQ-xRY">
+                                        <rect key="frame" x="20" y="866" width="73" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Efectos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43p-xI-DuC">
+                                        <rect key="frame" x="20" y="514" width="62" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qué es?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9t-MD-aaj">
+                                        <rect key="frame" x="20" y="165" width="73" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="73" id="k9b-eW-gpx"/>
+                                            <constraint firstAttribute="width" constant="73" id="wIt-0u-Rb5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="wIt-0u-Rb5"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Legalidad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ys8-w6-r3z">
+                                        <rect key="frame" x="20" y="1583" width="80" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="clip" numberOfLines="20" baselineAdjustment="alignBaselines" minimumFontSize="9" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="FAL-JW-GPf">
+                                        <rect key="frame" x="20" y="543" width="538" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="54" id="8Q0-mG-b73"/>
+                                            <constraint firstAttribute="height" constant="300" id="fue-ht-K1y"/>
+                                        </constraints>
+                                        <string key="text">El LSD es el psicodélico más potente que se ha descubierto, ya que en cantidades muy pequeñas puede provocar efectos muy intensos. Este grupo de sustancias también son erróneamente llamadas alucinógenos.  Sus presentaciones son diversas, siendo las más comunes las planillas de papel secante que se cortan en pequeños cuadritos, los micropuntos o disoluciones líquidas de diferentes concentraciones. Por lo general se ingiere oralmente pero se puede absorber a través de la piel por lo que se debe manejar con cuidado.</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="8Q0-mG-b73"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="clip" numberOfLines="20" baselineAdjustment="alignBaselines" minimumFontSize="9" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="jvY-9j-m1b">
+                                        <rect key="frame" x="20" y="902" width="538" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="54" id="ixN-Oi-Df0"/>
+                                            <constraint firstAttribute="height" constant="300" id="t7h-r7-2UR"/>
+                                        </constraints>
+                                        <string key="text">El LSD es el psicodélico más potente que se ha descubierto, ya que en cantidades muy pequeñas puede provocar efectos muy intensos. Este grupo de sustancias también son erróneamente llamadas alucinógenos.  Sus presentaciones son diversas, siendo las más comunes las planillas de papel secante que se cortan en pequeños cuadritos, los micropuntos o disoluciones líquidas de diferentes concentraciones. Por lo general se ingiere oralmente pero se puede absorber a través de la piel por lo que se debe manejar con cuidado.</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="ixN-Oi-Df0"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Es Adictiva?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgE-Js-HmJ">
+                                        <rect key="frame" x="20" y="1227" width="100" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="clip" numberOfLines="20" baselineAdjustment="alignBaselines" minimumFontSize="9" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="4fJ-r1-m3v">
+                                        <rect key="frame" x="20" y="1256" width="538" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="54" id="bc0-eJ-v4Y"/>
+                                            <constraint firstAttribute="height" constant="300" id="tfr-Kb-Dhl"/>
+                                        </constraints>
+                                        <string key="text">El LSD es el psicodélico más potente que se ha descubierto, ya que en cantidades muy pequeñas puede provocar efectos muy intensos. Este grupo de sustancias también son erróneamente llamadas alucinógenos.  Sus presentaciones son diversas, siendo las más comunes las planillas de papel secante que se cortan en pequeños cuadritos, los micropuntos o disoluciones líquidas de diferentes concentraciones. Por lo general se ingiere oralmente pero se puede absorber a través de la piel por lo que se debe manejar con cuidado.</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="bc0-eJ-v4Y"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="clip" numberOfLines="20" baselineAdjustment="alignBaselines" minimumFontSize="9" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="tk7-om-bhX">
+                                        <rect key="frame" x="20" y="1612" width="538" height="283"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="283" id="GfI-s1-7km"/>
+                                            <constraint firstAttribute="width" constant="54" id="NyD-WJ-iE4"/>
+                                        </constraints>
+                                        <string key="text">El LSD es el psicodélico más potente que se ha descubierto, ya que en cantidades muy pequeñas puede provocar efectos muy intensos. Este grupo de sustancias también son erróneamente llamadas alucinógenos.  Sus presentaciones son diversas, siendo las más comunes las planillas de papel secante que se cortan en pequeños cuadritos, los micropuntos o disoluciones líquidas de diferentes concentraciones. Por lo general se ingiere oralmente pero se puede absorber a través de la piel por lo que se debe manejar con cuidado.</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="NyD-WJ-iE4"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="clip" numberOfLines="20" baselineAdjustment="alignBaselines" minimumFontSize="9" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="n6R-HN-HQr">
+                                        <rect key="frame" x="20" y="1944" width="538" height="283"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="283" id="Tey-Ee-htO"/>
+                                            <constraint firstAttribute="width" constant="54" id="UJJ-zz-jsa"/>
+                                        </constraints>
+                                        <string key="text">El LSD es el psicodélico más potente que se ha descubierto, ya que en cantidades muy pequeñas puede provocar efectos muy intensos. Este grupo de sustancias también son erróneamente llamadas alucinógenos.  Sus presentaciones son diversas, siendo las más comunes las planillas de papel secante que se cortan en pequeños cuadritos, los micropuntos o disoluciones líquidas de diferentes concentraciones. Por lo general se ingiere oralmente pero se puede absorber a través de la piel por lo que se debe manejar con cuidado.</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="UJJ-zz-jsa"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reducción de daños" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yX-Rb-Bc1">
+                                        <rect key="frame" x="20" y="1915" width="167" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="yerba" translatesAutoresizingMaskIntoConstraints="NO" id="NW5-BV-tnV">
+                                        <rect key="frame" x="169" y="20" width="240" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="A0R-BW-K0H"/>
+                                            <constraint firstAttribute="width" constant="240" id="Uj8-zy-PzD"/>
+                                            <constraint firstAttribute="height" constant="128" id="ctP-gr-mCx"/>
+                                            <constraint firstAttribute="height" constant="128" id="tCj-32-dj8"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="7zN-vI-4yh"/>
-                                                <exclude reference="V0U-06-IjU"/>
-                                                <exclude reference="dmr-bV-Rtw"/>
-                                                <exclude reference="QVv-Xt-l4J"/>
+                                                <exclude reference="A0R-BW-K0H"/>
+                                                <exclude reference="tCj-32-dj8"/>
                                             </mask>
                                         </variation>
-                                    </view>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="CGN-Mg-rKc" secondAttribute="trailing" id="LHO-P4-OGv"/>
-                                    <constraint firstAttribute="bottom" secondItem="CGN-Mg-rKc" secondAttribute="bottom" constant="20" id="Sdx-VY-pxg"/>
-                                    <constraint firstItem="CGN-Mg-rKc" firstAttribute="leading" secondItem="fHL-63-uFq" secondAttribute="leading" id="jMY-wQ-Gzt"/>
-                                    <constraint firstItem="CGN-Mg-rKc" firstAttribute="top" secondItem="fHL-63-uFq" secondAttribute="top" id="lxL-FS-8Up"/>
+                                    <constraint firstItem="LgE-Js-HmJ" firstAttribute="top" secondItem="jvY-9j-m1b" secondAttribute="bottom" constant="25" id="0Sj-ZM-9ay"/>
+                                    <constraint firstItem="4fJ-r1-m3v" firstAttribute="leading" secondItem="ys8-w6-r3z" secondAttribute="leading" id="1E7-cJ-20t"/>
+                                    <constraint firstItem="jvY-9j-m1b" firstAttribute="leading" secondItem="LgE-Js-HmJ" secondAttribute="leading" id="1Jz-5L-nny"/>
+                                    <constraint firstItem="FAL-JW-GPf" firstAttribute="leading" secondItem="43p-xI-DuC" secondAttribute="leading" id="2b2-86-hXH"/>
+                                    <constraint firstItem="q1q-y7-lTx" firstAttribute="leading" secondItem="e9t-MD-aaj" secondAttribute="leading" id="4kM-4c-JqT"/>
+                                    <constraint firstItem="FAL-JW-GPf" firstAttribute="leading" secondItem="Mvd-eQ-xRY" secondAttribute="leading" id="4oy-qU-kdd"/>
+                                    <constraint firstItem="4fJ-r1-m3v" firstAttribute="leading" secondItem="LgE-Js-HmJ" secondAttribute="leading" id="7LZ-zn-ReJ"/>
+                                    <constraint firstItem="tk7-om-bhX" firstAttribute="trailing" secondItem="4fJ-r1-m3v" secondAttribute="trailing" id="7T6-EZ-WKQ"/>
+                                    <constraint firstItem="Mvd-eQ-xRY" firstAttribute="top" secondItem="FAL-JW-GPf" secondAttribute="bottom" constant="23" id="7uZ-4C-w58"/>
+                                    <constraint firstItem="tk7-om-bhX" firstAttribute="leading" secondItem="2yX-Rb-Bc1" secondAttribute="leading" id="8An-K9-t14"/>
+                                    <constraint firstItem="FAL-JW-GPf" firstAttribute="top" secondItem="43p-xI-DuC" secondAttribute="bottom" constant="8" symbolic="YES" id="A5n-oz-Xc2"/>
+                                    <constraint firstItem="q1q-y7-lTx" firstAttribute="top" secondItem="e9t-MD-aaj" secondAttribute="bottom" constant="13" id="G7z-Nf-FLB"/>
+                                    <constraint firstItem="4fJ-r1-m3v" firstAttribute="trailing" secondItem="jvY-9j-m1b" secondAttribute="trailing" id="HSH-bB-Y6a"/>
+                                    <constraint firstItem="4fJ-r1-m3v" firstAttribute="top" secondItem="LgE-Js-HmJ" secondAttribute="bottom" constant="8" symbolic="YES" id="I89-5q-f85"/>
+                                    <constraint firstAttribute="trailing" secondItem="q1q-y7-lTx" secondAttribute="trailing" constant="20" id="IZh-Rr-NEF"/>
+                                    <constraint firstItem="tk7-om-bhX" firstAttribute="top" secondItem="ys8-w6-r3z" secondAttribute="bottom" constant="8" symbolic="YES" id="NoX-kh-ilF"/>
+                                    <constraint firstItem="ys8-w6-r3z" firstAttribute="top" secondItem="4fJ-r1-m3v" secondAttribute="bottom" constant="27" id="QG3-CA-Svx"/>
+                                    <constraint firstItem="Mvd-eQ-xRY" firstAttribute="trailing" secondItem="e9t-MD-aaj" secondAttribute="trailing" id="QSb-Xn-n30"/>
+                                    <constraint firstItem="FAL-JW-GPf" firstAttribute="trailing" secondItem="jvY-9j-m1b" secondAttribute="trailing" id="YwO-U3-xnY"/>
+                                    <constraint firstItem="e9t-MD-aaj" firstAttribute="leading" secondItem="jWf-lD-app" secondAttribute="leading" constant="20" id="Z8a-T2-aRR"/>
+                                    <constraint firstItem="Mvd-eQ-xRY" firstAttribute="leading" secondItem="jvY-9j-m1b" secondAttribute="leading" id="a9T-d3-YDO"/>
+                                    <constraint firstItem="q1q-y7-lTx" firstAttribute="centerX" secondItem="NW5-BV-tnV" secondAttribute="centerX" id="aE5-PE-URI"/>
+                                    <constraint firstItem="NW5-BV-tnV" firstAttribute="top" secondItem="jWf-lD-app" secondAttribute="top" constant="26" id="abn-cE-Nth"/>
+                                    <constraint firstItem="n6R-HN-HQr" firstAttribute="top" secondItem="2yX-Rb-Bc1" secondAttribute="bottom" constant="8" symbolic="YES" id="co1-hG-0PF"/>
+                                    <constraint firstItem="q1q-y7-lTx" firstAttribute="trailing" secondItem="FAL-JW-GPf" secondAttribute="trailing" id="gtR-hj-rbF"/>
+                                    <constraint firstItem="tk7-om-bhX" firstAttribute="trailing" secondItem="n6R-HN-HQr" secondAttribute="trailing" id="iDu-Yh-nVL"/>
+                                    <constraint firstAttribute="bottom" secondItem="n6R-HN-HQr" secondAttribute="bottom" constant="244" id="kZa-72-XdF"/>
+                                    <constraint firstItem="43p-xI-DuC" firstAttribute="top" secondItem="q1q-y7-lTx" secondAttribute="bottom" constant="15" id="keQ-Jd-smu"/>
+                                    <constraint firstItem="q1q-y7-lTx" firstAttribute="top" secondItem="jWf-lD-app" secondAttribute="top" constant="199" id="pa0-IH-0GX"/>
+                                    <constraint firstItem="q1q-y7-lTx" firstAttribute="leading" secondItem="43p-xI-DuC" secondAttribute="leading" id="sDR-ms-6Fy"/>
+                                    <constraint firstItem="tk7-om-bhX" firstAttribute="leading" secondItem="ys8-w6-r3z" secondAttribute="leading" id="skc-HU-5Za"/>
+                                    <constraint firstItem="jvY-9j-m1b" firstAttribute="top" secondItem="Mvd-eQ-xRY" secondAttribute="bottom" constant="15" id="smn-mq-Ce3"/>
+                                    <constraint firstItem="jvY-9j-m1b" firstAttribute="centerX" secondItem="jWf-lD-app" secondAttribute="centerX" id="uNc-eS-fsZ"/>
+                                    <constraint firstItem="2yX-Rb-Bc1" firstAttribute="leading" secondItem="n6R-HN-HQr" secondAttribute="leading" id="uQk-bE-fnq"/>
+                                    <constraint firstItem="2yX-Rb-Bc1" firstAttribute="top" secondItem="tk7-om-bhX" secondAttribute="bottom" constant="20" id="yIz-Fr-IsP"/>
                                 </constraints>
-                            </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1Hn-B1-zVQ">
-                                <rect key="frame" x="20" y="87" width="560" height="29"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <segments>
-                                    <segment title="Info"/>
-                                    <segment title="Mezclas"/>
-                                </segments>
-                            </segmentedControl>
+                            </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mRa-E0-hw4">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
                                 <subviews>
@@ -340,38 +380,40 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oRB-hG-GIW">
+                                <rect key="frame" x="20" y="80" width="560" height="29"/>
+                                <segments>
+                                    <segment title="Información"/>
+                                    <segment title="Mezclas"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="mRa-E0-hw4" secondAttribute="trailing" id="18N-WH-RiL"/>
-                            <constraint firstItem="fHL-63-uFq" firstAttribute="top" secondItem="1Hn-B1-zVQ" secondAttribute="bottom" constant="1" id="2fe-r1-rWN"/>
-                            <constraint firstItem="1Hn-B1-zVQ" firstAttribute="top" secondItem="mRa-E0-hw4" secondAttribute="bottom" constant="32" id="3gx-ZZ-bR5"/>
-                            <constraint firstItem="fHL-63-uFq" firstAttribute="leading" secondItem="1Hn-B1-zVQ" secondAttribute="leading" id="Dc9-SB-Njx"/>
-                            <constraint firstItem="1Hn-B1-zVQ" firstAttribute="leading" secondItem="Q2S-ey-dbq" secondAttribute="leadingMargin" id="GOi-vJ-bbN"/>
-                            <constraint firstItem="fHL-63-uFq" firstAttribute="trailing" secondItem="1Hn-B1-zVQ" secondAttribute="trailing" id="SPF-Jf-DOR"/>
-                            <constraint firstItem="cYx-Lc-i9E" firstAttribute="top" secondItem="fHL-63-uFq" secondAttribute="bottom" constant="9" id="cQb-fm-Me9"/>
-                            <constraint firstItem="1Hn-B1-zVQ" firstAttribute="centerX" secondItem="mRa-E0-hw4" secondAttribute="centerX" id="iNC-W3-CC1"/>
+                            <constraint firstItem="jWf-lD-app" firstAttribute="leading" secondItem="Q2S-ey-dbq" secondAttribute="leadingMargin" constant="-12" id="1eE-O9-06m"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jWf-lD-app" secondAttribute="trailing" constant="-6" id="3kt-D7-Mxt"/>
+                            <constraint firstItem="oRB-hG-GIW" firstAttribute="top" secondItem="mRa-E0-hw4" secondAttribute="bottom" constant="25" id="90e-Lb-29K"/>
+                            <constraint firstItem="oRB-hG-GIW" firstAttribute="centerX" secondItem="Q2S-ey-dbq" secondAttribute="centerX" id="A7Y-Ea-IiA"/>
+                            <constraint firstAttribute="trailing" secondItem="oRB-hG-GIW" secondAttribute="trailing" constant="20" id="JVM-Ad-NVd"/>
+                            <constraint firstItem="cYx-Lc-i9E" firstAttribute="top" secondItem="jWf-lD-app" secondAttribute="bottom" constant="13" id="Zyj-cU-2Aq"/>
+                            <constraint firstItem="jWf-lD-app" firstAttribute="top" secondItem="mRa-E0-hw4" secondAttribute="bottom" constant="61" id="enL-be-Qtw"/>
+                            <constraint firstItem="oRB-hG-GIW" firstAttribute="leading" secondItem="Q2S-ey-dbq" secondAttribute="leading" constant="20" id="fbj-PP-5UV"/>
                             <constraint firstItem="mRa-E0-hw4" firstAttribute="leading" secondItem="Q2S-ey-dbq" secondAttribute="leading" id="l0R-DL-Nep"/>
                             <constraint firstItem="mRa-E0-hw4" firstAttribute="top" secondItem="Q2S-ey-dbq" secondAttribute="top" id="tgc-ob-xpZ"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="740"/>
+                    <size key="freeformSize" width="600" height="2400"/>
                     <connections>
-                        <outlet property="addictiveText" destination="tNN-rR-SeX" id="nPC-l1-EjE"/>
                         <outlet property="addictiveTitle" destination="LgE-Js-HmJ" id="7wP-sZ-TXI"/>
-                        <outlet property="damageReduceText" destination="bL7-Pb-f6m" id="Esd-f5-hq7"/>
                         <outlet property="damageReduceTitle" destination="2yX-Rb-Bc1" id="BQ0-kD-T1C"/>
                         <outlet property="definitionText" destination="q1q-y7-lTx" id="pgr-hJ-pBd"/>
                         <outlet property="definitionTitle" destination="e9t-MD-aaj" id="puS-vq-DPe"/>
-                        <outlet property="effectsText" destination="uUl-g6-sDj" id="fjO-Zo-2Q9"/>
                         <outlet property="effectsTitle" destination="43p-xI-DuC" id="BOF-gd-YGs"/>
                         <outlet property="label" destination="N5a-6R-zED" id="h2D-2T-3LG"/>
-                        <outlet property="legalText" destination="FLX-1e-uI7" id="kEX-ND-MMv"/>
                         <outlet property="legalTitle" destination="ys8-w6-r3z" id="YUk-0E-wiW"/>
-                        <outlet property="risksText" destination="1p8-rb-PBW" id="foE-Uq-xO5"/>
                         <outlet property="risksTitle" destination="Mvd-eQ-xRY" id="6M6-LX-UqB"/>
-                        <outlet property="scrollView" destination="CGN-Mg-rKc" id="jIC-my-wvj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W8B-fN-WDc" userLabel="First Responder" sceneMemberID="firstResponder"/>
