@@ -46,7 +46,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                             let key = snap.key
                             let drug = Drug(drugName: key, dictionary: drugDict)
                             self.drugs.append(drug)
-                            print(drug.description?.debugDescription)
+                            
                         }
                         
                     }

@@ -100,18 +100,49 @@ class Drug {
     
     init(drugName: String, dictionary: Dictionary<String, AnyObject>) {
         self._name = drugName
+        
+        _description = [String]()
+        _effects = [String]()
+        _risks = [String]()
+        _addictive = [String]()
+        _legal = [String]()
+        _riskAvoiding = [String]()
+        _mixes = [String]()
+        
        // print(dictionary.debugDescription)
         if let effects = dictionary["effects"] as? [String] {
             for effect in effects {
                 self._effects?.append(effect)
-               // print(effect)
             }
         }
         
         if let definitionArr = dictionary["definition"] as? [String] {
             for definition in definitionArr {
                 self._description?.append(definition)
-                //print("DDDDD\(definition)")
+            }
+        }
+        
+        if let risks = dictionary["risks"] as? [String] {
+            for risk in risks {
+                self._risks?.append(risk)
+            }
+        }
+        
+        if let addictiveText = dictionary["addictive"] as? [String] {
+            for addictive in addictiveText {
+                self._addictive?.append(addictive)
+            }
+        }
+        
+        if let damageReduceOptions = dictionary["damageReduce"] as? [String] {
+            for damageReduce in damageReduceOptions {
+                self._riskAvoiding?.append(damageReduce)
+            }
+        }
+        
+        if let mixes = dictionary["mixes"] as? [String] {
+            for mix in mixes {
+                self._mixes?.append(mix)
             }
         }
         
