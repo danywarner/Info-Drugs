@@ -10,6 +10,7 @@ import Foundation
 
 class Drug {
     private var _name: String!
+    private var _description: [String]?
     private var _effects: [String]?
     private var _risks: [String]?
     private var _addictive: [String]?
@@ -26,7 +27,20 @@ class Drug {
         }
     }
     
-    var effects: [String] {
+    var description: [String]? {
+        get {
+            if _description == nil {
+                _description = [String]()
+            }
+
+            return _description
+        }
+        set {
+            _description = newValue
+        }
+    }
+    
+    var effects: [String]? {
         get {
             if _effects == nil {
                 _effects = [String]()
@@ -35,7 +49,7 @@ class Drug {
         }
     }
     
-    var risks: [String] {
+    var risks: [String]? {
         get {
             if _risks == nil {
                 _risks = [String]()
@@ -44,7 +58,7 @@ class Drug {
         }
     }
     
-    var addictive: [String] {
+    var addictive: [String]? {
         get {
             if _addictive == nil {
                 _addictive = [String]()
@@ -53,7 +67,7 @@ class Drug {
         }
     }
     
-    var legal: [String] {
+    var legal: [String]? {
         get {
             if _legal == nil {
                 _legal = [String]()
@@ -62,7 +76,7 @@ class Drug {
         }
     }
     
-    var riskAvoiding: [String] {
+    var riskAvoiding: [String]? {
         get {
             if _riskAvoiding == nil {
                 _riskAvoiding = [String]()
@@ -71,7 +85,7 @@ class Drug {
         }
     }
     
-    var mixes: [String] {
+    var mixes: [String]? {
         get {
             if _mixes == nil {
                 _mixes = [String]()
@@ -83,4 +97,24 @@ class Drug {
     init(name: String) {
         _name = name
     }
+    
+    init(drugName: String, dictionary: Dictionary<String, AnyObject>) {
+        self._name = drugName
+       // print(dictionary.debugDescription)
+        if let effects = dictionary["effects"] as? [String] {
+            for effect in effects {
+                self._effects?.append(effect)
+               // print(effect)
+            }
+        }
+        
+        if let definitionArr = dictionary["definition"] as? [String] {
+            for definition in definitionArr {
+                self._description?.append(definition)
+                //print("DDDDD\(definition)")
+            }
+        }
+        
+    }
+    
 }

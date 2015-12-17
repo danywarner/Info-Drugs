@@ -28,8 +28,7 @@ class DrugDetailVC: UIViewController {
     
     
     private var _drug: Drug!
-    var preferredLanguages : NSLocale!
-    var pre = NSLocale.preferredLanguages()[0]
+    
     
     var drug: Drug {
         get {
@@ -47,18 +46,12 @@ class DrugDetailVC: UIViewController {
     }
  
     override func viewDidLoad() {
-        print("language: \(pre)")
+        
         super.viewDidLoad()
         drugNameLabel.text = _drug.name
+        definitionText.text = decomposeStringArray(_drug.description!)
         self.view.clipsToBounds = true
-        let lang: String = (pre as NSString).substringToIndex(2)
-        if lang == "es" {print(lang)
-            DataService.ds.REF_ES_DRUGS.observeEventType(.Value, withBlock: { snapshot in
-                print(snapshot.value)
-            })
-        } else {
-            print("NOLLANNGNGNGNNG: \(lang)")
-        }
+        
         
         
         //scrollView.contentSize = CGSizeMake(320,758)
@@ -113,12 +106,13 @@ class DrugDetailVC: UIViewController {
     }
     
     func decomposeStringArray(array: [String]) -> String {
-        
+        print("Size: \(array.count)")
         var fullText = ""
         for paragraph in array {
             fullText += paragraph
             fullText += "\n\n"
         }
+        print("FULL TEXT: \(fullText)")
         return fullText
     }
     

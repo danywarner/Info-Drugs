@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
 
@@ -16,14 +17,50 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var drugs = [Drug]()
     var filteredDrugs = [Drug]()
     var inSearchMode = false
+    var preferredLanguages : NSLocale!
+    var pre = NSLocale.preferredLanguages()[0]
+    
+    
     
     override func viewDidLoad() {
+        
+        print("language: \(pre)")
         super.viewDidLoad()
         collection.delegate = self
         collection.dataSource = self
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.Done
-        createInitialDrugs()
+        
+        let lang: String = (pre as NSString).substringToIndex(2)
+        if lang == "es" {print(lang)
+            DataService.ds.REF_ES_DRUGS.observeEventType(.Value, withBlock: { snapshot in
+                //print(snapshot.value)
+                self.drugs = []
+                if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                    
+                    for snap in snapshots {
+                        
+                       // print("SNAP: \(snap)")
+                        
+                        if let drugDict = snap.value as? Dictionary<String, AnyObject> {
+                            let key = snap.key
+                            let drug = Drug(drugName: key, dictionary: drugDict)
+                            self.drugs.append(drug)
+                            print(drug.description?.debugDescription)
+                        }
+                        
+                    }
+                    
+                    
+                }
+              self.collection.reloadData()
+            })
+        } else {
+            print("NOLLANNGNGNGNNG: \(lang)")
+        }
+        collection.reloadData()
+        
+        //createInitialDrugs()
     }
     
     func createInitialDrugs() {
@@ -46,7 +83,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             } else {
                drug = drugs[indexPath.row]
             }
-            
+            //print(drug.name)
             cell.configureCell(drug)
             return cell
         } else {

@@ -140,7 +140,7 @@
                                             <constraint firstAttribute="height" constant="300" id="Om3-to-Pe2"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="taC-Yj-fAD"/>
                                         </constraints>
-                                        <mutableString key="text">El LSD es el psicodélico más potente que se ha descubierto, ya que en cantidades muy pequeñas puede provocar efectos muy intensos. Este grupo de sustancias también son erróneamente llamadas alucinógenos.  Sus presentaciones son diversas, siendo las más comunes las planillas de papel secante que se cortan en pequeños cuadritos, los micropuntos o disoluciones líquidas de diferentes concentraciones. Por lo general se ingiere oralmente pero se puede absorber a través de la piel por lo que se debe manejar con cuidado.</mutableString>
+                                        <string key="text">El LSD es el psicodélico más potente que se ha descubierto, ya que en cantidades muy pequeñas puede provocar efectos muy intensos. Este grupo de sustancias también son erróneamente llamadas alucinógenos.  Sus presentaciones son diversas, siendo las más comunes las planillas de papel secante que se cortan en pequeños cuadritos, los micropuntos o disoluciones líquidas de diferentes concentraciones. Por lo general se ingiere oralmente pero se puede absorber a través de la piel por lo que se debe manejar con cuidado.</string>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -172,17 +172,17 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="jvY-9j-m1b">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="jvY-9j-m1b">
                                         <rect key="frame" x="20" y="550" width="538" height="416"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="54" id="ixN-Oi-Df0"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="t7h-r7-2UR"/>
                                         </constraints>
-                                        <mutableString key="text">*Trata de mantener a la persona cómoda en un entorno agradable y tranquilo.
+                                        <string key="text">*Trata de mantener a la persona cómoda en un entorno agradable y tranquilo.
 
 *Busca que una persona cercana y de confianza hable con él o ella sin incomodarle. Es importante hacerle saber de una forma calmada que todo pasará en un momento, que el efecto es temporal y no hay de qué preocuparse.
 
-*El LSD no tiene propiedades tóxicas por lo que no existe una sobredosis como tal, pero si alguien presenta molestias físicas muy fuertes, es probable que lo que haya tomado no fuera LSD o estuviera mezclado con algo más, por lo que es importante pedir ayuda si el malestar aumenta o si no se reduce en un par de horas.</mutableString>
+*El LSD no tiene propiedades tóxicas por lo que no existe una sobredosis como tal, pero si alguien presenta molestias físicas muy fuertes, es probable que lo que haya tomado no fuera LSD o estuviera mezclado con algo más, por lo que es importante pedir ayuda si el malestar aumenta o si no se reduce en un par de horas.</string>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -192,7 +192,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Es Adictiva?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgE-Js-HmJ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Es Adictiva?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgE-Js-HmJ">
                                         <rect key="frame" x="20" y="987" width="100" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
@@ -205,8 +205,8 @@
                                             <constraint firstAttribute="height" constant="300" id="mOp-AD-shX"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="tfr-Kb-Dhl"/>
                                         </constraints>
-                                        <mutableString key="text">El LSD no genera ningún tipo de dependencia física, incluso se forma rápidamente una alta tolerancia que impide que se pueda consumir frecuentemente. Sin embargo puede generar una dependencia psicológica que puede llevar a distorsiones muy fuertes de la realidad y diversas condiciones como paranoia o depresión. Es importante tenerle respeto a tu cuerpo, a tu mente y a la sustancia.
-No se debe utilizar descuidadamente, en exceso, por presión de otras personas o como una forma de evadir la realidad.</mutableString>
+                                        <string key="text">El LSD no genera ningún tipo de dependencia física, incluso se forma rápidamente una alta tolerancia que impide que se pueda consumir frecuentemente. Sin embargo puede generar una dependencia psicológica que puede llevar a distorsiones muy fuertes de la realidad y diversas condiciones como paranoia o depresión. Es importante tenerle respeto a tu cuerpo, a tu mente y a la sustancia.
+No se debe utilizar descuidadamente, en exceso, por presión de otras personas o como una forma de evadir la realidad.</string>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
