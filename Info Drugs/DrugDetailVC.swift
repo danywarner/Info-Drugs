@@ -53,7 +53,8 @@ class DrugDetailVC: UIViewController {
         risksText.text = decomposeStringArray(_drug.risks!)
         addictiveText.text = decomposeStringArray(_drug.addictive!)
         damageReduceText.text = decomposeStringArray(_drug.riskAvoiding!)
-
+        let image = UIImage(named: "\(drug.name)Photo")
+        drugPhoto.image = image
         self.view.clipsToBounds = true
 
         
