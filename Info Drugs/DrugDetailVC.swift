@@ -11,9 +11,14 @@ import UIKit
 class DrugDetailVC: UIViewController {
 
     @IBOutlet weak var drugPhotoHeight: NSLayoutConstraint!
+    @IBOutlet weak var drugLabelBottom: NSLayoutConstraint!
+    @IBOutlet weak var drugLabelHeight: NSLayoutConstraint!
+    @IBOutlet weak var topBarHeight: NSLayoutConstraint!
+    @IBOutlet weak var segmentedControlTop: NSLayoutConstraint!
+    @IBOutlet weak var backButtonBottom: NSLayoutConstraint!
+    
     @IBOutlet weak var drugNameLabel: UILabel!
     @IBOutlet weak var drugPhoto: UIImageView!
-    
     @IBOutlet weak var definitionTitle: UILabel!
     @IBOutlet weak var definitionText: UILabel!
     
@@ -56,9 +61,40 @@ class DrugDetailVC: UIViewController {
         let image = UIImage(named: "\(drug.name)Photo")
         drugPhoto.image = image
         self.view.clipsToBounds = true
-
+        rotated()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
         
         //scrollView.contentSize = CGSizeMake(320,758)
+    }
+    
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+    }
+    
+    func rotated()
+    {
+        if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation))
+        {
+            drugPhotoHeight.constant = 0
+            segmentedControlTop.constant = 5
+            topBarHeight.constant = 25
+            drugLabelHeight.constant = 20
+            drugLabelBottom.constant = 3
+            backButtonBottom.constant = 3
+            print("landscape")
+        }
+        
+        if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation))
+        {
+            drugPhotoHeight.constant = 128
+            segmentedControlTop.constant = 25
+            topBarHeight.constant = 45
+            drugLabelHeight.constant = 30
+            drugLabelBottom.constant = 0
+            backButtonBottom.constant = 4
+            print("Portrait")
+        }
+        
     }
     
     @IBAction func backBtnPressed(sender: AnyObject) {
@@ -74,6 +110,7 @@ class DrugDetailVC: UIViewController {
             definitionTitle.text = "¿Qué es?"
             definitionText.text = decomposeStringArray(_drug.description!)
             toggleTextLabels()
+            updateViewConstraints()
             
             
         case 1:
@@ -81,12 +118,14 @@ class DrugDetailVC: UIViewController {
             definitionTitle.text = "Efectos:"
             definitionText.text = decomposeStringArray(_drug.effects!)
             toggleTextLabels()
+            updateViewConstraints()
             
         case 2:
             drugPhotoHeight.constant = 0
             definitionTitle.text = "Mezclas comunes:"
             definitionText.text = decomposeStringArray(_drug.mixes!)
             toggleTextLabels()
+            updateViewConstraints()
         default:
             break
         }

@@ -23,10 +23,24 @@
                                 <color key="backgroundColor" red="0.24361440934902046" green="1" blue="0.78647677533224247" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="172-Wk-Mwt">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="45"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info Drugs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqZ-Bx-QDV">
+                                        <rect key="frame" x="177" y="15" width="247" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="247" id="MyV-sz-M9v"/>
+                                            <constraint firstAttribute="height" constant="30" id="OoV-yS-sTg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="i5f-lb-I43"/>
+                                    <constraint firstItem="nqZ-Bx-QDV" firstAttribute="centerX" secondItem="172-Wk-Mwt" secondAttribute="centerX" id="0dv-tK-1xb"/>
+                                    <constraint firstAttribute="bottom" secondItem="nqZ-Bx-QDV" secondAttribute="bottom" id="BaG-bb-fL8"/>
+                                    <constraint firstAttribute="height" constant="45" id="i5f-lb-I43"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wON-hR-i1g">
@@ -131,7 +145,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWf-lD-app">
-                                <rect key="frame" x="8" y="116" width="578" height="1921"/>
+                                <rect key="frame" x="8" y="106" width="578" height="1931"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="q1q-y7-lTx">
                                         <rect key="frame" x="20" y="199" width="538" height="300"/>
@@ -223,7 +237,7 @@ No se debe utilizar descuidadamente, en exceso, por presión de otras personas o
                                         <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yerba" translatesAutoresizingMaskIntoConstraints="NO" id="NW5-BV-tnV">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="952DBEDC-E80E-4C50-9229-F47717E553DF" translatesAutoresizingMaskIntoConstraints="NO" id="NW5-BV-tnV">
                                         <rect key="frame" x="169" y="20" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="A0R-BW-K0H"/>
@@ -337,10 +351,10 @@ Es importante tomar en cuenta el historial familiar de psicosis, esquizofrenia u
                                 </variation>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mRa-E0-hw4">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5a-6R-zED">
-                                        <rect key="frame" x="177" y="18" width="247" height="30"/>
+                                        <rect key="frame" x="177" y="15" width="247" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="V0F-ez-oOX"/>
                                             <constraint firstAttribute="width" constant="247" id="u5r-4b-zkm"/>
@@ -349,12 +363,12 @@ Es importante tomar en cuenta el historial familiar de psicosis, esquizofrenia u
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEL-sL-lR8">
-                                        <rect key="frame" x="8" y="20" width="35" height="24"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEL-sL-lR8">
+                                        <rect key="frame" x="9" y="20" width="29" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="4dG-Ha-ZSx"/>
+                                            <constraint firstAttribute="height" constant="20" id="4dG-Ha-ZSx"/>
                                             <constraint firstAttribute="width" constant="52" id="Sue-5Q-gAh"/>
-                                            <constraint firstAttribute="width" constant="35" id="YF1-gX-Tz4"/>
+                                            <constraint firstAttribute="width" constant="29" id="YF1-gX-Tz4"/>
                                             <constraint firstAttribute="height" constant="35" id="y3a-Ot-wOI"/>
                                         </constraints>
                                         <state key="normal" image="back"/>
@@ -374,11 +388,11 @@ Es importante tomar en cuenta el historial familiar de psicosis, esquizofrenia u
                                     <constraint firstItem="N5a-6R-zED" firstAttribute="centerX" secondItem="mRa-E0-hw4" secondAttribute="centerX" id="5Uj-ho-28H"/>
                                     <constraint firstItem="MEL-sL-lR8" firstAttribute="leading" secondItem="mRa-E0-hw4" secondAttribute="leading" constant="13" id="74r-qE-MTg"/>
                                     <constraint firstAttribute="bottom" secondItem="MEL-sL-lR8" secondAttribute="bottom" constant="15" id="Nf5-wt-w1o"/>
-                                    <constraint firstAttribute="bottom" secondItem="MEL-sL-lR8" secondAttribute="bottom" constant="11" id="Vgs-eh-chu"/>
+                                    <constraint firstAttribute="bottom" secondItem="MEL-sL-lR8" secondAttribute="bottom" constant="4" id="Vgs-eh-chu"/>
                                     <constraint firstItem="N5a-6R-zED" firstAttribute="centerY" secondItem="mRa-E0-hw4" secondAttribute="centerY" id="Y15-47-tSH"/>
-                                    <constraint firstItem="MEL-sL-lR8" firstAttribute="leading" secondItem="mRa-E0-hw4" secondAttribute="leading" constant="8" id="Z99-Ub-2Ux"/>
-                                    <constraint firstAttribute="height" constant="55" id="lMx-Hg-kYR"/>
-                                    <constraint firstAttribute="bottom" secondItem="N5a-6R-zED" secondAttribute="bottom" constant="7" id="vwp-sf-hDr"/>
+                                    <constraint firstItem="MEL-sL-lR8" firstAttribute="leading" secondItem="mRa-E0-hw4" secondAttribute="leading" constant="5" id="Z99-Ub-2Ux"/>
+                                    <constraint firstAttribute="height" constant="45" id="lMx-Hg-kYR"/>
+                                    <constraint firstAttribute="bottom" secondItem="N5a-6R-zED" secondAttribute="bottom" id="vwp-sf-hDr"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -389,7 +403,7 @@ Es importante tomar en cuenta el historial familiar de psicosis, esquizofrenia u
                                 </variation>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oRB-hG-GIW">
-                                <rect key="frame" x="20" y="80" width="560" height="29"/>
+                                <rect key="frame" x="20" y="70" width="560" height="29"/>
                                 <segments>
                                     <segment title="Info"/>
                                     <segment title="Efectos"/>
@@ -420,15 +434,20 @@ Es importante tomar en cuenta el historial familiar de psicosis, esquizofrenia u
                     <connections>
                         <outlet property="addictiveText" destination="4fJ-r1-m3v" id="8Iv-Rx-aa8"/>
                         <outlet property="addictiveTitle" destination="LgE-Js-HmJ" id="7wP-sZ-TXI"/>
+                        <outlet property="backButtonBottom" destination="Vgs-eh-chu" id="mNg-MD-gJg"/>
                         <outlet property="damageReduceText" destination="n6R-HN-HQr" id="DnH-rr-dzE"/>
                         <outlet property="damageReduceTitle" destination="2yX-Rb-Bc1" id="BQ0-kD-T1C"/>
                         <outlet property="definitionText" destination="q1q-y7-lTx" id="pgr-hJ-pBd"/>
                         <outlet property="definitionTitle" destination="e9t-MD-aaj" id="puS-vq-DPe"/>
+                        <outlet property="drugLabelBottom" destination="vwp-sf-hDr" id="5bv-IY-01W"/>
+                        <outlet property="drugLabelHeight" destination="V0F-ez-oOX" id="8Fh-HK-hST"/>
                         <outlet property="drugNameLabel" destination="N5a-6R-zED" id="XwP-kf-b13"/>
                         <outlet property="drugPhoto" destination="NW5-BV-tnV" id="fWN-w1-KmD"/>
                         <outlet property="drugPhotoHeight" destination="ctP-gr-mCx" id="mPy-9u-uPE"/>
                         <outlet property="risksText" destination="jvY-9j-m1b" id="ler-bC-bCc"/>
                         <outlet property="risksTitle" destination="Mvd-eQ-xRY" id="6M6-LX-UqB"/>
+                        <outlet property="segmentedControlTop" destination="90e-Lb-29K" id="STp-mu-v1Q"/>
+                        <outlet property="topBarHeight" destination="lMx-Hg-kYR" id="UBb-hk-VSe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W8B-fN-WDc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -437,9 +456,24 @@ Es importante tomar en cuenta el historial familiar de psicosis, esquizofrenia u
         </scene>
     </scenes>
     <resources>
+        <image name="952DBEDC-E80E-4C50-9229-F47717E553DF" width="567" height="381">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
+GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
+V05TQ29sb3KAAoAMEiTAAACAA4AKWns1NjcsIDM4MX3SFQoWGFpOUy5vYmplY3RzoReABIAJ0hUKGhii
+GxyABYAGgAkQBdMgCiEiIyRXTlMuYmFzZVtOUy5yZWxhdGl2ZYAAgAiAB18QfGZpbGU6Ly8vQXBwbGlj
+YXRpb25zL1hjb2RlLmFwcC9Db250ZW50cy9QbHVnSW5zL0lERUludGVyZmFjZUJ1aWxkZXJLaXQuaWRl
+cGx1Z2luL0NvbnRlbnRzL1Jlc291cmNlcy9JQk1pc3NpbmdJbWFnZUdseXBoLnRpZmbSJygpKlokY2xh
+c3NuYW1lWCRjbGFzc2VzVU5TVVJMoikrWE5TT2JqZWN00icoLS5XTlNBcnJheaItK9MwMQoyMzRXTlNX
+aGl0ZVxOU0NvbG9yU3BhY2VEMCAwABADgAvSJyg2N1dOU0NvbG9yojYr0icoOTpXTlNJbWFnZaI5K18Q
+D05TS2V5ZWRBcmNoaXZlctE9PlRyb290gAEACAARABoAIwAtADIANwBFAEsAVgBdAGQAcQB4AIAAggCE
+AIkAiwCNAJgAnQCoAKoArACuALMAtgC4ALoAvAC+AMUAzQDZANsA3QDfAV4BYwFuAXcBfQGAAYkBjgGW
+AZkBoAGoAbUBugG8Ab4BwwHLAc4B0wHbAd4B8AHzAfgAAAAAAAACAQAAAAAAAAA/AAAAAAAAAAAAAAAA
+AAAB+g
+</mutableData>
+        </image>
         <image name="Cannabis" width="198" height="191"/>
         <image name="back" width="100" height="67"/>
         <image name="bg" width="1920" height="1200"/>
-        <image name="yerba" width="567" height="381"/>
     </resources>
 </document>
