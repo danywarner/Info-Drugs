@@ -119,6 +119,7 @@ class DrugDetailVC: UIViewController {
             definitionText.text = decomposeStringArray(_drug.effects!)
             toggleTextLabels()
             updateViewConstraints()
+            //self.view.frame = CGRectMake(0,0,320,568)
             
         case 2:
             drugPhotoHeight.constant = 0
@@ -126,6 +127,7 @@ class DrugDetailVC: UIViewController {
             definitionText.text = decomposeStringArray(_drug.mixes!)
             toggleTextLabels()
             updateViewConstraints()
+            
         default:
             break
         }
