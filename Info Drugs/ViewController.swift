@@ -12,7 +12,7 @@ import Firebase
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
 
     @IBOutlet weak var collection: UICollectionView!
-    @IBOutlet weak var searchBar: UISearchBar!
+   // @IBOutlet weak var searchBar: UISearchBar!
     
     var drugs = [Drug]()
     var filteredDrugs = [Drug]()
@@ -28,8 +28,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         super.viewDidLoad()
         collection.delegate = self
         collection.dataSource = self
-        searchBar.delegate = self
-        searchBar.returnKeyType = UIReturnKeyType.Done
+       // searchBar.delegate = self
+       // searchBar.returnKeyType = UIReturnKeyType.Done
         
         let lang: String = (pre as NSString).substringToIndex(2)
         if lang == "es" {print(lang)

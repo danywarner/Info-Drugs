@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="1LN-3v-ADV">
-                                <rect key="frame" x="0.0" y="99" width="600" height="501"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="1LN-3v-ADV">
+                                <rect key="frame" x="0.0" y="45" width="600" height="555"/>
                                 <color key="backgroundColor" red="0.24361440934902046" green="1" blue="0.78647677533224247" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="172-Wk-Mwt">
@@ -43,8 +43,8 @@
                                     <constraint firstAttribute="height" constant="45" id="i5f-lb-I43"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wON-hR-i1g">
-                                <rect key="frame" x="20" y="119" width="560" height="461"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wON-hR-i1g">
+                                <rect key="frame" x="20" y="72" width="560" height="508"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="stg-WC-b2I">
                                     <size key="itemSize" width="110" height="110"/>
@@ -93,28 +93,20 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" searchBarStyle="minimal" placeholder="Buscar Droga" translatesAutoresizingMaskIntoConstraints="NO" id="bS4-sl-EBY">
-                                <rect key="frame" x="0.0" y="55" width="600" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wON-hR-i1g" firstAttribute="centerX" secondItem="1LN-3v-ADV" secondAttribute="centerX" id="7zz-gl-hmZ"/>
                             <constraint firstItem="172-Wk-Mwt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ACV-iJ-yLv"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1LN-3v-ADV" secondAttribute="bottom" id="M0Z-Is-KYH"/>
+                            <constraint firstAttribute="bottom" secondItem="wON-hR-i1g" secondAttribute="bottom" constant="20" symbolic="YES" id="NOx-va-UJ9"/>
                             <constraint firstItem="1LN-3v-ADV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PSh-6C-ZFM"/>
-                            <constraint firstItem="wON-hR-i1g" firstAttribute="top" secondItem="bS4-sl-EBY" secondAttribute="bottom" constant="20" id="QtH-2G-dfT"/>
-                            <constraint firstItem="wON-hR-i1g" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="UwI-ZO-hTr"/>
-                            <constraint firstItem="wON-hR-i1g" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aEv-Lu-1Qf"/>
-                            <constraint firstItem="bS4-sl-EBY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bj9-ns-N0V"/>
+                            <constraint firstItem="wON-hR-i1g" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Tdn-A6-wcW"/>
                             <constraint firstAttribute="trailing" secondItem="172-Wk-Mwt" secondAttribute="trailing" id="cZY-VC-Lgp"/>
                             <constraint firstItem="172-Wk-Mwt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dW5-YN-Fy4"/>
                             <constraint firstAttribute="trailing" secondItem="1LN-3v-ADV" secondAttribute="trailing" id="g6g-su-GxS"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wON-hR-i1g" secondAttribute="bottom" constant="20" id="gTd-Z6-WPW"/>
                             <constraint firstItem="1LN-3v-ADV" firstAttribute="top" secondItem="172-Wk-Mwt" secondAttribute="bottom" id="jW4-kd-yez"/>
-                            <constraint firstAttribute="trailing" secondItem="bS4-sl-EBY" secondAttribute="trailing" id="qoY-dN-3iL"/>
-                            <constraint firstItem="bS4-sl-EBY" firstAttribute="top" secondItem="172-Wk-Mwt" secondAttribute="bottom" id="rKB-c3-9nI"/>
-                            <constraint firstItem="1LN-3v-ADV" firstAttribute="top" secondItem="bS4-sl-EBY" secondAttribute="bottom" id="t3e-q8-syK"/>
+                            <constraint firstItem="wON-hR-i1g" firstAttribute="top" secondItem="172-Wk-Mwt" secondAttribute="bottom" constant="27" id="ueP-Ts-FP1"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -124,7 +116,6 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="wON-hR-i1g" id="kyK-bZ-i0e"/>
-                        <outlet property="searchBar" destination="bS4-sl-EBY" id="cKh-du-6gS"/>
                         <segue destination="crY-eN-6hk" kind="show" identifier="DrugDetailVC" id="gG9-eE-gW6"/>
                     </connections>
                 </viewController>
@@ -141,11 +132,11 @@
                         <viewControllerLayoutGuide type="bottom" id="cYx-Lc-i9E"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Q2S-ey-dbq">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="2050"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWf-lD-app">
-                                <rect key="frame" x="8" y="106" width="578" height="1931"/>
+                                <rect key="frame" x="8" y="106" width="578" height="481"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="q1q-y7-lTx">
                                         <rect key="frame" x="20" y="199" width="538" height="300"/>
@@ -237,7 +228,7 @@ No se debe utilizar descuidadamente, en exceso, por presión de otras personas o
                                         <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="952DBEDC-E80E-4C50-9229-F47717E553DF" translatesAutoresizingMaskIntoConstraints="NO" id="NW5-BV-tnV">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="C2DBA224-B166-485C-A837-ABAC1593EE9E" translatesAutoresizingMaskIntoConstraints="NO" id="NW5-BV-tnV">
                                         <rect key="frame" x="169" y="20" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="A0R-BW-K0H"/>
@@ -429,8 +420,6 @@ Es importante tomar en cuenta el historial familiar de psicosis, esquizofrenia u
                             <constraint firstItem="mRa-E0-hw4" firstAttribute="top" secondItem="Q2S-ey-dbq" secondAttribute="top" id="tgc-ob-xpZ"/>
                         </constraints>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="2050"/>
                     <connections>
                         <outlet property="addictiveText" destination="4fJ-r1-m3v" id="8Iv-Rx-aa8"/>
                         <outlet property="addictiveTitle" destination="LgE-Js-HmJ" id="7wP-sZ-TXI"/>
@@ -456,7 +445,7 @@ Es importante tomar en cuenta el historial familiar de psicosis, esquizofrenia u
         </scene>
     </scenes>
     <resources>
-        <image name="952DBEDC-E80E-4C50-9229-F47717E553DF" width="567" height="381">
+        <image name="C2DBA224-B166-485C-A837-ABAC1593EE9E" width="567" height="381">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
