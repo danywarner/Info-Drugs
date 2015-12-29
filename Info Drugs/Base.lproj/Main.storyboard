@@ -192,6 +192,9 @@
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oRB-hG-GIW">
                                 <rect key="frame" x="20" y="59" width="560" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="QPu-OC-xl6"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Info"/>
                                     <segment title="Efectos"/>
@@ -201,8 +204,8 @@
                                     <action selector="segmentedControlActionChanged:" destination="crY-eN-6hk" eventType="valueChanged" id="yWD-1F-fPH"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hDq-BQ-S0d" customClass="DraggableView" customModule="Info_Drugs" customModuleProvider="target">
-                                <rect key="frame" x="20" y="116" width="560" height="464"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDq-BQ-S0d" customClass="DraggableView" customModule="Info_Drugs" customModuleProvider="target">
+                                <rect key="frame" x="20" y="112" width="560" height="468"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qué es?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4BC-5m-xgL">
                                         <rect key="frame" x="8" y="31" width="94" height="21"/>
@@ -241,6 +244,11 @@ Existen distintos tipos de nombres dependiendo de su presentación y pureza. Por
                                     <constraint firstItem="Byj-ul-suH" firstAttribute="top" secondItem="4BC-5m-xgL" secondAttribute="bottom" constant="14" id="gvy-3v-RAp"/>
                                     <constraint firstItem="4BC-5m-xgL" firstAttribute="leading" secondItem="hDq-BQ-S0d" secondAttribute="leadingMargin" id="hYa-Ha-tFo"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="X1T-G3-ED2"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -256,8 +264,10 @@ Existen distintos tipos de nombres dependiendo de su presentación y pureza. Por
                             <constraint firstItem="hDq-BQ-S0d" firstAttribute="leading" secondItem="Q2S-ey-dbq" secondAttribute="leadingMargin" id="c5b-SN-h3u"/>
                             <constraint firstItem="cYx-Lc-i9E" firstAttribute="top" secondItem="hDq-BQ-S0d" secondAttribute="bottom" constant="20" id="eL2-KE-yr7"/>
                             <constraint firstItem="oRB-hG-GIW" firstAttribute="leading" secondItem="Q2S-ey-dbq" secondAttribute="leading" constant="20" id="fbj-PP-5UV"/>
+                            <constraint firstItem="cYx-Lc-i9E" firstAttribute="top" secondItem="hDq-BQ-S0d" secondAttribute="bottom" constant="20" id="ktG-AB-nWQ"/>
                             <constraint firstItem="mRa-E0-hw4" firstAttribute="leading" secondItem="Q2S-ey-dbq" secondAttribute="leading" id="l0R-DL-Nep"/>
                             <constraint firstItem="hDq-BQ-S0d" firstAttribute="top" secondItem="oRB-hG-GIW" secondAttribute="bottom" constant="29" id="l1r-yC-cwG"/>
+                            <constraint firstItem="hDq-BQ-S0d" firstAttribute="top" secondItem="oRB-hG-GIW" secondAttribute="bottom" constant="25" id="mfw-lQ-Pnq"/>
                             <constraint firstItem="mRa-E0-hw4" firstAttribute="top" secondItem="Q2S-ey-dbq" secondAttribute="top" id="tgc-ob-xpZ"/>
                             <constraint firstItem="hDq-BQ-S0d" firstAttribute="top" secondItem="oRB-hG-GIW" secondAttribute="bottom" constant="29" id="vWl-C9-m4X"/>
                         </constraints>
@@ -266,6 +276,7 @@ Existen distintos tipos de nombres dependiendo de su presentación y pureza. Por
                                 <exclude reference="90e-Lb-29K"/>
                                 <exclude reference="1Qz-8H-bMh"/>
                                 <exclude reference="CaY-Hk-bEJ"/>
+                                <exclude reference="l1r-yC-cwG"/>
                                 <exclude reference="vWl-C9-m4X"/>
                                 <exclude reference="eL2-KE-yr7"/>
                             </mask>
@@ -273,6 +284,7 @@ Existen distintos tipos de nombres dependiendo de su presentación y pureza. Por
                     </view>
                     <connections>
                         <outlet property="backButtonBottom" destination="Vgs-eh-chu" id="mNg-MD-gJg"/>
+                        <outlet property="definitionText" destination="Byj-ul-suH" id="Acg-rw-Pcn"/>
                         <outlet property="drugLabelBottom" destination="vwp-sf-hDr" id="5bv-IY-01W"/>
                         <outlet property="drugLabelHeight" destination="V0F-ez-oOX" id="8Fh-HK-hST"/>
                         <outlet property="drugNameLabel" destination="N5a-6R-zED" id="XwP-kf-b13"/>

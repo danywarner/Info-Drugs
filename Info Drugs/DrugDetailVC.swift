@@ -18,6 +18,7 @@ class DrugDetailVC: UIViewController {
     
     @IBOutlet weak var drugNameLabel: UILabel!
    
+    @IBOutlet weak var definitionText: UILabel!
     
     
     private var _drug: Drug!
@@ -51,7 +52,7 @@ class DrugDetailVC: UIViewController {
         
         super.viewDidLoad()
         drugNameLabel.text = _drug.name
-//        definitionText.text = decomposeStringArray(_drug.description!)
+        definitionText.text = decomposeStringArray(_drug.description!)
 //        risksText.text = decomposeStringArray(_drug.risks!)
 //        addictiveText.text = decomposeStringArray(_drug.addictive!)
 //        damageReduceText.text = decomposeStringArray(_drug.riskAvoiding!)
