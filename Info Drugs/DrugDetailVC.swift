@@ -111,26 +111,22 @@ class DrugDetailVC: UIViewController {
             let draggableView = DraggableView(frame: size)
             infoCards.append(draggableView)
             draggableView.addSubview(infoTitles[i])
+            draggableView.addSubview(infoTexts[i])
             if i == 0 {
                 
                 view.addSubview(infoCards[i])
                 setTitleConstraints(infoTitles[i], draggableView: infoCards[i])
+                setInfoConstraints(infoTexts[i], draggableView: infoCards[i])
             } else {
                 
                     view.insertSubview(infoCards[i], belowSubview: infoCards[i-1])
                     setTitleConstraints(infoTitles[i], draggableView: infoCards[i])
+                setInfoConstraints(infoTexts[i], draggableView: infoCards[i])
                 
             }
             setCardConstraints(infoCards[i])
             
         }
-    }
-    
-    func addInfoLabels() {
-//        infoCards[0].addSubview(definitionTitle)
-        //let card0 = infoCards[0]
-        //card0.addSubview(definitionTitle)
-        
     }
  
     override func viewDidLoad() {
@@ -156,11 +152,27 @@ class DrugDetailVC: UIViewController {
         
         title.translatesAutoresizingMaskIntoConstraints = false
         
-        let leadingConstraint = NSLayoutConstraint(item: title, attribute: .Leading, relatedBy: .Equal, toItem: draggableView, attribute: .Leading, multiplier: 1, constant: 0)
+        let leadingConstraint = NSLayoutConstraint(item: title, attribute: .Leading, relatedBy: .Equal, toItem: draggableView, attribute: .Leading, multiplier: 1, constant: 5)
         
-        let topConstraint = NSLayoutConstraint(item: title, attribute: .Top, relatedBy: .Equal, toItem: segmentedControl, attribute: .Bottom, multiplier: 1, constant: 25)
+        let topConstraint = NSLayoutConstraint(item: title, attribute: .Top, relatedBy: .Equal, toItem: draggableView, attribute: .Top, multiplier: 1, constant: 10)
         
         view.addConstraints([leadingConstraint,topConstraint])
+    }
+    
+    func setInfoConstraints(text: UILabel,draggableView: DraggableView) {
+        
+        text.textColor = UIColor.blackColor()
+        text.font = UIFont(name: "HelveticaNeue", size: CGFloat(14))
+        text.numberOfLines = 0
+        text.translatesAutoresizingMaskIntoConstraints = false
+        
+        let leadingConstraint = NSLayoutConstraint(item: text, attribute: .Leading, relatedBy: .Equal, toItem: draggableView, attribute: .Leading, multiplier: 1, constant: 5)
+        
+        let topConstraint = NSLayoutConstraint(item: text, attribute: .Top, relatedBy: .Equal, toItem: draggableView, attribute: .Top, multiplier: 1, constant: 40)
+        
+        let trailingConstraint = NSLayoutConstraint(item: text, attribute: .Trailing, relatedBy: .Equal, toItem: draggableView, attribute: .Trailing, multiplier: 1, constant: -5)
+        
+        view.addConstraints([leadingConstraint,topConstraint,trailingConstraint])
     }
     
     func setCardConstraints(draggableView: DraggableView) {
