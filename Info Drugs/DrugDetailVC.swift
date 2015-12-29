@@ -18,7 +18,7 @@ class DrugDetailVC: UIViewController {
     
     @IBOutlet weak var drugNameLabel: UILabel!
    
-    //@IBOutlet weak var definitionText: UILabel!
+
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -26,7 +26,20 @@ class DrugDetailVC: UIViewController {
     let MAX_BUFFER_SIZE = 2
     let CARD_HEIGHT:CGFloat = 520
     let CARD_WIDTH:CGFloat = 290
-    var cards: Array<DraggableView> = []
+    
+    var language = ""
+    var infoCards: Array<DraggableView> = []
+    var infoTitles: Array<UILabel> = []
+    var infoTexts: Array<UILabel> = []
+    var definitionTitle: UILabel = UILabel()
+    var risksTitle: UILabel = UILabel()
+    var addictiveTitle: UILabel = UILabel()
+    var damageReduceTitle: UILabel = UILabel()
+    
+    var definitionText: UILabel = UILabel()
+    var risksText: UILabel = UILabel()
+    var addictiveText: UILabel = UILabel()
+    var damageReduceText: UILabel = UILabel()
     
     private var _drug: Drug!
     private var _previousOrientationIsPortrait = true
@@ -54,37 +67,104 @@ class DrugDetailVC: UIViewController {
             scrollView.contentOffset.x = 0
         }
     }
+    
+    
+    
+    func setInfoTitles() {
+        if language == "es" {
+            
+            definitionTitle.text = "¿Qué es?"
+            risksTitle.text = "Riesgos: "
+            addictiveTitle.text = "¿Es Adictivo?"
+            damageReduceTitle.text = "Reducción de daños: "
+            
+        } else if language == "en" {
+            
+            definitionTitle.text = "What is it?"
+            risksTitle.text = "Risks: "
+            addictiveTitle.text = "Is It Addictive?"
+            damageReduceTitle.text = "Damage Reduce: "
+        }
+        
+        infoTitles.append(definitionTitle)
+        infoTitles.append(risksTitle)
+        infoTitles.append(addictiveTitle)
+        infoTitles.append(damageReduceTitle)
+    }
+    
+    func setInfoTexts() {
+        definitionText.text = decomposeStringArray(_drug.description!)
+        risksText.text = decomposeStringArray(_drug.risks!)
+        addictiveText.text = decomposeStringArray(_drug.addictive!)
+        damageReduceText.text = decomposeStringArray(_drug.riskAvoiding!)
+        
+        infoTexts.append(definitionText)
+        infoTexts.append(risksText)
+        infoTexts.append(addictiveText)
+        infoTexts.append(damageReduceText)
+        
+    }
+    
+    func loadCards() {
+        for var i=0 ; i < 4 ; i++ {
+            let size = CGRectMake((self.view.frame.size.width - CARD_WIDTH)/2, (self.view.frame.size.height - CARD_HEIGHT)/2, CARD_WIDTH, CARD_HEIGHT)
+            let draggableView = DraggableView(frame: size)
+            infoCards.append(draggableView)
+            draggableView.addSubview(infoTitles[i])
+            if i == 0 {
+                
+                view.addSubview(infoCards[i])
+                setTitleConstraints(infoTitles[i], draggableView: infoCards[i])
+            } else {
+                
+                    view.insertSubview(infoCards[i], belowSubview: infoCards[i-1])
+                    setTitleConstraints(infoTitles[i], draggableView: infoCards[i])
+                
+            }
+            setCardConstraints(infoCards[i])
+            
+        }
+    }
+    
+    func addInfoLabels() {
+//        infoCards[0].addSubview(definitionTitle)
+        //let card0 = infoCards[0]
+        //card0.addSubview(definitionTitle)
+        
+    }
  
     override func viewDidLoad() {
         
         super.viewDidLoad()
         drugNameLabel.text = _drug.name
-        //definitionText.text = decomposeStringArray(_drug.description!)
-//        risksText.text = decomposeStringArray(_drug.risks!)
-//        addictiveText.text = decomposeStringArray(_drug.addictive!)
-//        damageReduceText.text = decomposeStringArray(_drug.riskAvoiding!)
+        setInfoTitles()
+        setInfoTexts()
+        
+        
 //        let image = UIImage(named: "\(drug.name)Photo")
 //        drugPhoto.image = image
-//        self.view.clipsToBounds = true
+        
         rotated()
+        loadCards()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
+    }
+    
+    func setTitleConstraints(title: UILabel,draggableView: DraggableView) {
         
-        for var i=0 ; i < 4 ; i++ {
-            let size = CGRectMake((self.view.frame.size.width - CARD_WIDTH)/2, (self.view.frame.size.height - CARD_HEIGHT)/2, CARD_WIDTH, CARD_HEIGHT)
-            let draggableView = DraggableView(frame: size)
-            cards.append(draggableView)
-            
-            if i == 0 {
-                view.addSubview(cards[i])
-            } else {
-                view.insertSubview(cards[i], belowSubview: cards[i-1])
-            }
-            setCardConstraints(cards[i])
-        }
+        title.textColor = UIColor.redColor()
+        title.font = UIFont(name: "HelveticaNeue", size: CGFloat(22))
         
+        title.translatesAutoresizingMaskIntoConstraints = false
+        
+        let leadingConstraint = NSLayoutConstraint(item: title, attribute: .Leading, relatedBy: .Equal, toItem: draggableView, attribute: .Leading, multiplier: 1, constant: 0)
+        
+        let topConstraint = NSLayoutConstraint(item: title, attribute: .Top, relatedBy: .Equal, toItem: segmentedControl, attribute: .Bottom, multiplier: 1, constant: 25)
+        
+        view.addConstraints([leadingConstraint,topConstraint])
     }
     
     func setCardConstraints(draggableView: DraggableView) {
+        
         draggableView.translatesAutoresizingMaskIntoConstraints = false
         
         let leadingConstraint = NSLayoutConstraint(item: draggableView, attribute: .Leading, relatedBy: .Equal, toItem: segmentedControl, attribute: .Leading, multiplier: 1, constant: 0)

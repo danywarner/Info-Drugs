@@ -27,7 +27,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var preferredLanguages : NSLocale!
     var pre = NSLocale.preferredLanguages()[0]
     var previousOrientationIsPortrait = true
-    
+    var lang = ""
     
     override func viewDidLoad() {
         
@@ -38,7 +38,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
        // searchBar.delegate = self
        // searchBar.returnKeyType = UIReturnKeyType.Done
         
-        let lang: String = (pre as NSString).substringToIndex(2)
+        lang = (pre as NSString).substringToIndex(2)
         if lang == "es" {print(lang)
             DataService.ds.REF_ES_DRUGS.observeEventType(.Value, withBlock: { snapshot in
                 //print(snapshot.value)
@@ -197,6 +197,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 if let drug = sender as? Drug {
                     detailsVC.drug = drug
                     detailsVC.previousOrientationIsPortrait = self.previousOrientationIsPortrait
+                    detailsVC.language = lang
                 }
             }
         }
