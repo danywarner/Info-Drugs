@@ -191,7 +191,7 @@
                                 </variation>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oRB-hG-GIW">
-                                <rect key="frame" x="20" y="70" width="560" height="29"/>
+                                <rect key="frame" x="20" y="59" width="560" height="29"/>
                                 <segments>
                                     <segment title="Info"/>
                                     <segment title="Efectos"/>
@@ -201,7 +201,7 @@
                                     <action selector="segmentedControlActionChanged:" destination="crY-eN-6hk" eventType="valueChanged" id="yWD-1F-fPH"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDq-BQ-S0d" customClass="DraggableView" customModule="Info_Drugs" customModuleProvider="target">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hDq-BQ-S0d" customClass="DraggableView" customModule="Info_Drugs" customModuleProvider="target">
                                 <rect key="frame" x="20" y="116" width="560" height="464"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qué es?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4BC-5m-xgL">
@@ -215,24 +215,30 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Byj-ul-suH">
-                                        <rect key="frame" x="8" y="60" width="544" height="396"/>
+                                        <rect key="frame" x="8" y="66" width="544" height="167"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="396" id="7mN-IO-Mxe"/>
                                         </constraints>
-                                        <mutableString key="text">La metanfetamina es un estimulante sintético de tipo anfetamínico que fue desarrollado en Japón en 1919 y que se utilizó a gran escala por primera vez en la segunda guerra mundial para mantener a los soldados despiertos y con mayor resistencia al frío y al hambre. Hoy en día, esta sustancia se sigue utilizando con estos findes en muchos lugares del mundo, sin embargo también puede ser consumida en ambientes festivos donde la gente baila por periodos prolongados de tiempo, en ocasiones hasta 24 horas sin parar.
+                                        <string key="text">La metanfetamina es un estimulante sintético de tipo anfetamínico que fue desarrollado en Japón en 1919 y que se utilizó a gran escala por primera vez en la segunda guerra mundial para mantener a los soldados despiertos y con mayor resistencia al frío y al hambre. Hoy en día, esta sustancia se sigue utilizando con estos findes en muchos lugares del mundo, sin embargo también puede ser consumida en ambientes festivos donde la gente baila por periodos prolongados de tiempo, en ocasiones hasta 24 horas sin parar.
 
-Existen distintos tipos de nombres dependiendo de su presentación y pureza. Por ejemplo, a la metanfetamina más pura se le conoce como Ice o Hielo, al clorhidrato de metanfetamina que se consigue en el mercado negro se le llama Crank o Meth y a la combinación con anfetamina en polvo se le llama Speed. </mutableString>
+Existen distintos tipos de nombres dependiendo de su presentación y pureza. Por ejemplo, a la metanfetamina más pura se le conoce como Ice o Hielo, al clorhidrato de metanfetamina que se consigue en el mercado negro se le llama Crank o Meth y a la combinación con anfetamina en polvo se le llama Speed. </string>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="7mN-IO-Mxe"/>
+                                            </mask>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Byj-ul-suH" firstAttribute="leading" secondItem="4BC-5m-xgL" secondAttribute="leading" id="T63-v7-2Gp"/>
+                                    <constraint firstAttribute="bottom" secondItem="Byj-ul-suH" secondAttribute="bottom" constant="8" id="X1T-G3-ED2"/>
                                     <constraint firstItem="4BC-5m-xgL" firstAttribute="top" secondItem="hDq-BQ-S0d" secondAttribute="top" constant="31" id="bKx-sC-AFr"/>
                                     <constraint firstAttribute="trailing" secondItem="Byj-ul-suH" secondAttribute="trailing" constant="8" id="g3t-gF-1j8"/>
-                                    <constraint firstItem="Byj-ul-suH" firstAttribute="top" secondItem="4BC-5m-xgL" secondAttribute="bottom" constant="8" symbolic="YES" id="gvy-3v-RAp"/>
+                                    <constraint firstItem="Byj-ul-suH" firstAttribute="top" secondItem="4BC-5m-xgL" secondAttribute="bottom" constant="14" id="gvy-3v-RAp"/>
                                     <constraint firstItem="4BC-5m-xgL" firstAttribute="leading" secondItem="hDq-BQ-S0d" secondAttribute="leadingMargin" id="hYa-Ha-tFo"/>
                                 </constraints>
                             </view>
@@ -243,14 +249,27 @@ Existen distintos tipos de nombres dependiendo de su presentación y pureza. Por
                             <constraint firstItem="hDq-BQ-S0d" firstAttribute="trailing" secondItem="oRB-hG-GIW" secondAttribute="trailing" id="1Qz-8H-bMh"/>
                             <constraint firstItem="oRB-hG-GIW" firstAttribute="top" secondItem="mRa-E0-hw4" secondAttribute="bottom" constant="25" id="90e-Lb-29K"/>
                             <constraint firstItem="oRB-hG-GIW" firstAttribute="centerX" secondItem="Q2S-ey-dbq" secondAttribute="centerX" id="A7Y-Ea-IiA"/>
+                            <constraint firstItem="oRB-hG-GIW" firstAttribute="top" secondItem="mRa-E0-hw4" secondAttribute="bottom" constant="14" id="CDT-iY-IU4"/>
                             <constraint firstItem="hDq-BQ-S0d" firstAttribute="leading" secondItem="oRB-hG-GIW" secondAttribute="leading" id="CaY-Hk-bEJ"/>
                             <constraint firstAttribute="trailing" secondItem="oRB-hG-GIW" secondAttribute="trailing" constant="20" id="JVM-Ad-NVd"/>
+                            <constraint firstItem="hDq-BQ-S0d" firstAttribute="trailing" secondItem="Q2S-ey-dbq" secondAttribute="trailingMargin" id="PL3-1O-5O1"/>
+                            <constraint firstItem="hDq-BQ-S0d" firstAttribute="leading" secondItem="Q2S-ey-dbq" secondAttribute="leadingMargin" id="c5b-SN-h3u"/>
                             <constraint firstItem="cYx-Lc-i9E" firstAttribute="top" secondItem="hDq-BQ-S0d" secondAttribute="bottom" constant="20" id="eL2-KE-yr7"/>
                             <constraint firstItem="oRB-hG-GIW" firstAttribute="leading" secondItem="Q2S-ey-dbq" secondAttribute="leading" constant="20" id="fbj-PP-5UV"/>
                             <constraint firstItem="mRa-E0-hw4" firstAttribute="leading" secondItem="Q2S-ey-dbq" secondAttribute="leading" id="l0R-DL-Nep"/>
+                            <constraint firstItem="hDq-BQ-S0d" firstAttribute="top" secondItem="oRB-hG-GIW" secondAttribute="bottom" constant="29" id="l1r-yC-cwG"/>
                             <constraint firstItem="mRa-E0-hw4" firstAttribute="top" secondItem="Q2S-ey-dbq" secondAttribute="top" id="tgc-ob-xpZ"/>
-                            <constraint firstItem="hDq-BQ-S0d" firstAttribute="top" secondItem="oRB-hG-GIW" secondAttribute="bottom" constant="18" id="vWl-C9-m4X"/>
+                            <constraint firstItem="hDq-BQ-S0d" firstAttribute="top" secondItem="oRB-hG-GIW" secondAttribute="bottom" constant="29" id="vWl-C9-m4X"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="90e-Lb-29K"/>
+                                <exclude reference="1Qz-8H-bMh"/>
+                                <exclude reference="CaY-Hk-bEJ"/>
+                                <exclude reference="vWl-C9-m4X"/>
+                                <exclude reference="eL2-KE-yr7"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="backButtonBottom" destination="Vgs-eh-chu" id="mNg-MD-gJg"/>
