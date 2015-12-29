@@ -18,8 +18,15 @@ class DrugDetailVC: UIViewController {
     
     @IBOutlet weak var drugNameLabel: UILabel!
    
-    @IBOutlet weak var definitionText: UILabel!
+    //@IBOutlet weak var definitionText: UILabel!
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    
+    let MAX_BUFFER_SIZE = 2
+    let CARD_HEIGHT:CGFloat = 520
+    let CARD_WIDTH:CGFloat = 290
+    var cards: Array<DraggableView> = []
     
     private var _drug: Drug!
     private var _previousOrientationIsPortrait = true
@@ -52,7 +59,7 @@ class DrugDetailVC: UIViewController {
         
         super.viewDidLoad()
         drugNameLabel.text = _drug.name
-        definitionText.text = decomposeStringArray(_drug.description!)
+        //definitionText.text = decomposeStringArray(_drug.description!)
 //        risksText.text = decomposeStringArray(_drug.risks!)
 //        addictiveText.text = decomposeStringArray(_drug.addictive!)
 //        damageReduceText.text = decomposeStringArray(_drug.riskAvoiding!)
@@ -62,16 +69,34 @@ class DrugDetailVC: UIViewController {
         rotated()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
         
-        //scrollView.contentSize = CGSizeMake(320,758)
+        for var i=0 ; i < 4 ; i++ {
+            let size = CGRectMake((self.view.frame.size.width - CARD_WIDTH)/2, (self.view.frame.size.height - CARD_HEIGHT)/2, CARD_WIDTH, CARD_HEIGHT)
+            let draggableView = DraggableView(frame: size)
+            cards.append(draggableView)
+            
+            if i == 0 {
+                view.addSubview(cards[i])
+            } else {
+                view.insertSubview(cards[i], belowSubview: cards[i-1])
+            }
+            setCardConstraints(cards[i])
+        }
+        
     }
     
-    override func updateViewConstraints() {
-        super.updateViewConstraints()
+    func setCardConstraints(draggableView: DraggableView) {
+        draggableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let leadingConstraint = NSLayoutConstraint(item: draggableView, attribute: .Leading, relatedBy: .Equal, toItem: segmentedControl, attribute: .Leading, multiplier: 1, constant: 0)
+        
+        let trailingConstraint = NSLayoutConstraint(item: draggableView, attribute: .Trailing, relatedBy: .Equal, toItem: segmentedControl, attribute: .Trailing, multiplier: 1, constant: 0)
+        
+        let topConstraint = NSLayoutConstraint(item: draggableView, attribute: .Top, relatedBy: .Equal, toItem: segmentedControl, attribute: .Bottom, multiplier: 1, constant: 25)
+        
+        let bottomConstraint = NSLayoutConstraint(item: draggableView, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1, constant: -20)
+
+         view.addConstraints([leadingConstraint,trailingConstraint,topConstraint,bottomConstraint])
     }
-    
-//    override func viewDidAppear(animated: Bool) {
-//        rotated()
-//    }
     
     func rotated()
     {

@@ -33,15 +33,16 @@ class DraggableView: UIView{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        start()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         start()
     }
+
     
     func start() {
-        
         
         self.setupView()
         
@@ -52,6 +53,7 @@ class DraggableView: UIView{
         overlayView = OverlayView(frame: CGRectMake(self.frame.size.width/2-100, 0, 100, 100))
         overlayView!.alpha = 0
         self.addSubview(overlayView)
+        
     }
     
     
@@ -63,6 +65,14 @@ class DraggableView: UIView{
         self.layer.shadowRadius = 3;
         self.layer.shadowOpacity = 0.2;
         self.layer.shadowOffset = CGSizeMake(1, 1);
+        
+//        let leadingConstraint = NSLayoutConstraint(item: self, attribute: .Leading, relatedBy: .Equal, toItem: superview, attribute: .Leading, multiplier: 1, constant: 0)
+//        
+//        let trailingConstraint = NSLayoutConstraint(item: self, attribute: .Trailing, relatedBy: .Equal, toItem: superview, attribute: .Trailing, multiplier: 1, constant: 0)
+        
+        //let topConstraint = NSLayoutConstraint(item: self, attribute: .Top, relatedBy: .Equal, toItem: segmented, attribute: .Top, multiplier: 1, constant: 25)
+
+        //self.addConstraints([leadingConstraint,trailingConstraint])
         
     }
     
