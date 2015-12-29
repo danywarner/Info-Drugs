@@ -33,7 +33,7 @@ class DrugDetailVC: UIViewController {
     
     
     private var _drug: Drug!
-    
+    private var _previousOrientationIsPortrait = true
     
     var drug: Drug {
         get {
@@ -41,6 +41,15 @@ class DrugDetailVC: UIViewController {
         }
         set {
             _drug = newValue
+        }
+    }
+    
+    var previousOrientationIsPortrait: Bool {
+        get {
+            return _previousOrientationIsPortrait
+        }
+        set {
+            _previousOrientationIsPortrait = newValue
         }
     }
     
@@ -71,30 +80,49 @@ class DrugDetailVC: UIViewController {
         super.updateViewConstraints()
     }
     
+//    override func viewDidAppear(animated: Bool) {
+//        rotated()
+//    }
+    
     func rotated()
     {
-        if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation))
-        {
-            drugPhotoHeight.constant = 0
-            segmentedControlTop.constant = 5
-            topBarHeight.constant = 25
-            drugLabelHeight.constant = 20
-            drugLabelBottom.constant = 3
-            backButtonBottom.constant = 3
-            print("landscape")
-        }
         
         if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation))
         {
-            drugPhotoHeight.constant = 128
-            segmentedControlTop.constant = 25
-            topBarHeight.constant = 45
-            drugLabelHeight.constant = 30
-            drugLabelBottom.constant = 0
-            backButtonBottom.constant = 4
-            print("Portrait")
+            setPortraitConstraints()
+            
+        } else if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation))
+        {
+            setLandscapeConstraints()
+            
+        } else if previousOrientationIsPortrait == true {
+            
+            setPortraitConstraints()
+            
+        } else if previousOrientationIsPortrait == false {
+            
+            setLandscapeConstraints()
         }
-        
+    }
+    
+    func setPortraitConstraints() {
+        drugPhotoHeight.constant = 128
+        segmentedControlTop.constant = 25
+        topBarHeight.constant = 45
+        drugLabelHeight.constant = 30
+        drugLabelBottom.constant = 0
+        backButtonBottom.constant = 4
+        _previousOrientationIsPortrait = true
+    }
+    
+    func setLandscapeConstraints() {
+        drugPhotoHeight.constant = 0
+        segmentedControlTop.constant = 5
+        topBarHeight.constant = 25
+        drugLabelHeight.constant = 20
+        drugLabelBottom.constant = 3
+        backButtonBottom.constant = 3
+        _previousOrientationIsPortrait = false
     }
     
     @IBAction func backBtnPressed(sender: AnyObject) {
@@ -106,7 +134,7 @@ class DrugDetailVC: UIViewController {
         switch(sender.selectedSegmentIndex) {
             
         case 0:
-            drugPhotoHeight.constant = 128
+            updatePhotoHeight()
             definitionTitle.text = "¿Qué es?"
             definitionText.text = decomposeStringArray(_drug.description!)
             toggleTextLabels()
@@ -130,6 +158,15 @@ class DrugDetailVC: UIViewController {
             
         default:
             break
+        }
+    }
+    
+    func updatePhotoHeight() {
+        if _previousOrientationIsPortrait == true {
+            
+            drugPhotoHeight.constant = 128
+        } else {
+            drugPhotoHeight.constant = 0
         }
     }
     

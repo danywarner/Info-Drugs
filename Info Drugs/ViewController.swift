@@ -12,6 +12,13 @@ import Firebase
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
 
     @IBOutlet weak var collection: UICollectionView!
+    
+    @IBOutlet weak var drugLabelHeight: NSLayoutConstraint!
+    @IBOutlet weak var topBarHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var drugLabelBottom: NSLayoutConstraint!
+    
+    
    // @IBOutlet weak var searchBar: UISearchBar!
     
     var drugs = [Drug]()
@@ -19,7 +26,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var inSearchMode = false
     var preferredLanguages : NSLocale!
     var pre = NSLocale.preferredLanguages()[0]
-    
+    var previousOrientationIsPortrait = true
     
     
     override func viewDidLoad() {
@@ -61,6 +68,48 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collection.reloadData()
         
         //createInitialDrugs()
+        
+        rotated()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
+    }
+    
+//    override func viewDidAppear(animated: Bool) {
+//        rotated()
+//    }
+    
+    func rotated()
+    {
+        
+        if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation))
+        {
+            setPortraitConstraints()
+            
+        } else if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation))
+        {
+            setLandscapeConstraints()
+            
+        } else if previousOrientationIsPortrait == true {
+            
+            setPortraitConstraints()
+            
+        } else if previousOrientationIsPortrait == false {
+            
+            setLandscapeConstraints()
+        }
+    }
+    
+    func setPortraitConstraints() {
+        topBarHeight.constant = 45
+        drugLabelHeight.constant = 30
+        drugLabelBottom.constant = 0
+        previousOrientationIsPortrait = true
+    }
+    
+    func setLandscapeConstraints() {
+        topBarHeight.constant = 25
+        drugLabelHeight.constant = 20
+        drugLabelBottom.constant = 3
+        previousOrientationIsPortrait = false
     }
     
     func createInitialDrugs() {
@@ -147,6 +196,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             if let detailsVC = segue.destinationViewController as? DrugDetailVC {
                 if let drug = sender as? Drug {
                     detailsVC.drug = drug
+                    detailsVC.previousOrientationIsPortrait = self.previousOrientationIsPortrait
                 }
             }
         }

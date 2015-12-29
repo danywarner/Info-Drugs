@@ -44,7 +44,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wON-hR-i1g">
-                                <rect key="frame" x="20" y="72" width="560" height="508"/>
+                                <rect key="frame" x="0.0" y="72" width="600" height="508"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="stg-WC-b2I">
                                     <size key="itemSize" width="110" height="110"/>
@@ -96,17 +96,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wON-hR-i1g" firstAttribute="centerX" secondItem="1LN-3v-ADV" secondAttribute="centerX" id="7zz-gl-hmZ"/>
+                            <constraint firstItem="wON-hR-i1g" firstAttribute="trailing" secondItem="1LN-3v-ADV" secondAttribute="trailing" id="3UN-bs-FyE"/>
                             <constraint firstItem="172-Wk-Mwt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ACV-iJ-yLv"/>
+                            <constraint firstItem="wON-hR-i1g" firstAttribute="top" secondItem="172-Wk-Mwt" secondAttribute="bottom" constant="27" id="IuY-cn-oqe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1LN-3v-ADV" secondAttribute="bottom" id="M0Z-Is-KYH"/>
-                            <constraint firstAttribute="bottom" secondItem="wON-hR-i1g" secondAttribute="bottom" constant="20" symbolic="YES" id="NOx-va-UJ9"/>
                             <constraint firstItem="1LN-3v-ADV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PSh-6C-ZFM"/>
-                            <constraint firstItem="wON-hR-i1g" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Tdn-A6-wcW"/>
+                            <constraint firstAttribute="bottom" secondItem="wON-hR-i1g" secondAttribute="bottom" constant="20" symbolic="YES" id="bV4-7p-bmU"/>
                             <constraint firstAttribute="trailing" secondItem="172-Wk-Mwt" secondAttribute="trailing" id="cZY-VC-Lgp"/>
                             <constraint firstItem="172-Wk-Mwt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dW5-YN-Fy4"/>
+                            <constraint firstItem="wON-hR-i1g" firstAttribute="leading" secondItem="1LN-3v-ADV" secondAttribute="leading" id="fNQ-yr-WuA"/>
                             <constraint firstAttribute="trailing" secondItem="1LN-3v-ADV" secondAttribute="trailing" id="g6g-su-GxS"/>
                             <constraint firstItem="1LN-3v-ADV" firstAttribute="top" secondItem="172-Wk-Mwt" secondAttribute="bottom" id="jW4-kd-yez"/>
-                            <constraint firstItem="wON-hR-i1g" firstAttribute="top" secondItem="172-Wk-Mwt" secondAttribute="bottom" constant="27" id="ueP-Ts-FP1"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -116,6 +116,9 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="wON-hR-i1g" id="kyK-bZ-i0e"/>
+                        <outlet property="drugLabelBottom" destination="BaG-bb-fL8" id="20F-vJ-VOk"/>
+                        <outlet property="drugLabelHeight" destination="OoV-yS-sTg" id="xvR-z3-Wsx"/>
+                        <outlet property="topBarHeight" destination="i5f-lb-I43" id="riK-RX-1au"/>
                         <segue destination="crY-eN-6hk" kind="show" identifier="DrugDetailVC" id="gG9-eE-gW6"/>
                     </connections>
                 </viewController>
@@ -228,7 +231,7 @@ No se debe utilizar descuidadamente, en exceso, por presión de otras personas o
                                         <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="C2DBA224-B166-485C-A837-ABAC1593EE9E" translatesAutoresizingMaskIntoConstraints="NO" id="NW5-BV-tnV">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1BCE37AF-FC0C-4A36-93B8-83CCEE9919E5" translatesAutoresizingMaskIntoConstraints="NO" id="NW5-BV-tnV">
                                         <rect key="frame" x="169" y="20" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="A0R-BW-K0H"/>
@@ -445,7 +448,7 @@ Es importante tomar en cuenta el historial familiar de psicosis, esquizofrenia u
         </scene>
     </scenes>
     <resources>
-        <image name="C2DBA224-B166-485C-A837-ABAC1593EE9E" width="567" height="381">
+        <image name="1BCE37AF-FC0C-4A36-93B8-83CCEE9919E5" width="567" height="381">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
