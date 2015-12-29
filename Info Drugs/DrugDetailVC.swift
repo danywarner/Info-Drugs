@@ -10,7 +10,6 @@ import UIKit
 
 class DrugDetailVC: UIViewController {
 
-    @IBOutlet weak var drugPhotoHeight: NSLayoutConstraint!
     @IBOutlet weak var drugLabelBottom: NSLayoutConstraint!
     @IBOutlet weak var drugLabelHeight: NSLayoutConstraint!
     @IBOutlet weak var topBarHeight: NSLayoutConstraint!
@@ -18,18 +17,7 @@ class DrugDetailVC: UIViewController {
     @IBOutlet weak var backButtonBottom: NSLayoutConstraint!
     
     @IBOutlet weak var drugNameLabel: UILabel!
-    @IBOutlet weak var drugPhoto: UIImageView!
-    @IBOutlet weak var definitionTitle: UILabel!
-    @IBOutlet weak var definitionText: UILabel!
-    
-    @IBOutlet weak var risksTitle: UILabel!
-    @IBOutlet weak var risksText: UILabel!
-    
-    @IBOutlet weak var addictiveTitle: UILabel!
-    @IBOutlet weak var addictiveText: UILabel!
-    
-    @IBOutlet weak var damageReduceTitle: UILabel!
-    @IBOutlet weak var damageReduceText: UILabel!
+   
     
     
     private var _drug: Drug!
@@ -63,13 +51,13 @@ class DrugDetailVC: UIViewController {
         
         super.viewDidLoad()
         drugNameLabel.text = _drug.name
-        definitionText.text = decomposeStringArray(_drug.description!)
-        risksText.text = decomposeStringArray(_drug.risks!)
-        addictiveText.text = decomposeStringArray(_drug.addictive!)
-        damageReduceText.text = decomposeStringArray(_drug.riskAvoiding!)
-        let image = UIImage(named: "\(drug.name)Photo")
-        drugPhoto.image = image
-        self.view.clipsToBounds = true
+//        definitionText.text = decomposeStringArray(_drug.description!)
+//        risksText.text = decomposeStringArray(_drug.risks!)
+//        addictiveText.text = decomposeStringArray(_drug.addictive!)
+//        damageReduceText.text = decomposeStringArray(_drug.riskAvoiding!)
+//        let image = UIImage(named: "\(drug.name)Photo")
+//        drugPhoto.image = image
+//        self.view.clipsToBounds = true
         rotated()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
         
@@ -106,7 +94,7 @@ class DrugDetailVC: UIViewController {
     }
     
     func setPortraitConstraints() {
-        drugPhotoHeight.constant = 128
+        //drugPhotoHeight.constant = 128
         segmentedControlTop.constant = 25
         topBarHeight.constant = 45
         drugLabelHeight.constant = 30
@@ -116,7 +104,7 @@ class DrugDetailVC: UIViewController {
     }
     
     func setLandscapeConstraints() {
-        drugPhotoHeight.constant = 0
+        //drugPhotoHeight.constant = 0
         segmentedControlTop.constant = 5
         topBarHeight.constant = 25
         drugLabelHeight.constant = 20
@@ -134,26 +122,26 @@ class DrugDetailVC: UIViewController {
         switch(sender.selectedSegmentIndex) {
             
         case 0:
-            updatePhotoHeight()
-            definitionTitle.text = "¿Qué es?"
-            definitionText.text = decomposeStringArray(_drug.description!)
-            toggleTextLabels()
+           // updatePhotoHeight()
+//            definitionTitle.text = "¿Qué es?"
+//            definitionText.text = decomposeStringArray(_drug.description!)
+           // toggleTextLabels()
             updateViewConstraints()
             
             
         case 1:
-            drugPhotoHeight.constant = 0
-            definitionTitle.text = "Efectos:"
-            definitionText.text = decomposeStringArray(_drug.effects!)
-            toggleTextLabels()
+//            drugPhotoHeight.constant = 0
+//            definitionTitle.text = "Efectos:"
+//            definitionText.text = decomposeStringArray(_drug.effects!)
+            //toggleTextLabels()
             updateViewConstraints()
             //self.view.frame = CGRectMake(0,0,320,568)
             
         case 2:
-            drugPhotoHeight.constant = 0
-            definitionTitle.text = "Mezclas comunes:"
-            definitionText.text = decomposeStringArray(_drug.mixes!)
-            toggleTextLabels()
+//            drugPhotoHeight.constant = 0
+//            definitionTitle.text = "Mezclas comunes:"
+//            definitionText.text = decomposeStringArray(_drug.mixes!)
+            //toggleTextLabels()
             updateViewConstraints()
             
         default:
@@ -161,32 +149,32 @@ class DrugDetailVC: UIViewController {
         }
     }
     
-    func updatePhotoHeight() {
-        if _previousOrientationIsPortrait == true {
-            
-            drugPhotoHeight.constant = 128
-        } else {
-            drugPhotoHeight.constant = 0
-        }
-    }
+//    func updatePhotoHeight() {
+//        if _previousOrientationIsPortrait == true {
+//            
+//            drugPhotoHeight.constant = 128
+//        } else {
+//            drugPhotoHeight.constant = 0
+//        }
+//    }
     
-    func toggleTextLabels() {
-        toggleLabel(risksTitle)
-        toggleLabel(risksText)
-        toggleLabel(addictiveTitle)
-        toggleLabel(addictiveText)
-        toggleLabel(damageReduceTitle)
-        toggleLabel(damageReduceText)
-    }
+//    func toggleTextLabels() {
+//        toggleLabel(risksTitle)
+//        toggleLabel(risksText)
+//        toggleLabel(addictiveTitle)
+//        toggleLabel(addictiveText)
+//        toggleLabel(damageReduceTitle)
+//        toggleLabel(damageReduceText)
+//    }
     
-    func toggleLabel(label: UILabel) {
-        
-        if label.hidden == true && definitionTitle.text == "¿Qué es?" {
-            label.hidden = false
-        } else {
-            label.hidden = true
-        }
-    }
+//    func toggleLabel(label: UILabel) {
+//        
+//        if label.hidden == true && definitionTitle.text == "¿Qué es?" {
+//            label.hidden = false
+//        } else {
+//            label.hidden = true
+//        }
+//    }
     
     func decomposeStringArray(array: [String]) -> String {
         var fullText = ""

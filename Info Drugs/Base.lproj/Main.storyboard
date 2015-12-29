@@ -138,212 +138,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWf-lD-app">
-                                <rect key="frame" x="8" y="106" width="578" height="481"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="q1q-y7-lTx">
-                                        <rect key="frame" x="20" y="199" width="538" height="300"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="54" id="3Ca-7f-4d1"/>
-                                            <constraint firstAttribute="height" constant="300" id="Om3-to-Pe2"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="taC-Yj-fAD"/>
-                                        </constraints>
-                                        <string key="text">El LSD es el psicodélico más potente que se ha descubierto, ya que en cantidades muy pequeñas puede provocar efectos muy intensos. Este grupo de sustancias también son erróneamente llamadas alucinógenos.  Sus presentaciones son diversas, siendo las más comunes las planillas de papel secante que se cortan en pequeños cuadritos, los micropuntos o disoluciones líquidas de diferentes concentraciones. Por lo general se ingiere oralmente pero se puede absorber a través de la piel por lo que se debe manejar con cuidado.</string>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="3Ca-7f-4d1"/>
-                                                <exclude reference="Om3-to-Pe2"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Riesgos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mvd-eQ-xRY">
-                                        <rect key="frame" x="20" y="513" width="250" height="21"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Qué es?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9t-MD-aaj">
-                                        <rect key="frame" x="20" y="165" width="250" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="k9b-eW-gpx"/>
-                                            <constraint firstAttribute="width" constant="73" id="wIt-0u-Rb5"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="wIt-0u-Rb5"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="jvY-9j-m1b">
-                                        <rect key="frame" x="20" y="550" width="538" height="416"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="54" id="ixN-Oi-Df0"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="t7h-r7-2UR"/>
-                                        </constraints>
-                                        <string key="text">*Trata de mantener a la persona cómoda en un entorno agradable y tranquilo.
-
-*Busca que una persona cercana y de confianza hable con él o ella sin incomodarle. Es importante hacerle saber de una forma calmada que todo pasará en un momento, que el efecto es temporal y no hay de qué preocuparse.
-
-*El LSD no tiene propiedades tóxicas por lo que no existe una sobredosis como tal, pero si alguien presenta molestias físicas muy fuertes, es probable que lo que haya tomado no fuera LSD o estuviera mezclado con algo más, por lo que es importante pedir ayuda si el malestar aumenta o si no se reduce en un par de horas.</string>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="ixN-Oi-Df0"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Es Adictiva?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgE-Js-HmJ">
-                                        <rect key="frame" x="20" y="987" width="100" height="21"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="4fJ-r1-m3v">
-                                        <rect key="frame" x="20" y="1031" width="538" height="300"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="54" id="bc0-eJ-v4Y"/>
-                                            <constraint firstAttribute="height" constant="300" id="mOp-AD-shX"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="tfr-Kb-Dhl"/>
-                                        </constraints>
-                                        <string key="text">El LSD no genera ningún tipo de dependencia física, incluso se forma rápidamente una alta tolerancia que impide que se pueda consumir frecuentemente. Sin embargo puede generar una dependencia psicológica que puede llevar a distorsiones muy fuertes de la realidad y diversas condiciones como paranoia o depresión. Es importante tenerle respeto a tu cuerpo, a tu mente y a la sustancia.
-No se debe utilizar descuidadamente, en exceso, por presión de otras personas o como una forma de evadir la realidad.</string>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="bc0-eJ-v4Y"/>
-                                                <exclude reference="mOp-AD-shX"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Reducción de daños" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yX-Rb-Bc1">
-                                        <rect key="frame" x="20" y="1350" width="167" height="21"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1BCE37AF-FC0C-4A36-93B8-83CCEE9919E5" translatesAutoresizingMaskIntoConstraints="NO" id="NW5-BV-tnV">
-                                        <rect key="frame" x="169" y="20" width="240" height="128"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="240" id="A0R-BW-K0H"/>
-                                            <constraint firstAttribute="width" constant="240" id="Uj8-zy-PzD"/>
-                                            <constraint firstAttribute="height" constant="128" id="ctP-gr-mCx"/>
-                                            <constraint firstAttribute="height" constant="128" id="tCj-32-dj8"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="A0R-BW-K0H"/>
-                                                <exclude reference="tCj-32-dj8"/>
-                                            </mask>
-                                        </variation>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="n6R-HN-HQr">
-                                        <rect key="frame" x="20" y="1387" width="538" height="515"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="515" id="Cl3-EW-hhI"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="515" id="DEI-RB-JyE"/>
-                                            <constraint firstAttribute="height" constant="283" id="Tey-Ee-htO"/>
-                                            <constraint firstAttribute="width" constant="54" id="UJJ-zz-jsa"/>
-                                            <constraint firstAttribute="height" constant="515" id="kl1-Lv-WlG"/>
-                                        </constraints>
-                                        <attributedString key="attributedText">
-                                            <fragment>
-                                                <string key="content">*Lo más importante es tener en cuenta que la naturaleza de la experiencia será determinada por la dosis, el entorno y tu situación mental, emocional y de salud. Cuidando estos aspectos, el viaje puede ser enriquecedor e interesante. Por el contrario, si el contexto, la compañía o situación personal no son las mejores, éste se puede transformar en una experiencia incómoda o difícil.
-
-*A pesar de que sus efectos son temporales en casos regulares, el LSD puede desencadenar condiciones pre-existentes relacionadas con la salud mental de algunas personas provocando alteraciones permanentes.
-Es importante tomar en cuenta el historial familiar de psicosis, esquizofrenia u otros desórdenes mentales que se hayan diagnosticado.
-
-*El LSD produce alteraciones muy fuertes, por lo que no se debe conducir ni operar ningún tipo de maquinaria bajo sus efectos, tampoco se debe intentar tomar decisiones importantes o meterse en situaciones difíciles donde se necesite actuar de determinada manera o realizar actividades específicas.
-
-*Es común, aún en personas que usan regularmente la sustancia, tener ataques de ansiedad o de pánico, especialmente si se incrementa la dosis. Por esta razón es bueno situarse en un lugar tranquilo con buena ventilación y sin mucha gente alrededor, además es recomendable que haya alguien que no consuma nada cuando se va a tener una sesión con dosis altas, en caso de que haya una emergencia.</string>
-                                                <attributes>
-                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="Cl3-EW-hhI"/>
-                                                <exclude reference="Tey-Ee-htO"/>
-                                                <exclude reference="UJJ-zz-jsa"/>
-                                                <exclude reference="kl1-Lv-WlG"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="LgE-Js-HmJ" firstAttribute="top" secondItem="jvY-9j-m1b" secondAttribute="bottom" constant="25" id="0Sj-ZM-9ay"/>
-                                    <constraint firstItem="jvY-9j-m1b" firstAttribute="leading" secondItem="LgE-Js-HmJ" secondAttribute="leading" id="1Jz-5L-nny"/>
-                                    <constraint firstItem="e9t-MD-aaj" firstAttribute="leading" secondItem="jWf-lD-app" secondAttribute="leading" constant="20" id="2zs-iW-VcP"/>
-                                    <constraint firstItem="q1q-y7-lTx" firstAttribute="leading" secondItem="e9t-MD-aaj" secondAttribute="leading" id="4kM-4c-JqT"/>
-                                    <constraint firstItem="4fJ-r1-m3v" firstAttribute="trailing" secondItem="jvY-9j-m1b" secondAttribute="trailing" id="7D4-oM-fOi"/>
-                                    <constraint firstItem="4fJ-r1-m3v" firstAttribute="leading" secondItem="LgE-Js-HmJ" secondAttribute="leading" id="7LZ-zn-ReJ"/>
-                                    <constraint firstItem="n6R-HN-HQr" firstAttribute="trailing" secondItem="4fJ-r1-m3v" secondAttribute="trailing" id="7Lm-zf-0JF"/>
-                                    <constraint firstItem="4fJ-r1-m3v" firstAttribute="top" secondItem="LgE-Js-HmJ" secondAttribute="bottom" constant="23" id="7v0-gl-w8p"/>
-                                    <constraint firstItem="q1q-y7-lTx" firstAttribute="trailing" secondItem="jvY-9j-m1b" secondAttribute="trailing" id="9BF-EW-j7v"/>
-                                    <constraint firstAttribute="bottom" secondItem="n6R-HN-HQr" secondAttribute="bottom" constant="35" id="9T0-C6-Q9A"/>
-                                    <constraint firstItem="q1q-y7-lTx" firstAttribute="top" secondItem="NW5-BV-tnV" secondAttribute="bottom" constant="51" id="9aY-ua-KfU"/>
-                                    <constraint firstItem="NW5-BV-tnV" firstAttribute="top" secondItem="jWf-lD-app" secondAttribute="top" constant="20" id="Ajc-DQ-jEl"/>
-                                    <constraint firstItem="q1q-y7-lTx" firstAttribute="top" secondItem="e9t-MD-aaj" secondAttribute="bottom" constant="13" id="G7z-Nf-FLB"/>
-                                    <constraint firstItem="4fJ-r1-m3v" firstAttribute="trailing" secondItem="jvY-9j-m1b" secondAttribute="trailing" id="HSH-bB-Y6a"/>
-                                    <constraint firstItem="4fJ-r1-m3v" firstAttribute="top" secondItem="LgE-Js-HmJ" secondAttribute="bottom" constant="8" symbolic="YES" id="I89-5q-f85"/>
-                                    <constraint firstAttribute="trailing" secondItem="q1q-y7-lTx" secondAttribute="trailing" constant="20" id="JN4-qm-vmp"/>
-                                    <constraint firstItem="n6R-HN-HQr" firstAttribute="top" secondItem="2yX-Rb-Bc1" secondAttribute="bottom" constant="16" id="PH0-5e-T8P"/>
-                                    <constraint firstItem="Mvd-eQ-xRY" firstAttribute="trailing" secondItem="e9t-MD-aaj" secondAttribute="trailing" id="QSb-Xn-n30"/>
-                                    <constraint firstItem="Mvd-eQ-xRY" firstAttribute="top" secondItem="q1q-y7-lTx" secondAttribute="bottom" constant="14" id="Qmb-MF-Awf"/>
-                                    <constraint firstItem="LgE-Js-HmJ" firstAttribute="leading" secondItem="jvY-9j-m1b" secondAttribute="leading" id="Qt2-5B-wit"/>
-                                    <constraint firstItem="Mvd-eQ-xRY" firstAttribute="leading" secondItem="q1q-y7-lTx" secondAttribute="leading" id="Y8s-sQ-5xX"/>
-                                    <constraint firstItem="jvY-9j-m1b" firstAttribute="top" secondItem="Mvd-eQ-xRY" secondAttribute="bottom" constant="16" id="a5a-bO-VUf"/>
-                                    <constraint firstItem="Mvd-eQ-xRY" firstAttribute="leading" secondItem="jvY-9j-m1b" secondAttribute="leading" id="a9T-d3-YDO"/>
-                                    <constraint firstItem="q1q-y7-lTx" firstAttribute="centerX" secondItem="NW5-BV-tnV" secondAttribute="centerX" id="aE5-PE-URI"/>
-                                    <constraint firstItem="NW5-BV-tnV" firstAttribute="centerX" secondItem="jWf-lD-app" secondAttribute="centerX" id="bJs-8j-0OP"/>
-                                    <constraint firstItem="n6R-HN-HQr" firstAttribute="top" secondItem="2yX-Rb-Bc1" secondAttribute="bottom" constant="8" symbolic="YES" id="co1-hG-0PF"/>
-                                    <constraint firstItem="2yX-Rb-Bc1" firstAttribute="top" secondItem="4fJ-r1-m3v" secondAttribute="bottom" constant="18" id="hdZ-eM-TCl"/>
-                                    <constraint firstItem="LgE-Js-HmJ" firstAttribute="top" secondItem="jvY-9j-m1b" secondAttribute="bottom" constant="21" id="hrC-u0-Gce"/>
-                                    <constraint firstItem="2yX-Rb-Bc1" firstAttribute="top" secondItem="4fJ-r1-m3v" secondAttribute="bottom" constant="19" id="jaF-C2-Eof"/>
-                                    <constraint firstAttribute="bottom" secondItem="n6R-HN-HQr" secondAttribute="bottom" constant="244" id="kZa-72-XdF"/>
-                                    <constraint firstAttribute="bottom" secondItem="n6R-HN-HQr" secondAttribute="bottom" constant="148" id="pRc-4h-KTH"/>
-                                    <constraint firstItem="n6R-HN-HQr" firstAttribute="top" secondItem="2yX-Rb-Bc1" secondAttribute="bottom" constant="13" id="qzb-f4-X90"/>
-                                    <constraint firstItem="2yX-Rb-Bc1" firstAttribute="leading" secondItem="4fJ-r1-m3v" secondAttribute="leading" id="rHf-e7-jcd"/>
-                                    <constraint firstItem="jvY-9j-m1b" firstAttribute="top" secondItem="Mvd-eQ-xRY" secondAttribute="bottom" constant="15" id="smn-mq-Ce3"/>
-                                    <constraint firstAttribute="bottom" secondItem="n6R-HN-HQr" secondAttribute="bottom" constant="19" id="ssB-1q-Jco"/>
-                                    <constraint firstItem="n6R-HN-HQr" firstAttribute="top" secondItem="2yX-Rb-Bc1" secondAttribute="bottom" constant="16" id="tlM-Hs-odv"/>
-                                    <constraint firstItem="2yX-Rb-Bc1" firstAttribute="leading" secondItem="n6R-HN-HQr" secondAttribute="leading" id="uQk-bE-fnq"/>
-                                    <constraint firstItem="4fJ-r1-m3v" firstAttribute="top" secondItem="LgE-Js-HmJ" secondAttribute="bottom" constant="23" id="x9Y-Wd-JeW"/>
-                                    <constraint firstItem="4fJ-r1-m3v" firstAttribute="leading" secondItem="2yX-Rb-Bc1" secondAttribute="leading" id="xUq-Ge-mGE"/>
-                                    <constraint firstItem="2yX-Rb-Bc1" firstAttribute="top" secondItem="4fJ-r1-m3v" secondAttribute="bottom" constant="19" id="xXL-pK-M6y"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="1Jz-5L-nny"/>
-                                        <exclude reference="0Sj-ZM-9ay"/>
-                                        <exclude reference="7v0-gl-w8p"/>
-                                        <exclude reference="HSH-bB-Y6a"/>
-                                        <exclude reference="I89-5q-f85"/>
-                                        <exclude reference="xUq-Ge-mGE"/>
-                                        <exclude reference="hdZ-eM-TCl"/>
-                                        <exclude reference="xXL-pK-M6y"/>
-                                        <exclude reference="9T0-C6-Q9A"/>
-                                        <exclude reference="PH0-5e-T8P"/>
-                                        <exclude reference="co1-hG-0PF"/>
-                                        <exclude reference="kZa-72-XdF"/>
-                                        <exclude reference="pRc-4h-KTH"/>
-                                        <exclude reference="qzb-f4-X90"/>
-                                    </mask>
-                                </variation>
-                            </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mRa-E0-hw4">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="45"/>
                                 <subviews>
@@ -407,37 +201,62 @@ Es importante tomar en cuenta el historial familiar de psicosis, esquizofrenia u
                                     <action selector="segmentedControlActionChanged:" destination="crY-eN-6hk" eventType="valueChanged" id="yWD-1F-fPH"/>
                                 </connections>
                             </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDq-BQ-S0d" customClass="DraggableView" customModule="Info_Drugs" customModuleProvider="target">
+                                <rect key="frame" x="20" y="116" width="560" height="464"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qué es?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4BC-5m-xgL">
+                                        <rect key="frame" x="8" y="31" width="94" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="94" id="S3K-Yy-swi"/>
+                                            <constraint firstAttribute="height" constant="21" id="b7D-JE-QWz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" red="1" green="0.41357402009999999" blue="0.3698964133" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Byj-ul-suH">
+                                        <rect key="frame" x="8" y="60" width="544" height="396"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="396" id="7mN-IO-Mxe"/>
+                                        </constraints>
+                                        <mutableString key="text">La metanfetamina es un estimulante sintético de tipo anfetamínico que fue desarrollado en Japón en 1919 y que se utilizó a gran escala por primera vez en la segunda guerra mundial para mantener a los soldados despiertos y con mayor resistencia al frío y al hambre. Hoy en día, esta sustancia se sigue utilizando con estos findes en muchos lugares del mundo, sin embargo también puede ser consumida en ambientes festivos donde la gente baila por periodos prolongados de tiempo, en ocasiones hasta 24 horas sin parar.
+
+Existen distintos tipos de nombres dependiendo de su presentación y pureza. Por ejemplo, a la metanfetamina más pura se le conoce como Ice o Hielo, al clorhidrato de metanfetamina que se consigue en el mercado negro se le llama Crank o Meth y a la combinación con anfetamina en polvo se le llama Speed. </mutableString>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Byj-ul-suH" firstAttribute="leading" secondItem="4BC-5m-xgL" secondAttribute="leading" id="T63-v7-2Gp"/>
+                                    <constraint firstItem="4BC-5m-xgL" firstAttribute="top" secondItem="hDq-BQ-S0d" secondAttribute="top" constant="31" id="bKx-sC-AFr"/>
+                                    <constraint firstAttribute="trailing" secondItem="Byj-ul-suH" secondAttribute="trailing" constant="8" id="g3t-gF-1j8"/>
+                                    <constraint firstItem="Byj-ul-suH" firstAttribute="top" secondItem="4BC-5m-xgL" secondAttribute="bottom" constant="8" symbolic="YES" id="gvy-3v-RAp"/>
+                                    <constraint firstItem="4BC-5m-xgL" firstAttribute="leading" secondItem="hDq-BQ-S0d" secondAttribute="leadingMargin" id="hYa-Ha-tFo"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="mRa-E0-hw4" secondAttribute="trailing" id="18N-WH-RiL"/>
-                            <constraint firstItem="jWf-lD-app" firstAttribute="leading" secondItem="Q2S-ey-dbq" secondAttribute="leadingMargin" constant="-12" id="1M9-BY-ZeO"/>
-                            <constraint firstItem="cYx-Lc-i9E" firstAttribute="top" secondItem="jWf-lD-app" secondAttribute="bottom" constant="13" id="2E9-DK-cZ3"/>
+                            <constraint firstItem="hDq-BQ-S0d" firstAttribute="trailing" secondItem="oRB-hG-GIW" secondAttribute="trailing" id="1Qz-8H-bMh"/>
                             <constraint firstItem="oRB-hG-GIW" firstAttribute="top" secondItem="mRa-E0-hw4" secondAttribute="bottom" constant="25" id="90e-Lb-29K"/>
                             <constraint firstItem="oRB-hG-GIW" firstAttribute="centerX" secondItem="Q2S-ey-dbq" secondAttribute="centerX" id="A7Y-Ea-IiA"/>
+                            <constraint firstItem="hDq-BQ-S0d" firstAttribute="leading" secondItem="oRB-hG-GIW" secondAttribute="leading" id="CaY-Hk-bEJ"/>
                             <constraint firstAttribute="trailing" secondItem="oRB-hG-GIW" secondAttribute="trailing" constant="20" id="JVM-Ad-NVd"/>
-                            <constraint firstItem="jWf-lD-app" firstAttribute="top" secondItem="oRB-hG-GIW" secondAttribute="bottom" constant="8" symbolic="YES" id="R2z-q9-0Ey"/>
+                            <constraint firstItem="cYx-Lc-i9E" firstAttribute="top" secondItem="hDq-BQ-S0d" secondAttribute="bottom" constant="20" id="eL2-KE-yr7"/>
                             <constraint firstItem="oRB-hG-GIW" firstAttribute="leading" secondItem="Q2S-ey-dbq" secondAttribute="leading" constant="20" id="fbj-PP-5UV"/>
                             <constraint firstItem="mRa-E0-hw4" firstAttribute="leading" secondItem="Q2S-ey-dbq" secondAttribute="leading" id="l0R-DL-Nep"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jWf-lD-app" secondAttribute="trailing" constant="-6" id="qbZ-zB-dCP"/>
                             <constraint firstItem="mRa-E0-hw4" firstAttribute="top" secondItem="Q2S-ey-dbq" secondAttribute="top" id="tgc-ob-xpZ"/>
+                            <constraint firstItem="hDq-BQ-S0d" firstAttribute="top" secondItem="oRB-hG-GIW" secondAttribute="bottom" constant="18" id="vWl-C9-m4X"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addictiveText" destination="4fJ-r1-m3v" id="8Iv-Rx-aa8"/>
-                        <outlet property="addictiveTitle" destination="LgE-Js-HmJ" id="7wP-sZ-TXI"/>
                         <outlet property="backButtonBottom" destination="Vgs-eh-chu" id="mNg-MD-gJg"/>
-                        <outlet property="damageReduceText" destination="n6R-HN-HQr" id="DnH-rr-dzE"/>
-                        <outlet property="damageReduceTitle" destination="2yX-Rb-Bc1" id="BQ0-kD-T1C"/>
-                        <outlet property="definitionText" destination="q1q-y7-lTx" id="pgr-hJ-pBd"/>
-                        <outlet property="definitionTitle" destination="e9t-MD-aaj" id="puS-vq-DPe"/>
                         <outlet property="drugLabelBottom" destination="vwp-sf-hDr" id="5bv-IY-01W"/>
                         <outlet property="drugLabelHeight" destination="V0F-ez-oOX" id="8Fh-HK-hST"/>
                         <outlet property="drugNameLabel" destination="N5a-6R-zED" id="XwP-kf-b13"/>
-                        <outlet property="drugPhoto" destination="NW5-BV-tnV" id="fWN-w1-KmD"/>
-                        <outlet property="drugPhotoHeight" destination="ctP-gr-mCx" id="mPy-9u-uPE"/>
-                        <outlet property="risksText" destination="jvY-9j-m1b" id="ler-bC-bCc"/>
-                        <outlet property="risksTitle" destination="Mvd-eQ-xRY" id="6M6-LX-UqB"/>
                         <outlet property="segmentedControlTop" destination="90e-Lb-29K" id="STp-mu-v1Q"/>
                         <outlet property="topBarHeight" destination="lMx-Hg-kYR" id="UBb-hk-VSe"/>
                     </connections>
@@ -448,22 +267,6 @@ Es importante tomar en cuenta el historial familiar de psicosis, esquizofrenia u
         </scene>
     </scenes>
     <resources>
-        <image name="1BCE37AF-FC0C-4A36-93B8-83CCEE9919E5" width="567" height="381">
-            <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
-GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
-V05TQ29sb3KAAoAMEiTAAACAA4AKWns1NjcsIDM4MX3SFQoWGFpOUy5vYmplY3RzoReABIAJ0hUKGhii
-GxyABYAGgAkQBdMgCiEiIyRXTlMuYmFzZVtOUy5yZWxhdGl2ZYAAgAiAB18QfGZpbGU6Ly8vQXBwbGlj
-YXRpb25zL1hjb2RlLmFwcC9Db250ZW50cy9QbHVnSW5zL0lERUludGVyZmFjZUJ1aWxkZXJLaXQuaWRl
-cGx1Z2luL0NvbnRlbnRzL1Jlc291cmNlcy9JQk1pc3NpbmdJbWFnZUdseXBoLnRpZmbSJygpKlokY2xh
-c3NuYW1lWCRjbGFzc2VzVU5TVVJMoikrWE5TT2JqZWN00icoLS5XTlNBcnJheaItK9MwMQoyMzRXTlNX
-aGl0ZVxOU0NvbG9yU3BhY2VEMCAwABADgAvSJyg2N1dOU0NvbG9yojYr0icoOTpXTlNJbWFnZaI5K18Q
-D05TS2V5ZWRBcmNoaXZlctE9PlRyb290gAEACAARABoAIwAtADIANwBFAEsAVgBdAGQAcQB4AIAAggCE
-AIkAiwCNAJgAnQCoAKoArACuALMAtgC4ALoAvAC+AMUAzQDZANsA3QDfAV4BYwFuAXcBfQGAAYkBjgGW
-AZkBoAGoAbUBugG8Ab4BwwHLAc4B0wHbAd4B8AHzAfgAAAAAAAACAQAAAAAAAAA/AAAAAAAAAAAAAAAA
-AAAB+g
-</mutableData>
-        </image>
         <image name="Cannabis" width="198" height="191"/>
         <image name="back" width="100" height="67"/>
         <image name="bg" width="1920" height="1200"/>

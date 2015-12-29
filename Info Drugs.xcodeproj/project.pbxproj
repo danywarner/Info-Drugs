@@ -11,6 +11,8 @@
 		65A46F651C20EDE9009F6274 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A46F641C20EDE9009F6274 /* UIDevice.swift */; };
 		65A46F671C20F103009F6274 /* DrugDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A46F661C20F103009F6274 /* DrugDetailVC.swift */; };
 		65A46F6A1C2226EB009F6274 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A46F691C2226EB009F6274 /* DataService.swift */; };
+		65CA63241C32F77700592DCB /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CA63231C32F77700592DCB /* DraggableView.swift */; };
+		65CA63261C32F7DA00592DCB /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CA63251C32F7DA00592DCB /* OverlayView.swift */; };
 		65F72D9F1C20C31A0010BAE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F72D9E1C20C31A0010BAE5 /* AppDelegate.swift */; };
 		65F72DA11C20C31A0010BAE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F72DA01C20C31A0010BAE5 /* ViewController.swift */; };
 		65F72DA41C20C31A0010BAE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F72DA21C20C31A0010BAE5 /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 		65A46F641C20EDE9009F6274 /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		65A46F661C20F103009F6274 /* DrugDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugDetailVC.swift; sourceTree = "<group>"; };
 		65A46F691C2226EB009F6274 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		65CA63231C32F77700592DCB /* DraggableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
+		65CA63251C32F7DA00592DCB /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		65F72D9B1C20C31A0010BAE5 /* Info Drugs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Info Drugs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65F72D9E1C20C31A0010BAE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65F72DA01C20C31A0010BAE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				65F72DB51C20CCC60010BAE5 /* DrugCell.swift */,
+				65CA63231C32F77700592DCB /* DraggableView.swift */,
+				65CA63251C32F7DA00592DCB /* OverlayView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -257,8 +263,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65CA63261C32F7DA00592DCB /* OverlayView.swift in Sources */,
 				65A46F651C20EDE9009F6274 /* UIDevice.swift in Sources */,
 				65A46F6A1C2226EB009F6274 /* DataService.swift in Sources */,
+				65CA63241C32F77700592DCB /* DraggableView.swift in Sources */,
 				65F72DA11C20C31A0010BAE5 /* ViewController.swift in Sources */,
 				65F72D9F1C20C31A0010BAE5 /* AppDelegate.swift in Sources */,
 				65A46F671C20F103009F6274 /* DrugDetailVC.swift in Sources */,
