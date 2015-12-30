@@ -105,10 +105,11 @@ class DrugDetailVC: UIViewController {
         
     }
     
-    func loadCards() {
-        for var i=0 ; i < 4 ; i++ {
+    func loadInfoCards() {
+        for var i=0 ; i < infoTitles.count ; i++ {
             let size = CGRectMake((self.view.frame.size.width - CARD_WIDTH)/2, (self.view.frame.size.height - CARD_HEIGHT)/2, CARD_WIDTH, CARD_HEIGHT)
             let draggableView = DraggableView(frame: size)
+            draggableView.delegate = self
             infoCards.append(draggableView)
             draggableView.addSubview(infoTitles[i])
             draggableView.addSubview(infoTexts[i])
@@ -141,7 +142,7 @@ class DrugDetailVC: UIViewController {
 //        drugPhoto.image = image
         
         rotated()
-        loadCards()
+        loadInfoCards()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
     
@@ -240,20 +241,23 @@ class DrugDetailVC: UIViewController {
         switch(sender.selectedSegmentIndex) {
             
         case 0:
+            
+            setInfoTitles()
+            setInfoTexts()
+            loadInfoCards()
            // updatePhotoHeight()
 //            definitionTitle.text = "¿Qué es?"
 //            definitionText.text = decomposeStringArray(_drug.description!)
            // toggleTextLabels()
-            updateViewConstraints()
             
             
         case 1:
+            removeInfoCards()
+            removeInfoTitles()
+            removeInfoTexts()
 //            drugPhotoHeight.constant = 0
-//            definitionTitle.text = "Efectos:"
-//            definitionText.text = decomposeStringArray(_drug.effects!)
-            //toggleTextLabels()
-            updateViewConstraints()
-            //self.view.frame = CGRectMake(0,0,320,568)
+            
+            
             
         case 2:
 //            drugPhotoHeight.constant = 0
@@ -264,6 +268,24 @@ class DrugDetailVC: UIViewController {
             
         default:
             break
+        }
+    }
+    
+    func removeInfoCards() {
+        for var i = infoCards.count - 1 ; i >= 0 ; i-- {
+            infoCards[i].removeFromSuperview()
+        }
+    }
+    
+    func removeInfoTitles() {
+        for var i = infoTitles.count - 1 ; i >= 0 ; i-- {
+            infoTitles.removeAtIndex(i)
+        }
+    }
+    
+    func removeInfoTexts() {
+        for var i = infoCards.count - 1 ; i >= 0 ; i-- {
+            infoCards.removeAtIndex(i)
         }
     }
     
@@ -293,6 +315,14 @@ class DrugDetailVC: UIViewController {
 //            label.hidden = true
 //        }
 //    }
+    
+    func cardSwipedLeft(card: UIView){
+        infoCards.removeAtIndex(0)
+    }
+    
+    func cardSwipedRight(card: UIView){
+        infoCards.removeAtIndex(0)
+    }
     
     func decomposeStringArray(array: [String]) -> String {
         var fullText = ""

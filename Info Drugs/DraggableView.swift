@@ -22,7 +22,7 @@ class DraggableView: UIView{
     var xFromCenter: CGFloat!
     var yFromCenter: CGFloat!
     var originalPoint: CGPoint!
-    //var delegate: DraggableViewBackground!
+    var delegate: DrugDetailVC!
     var information: UILabel!
     let ACTION_MARGIN: CGFloat = 120
     let SCALE_STRENGTH: CGFloat = 4
@@ -145,7 +145,7 @@ class DraggableView: UIView{
                 (value: Bool) in
                 self.removeFromSuperview()
         })
-        //delegate.cardSwipedRight(self)
+        delegate.cardSwipedRight(self)
         print("YES")
     }
     
@@ -157,7 +157,7 @@ class DraggableView: UIView{
                 (value: Bool) in
                 self.removeFromSuperview()
         })
-       // delegate.cardSwipedLeft(self)
+        delegate.cardSwipedLeft(self)
         print("NO")
     }
     
