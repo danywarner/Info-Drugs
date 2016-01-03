@@ -49,14 +49,22 @@ class DrugDetailVC: UIViewController {
     var effectsText: UILabel = UILabel()
     var effectsText1: UILabel = UILabel()
     var effectsText2: UILabel = UILabel()
+    
     var paragraphsArray: Array<String> = []
+    
+    var mixesTitle1: UILabel = UILabel()
+    var mixesTitle2: UILabel = UILabel()
+    var mixesText: UILabel = UILabel()
+    var mixesText1: UILabel = UILabel()
+    var mixesTextx2: UILabel = UILabel()
+    
     var screenWidth: CGFloat = 0.0
     private var _drug: Drug!
     private var _previousOrientationIsPortrait = true
     var selectedSegment = 1
-    var infoPreviouslyLoaded = false
     
     var infoConstraints: Array<NSLayoutConstraint> = []
+    var draggableViewSize: CGRect = CGRect()
     
     var drug: Drug {
         get {
@@ -89,7 +97,7 @@ class DrugDetailVC: UIViewController {
         drugNameLabel.text = _drug.name
         setInfoTitles()
         setInfoTexts()
-        
+        draggableViewSize = CGRectMake((self.view.frame.size.width - CARD_WIDTH)/2, (self.view.frame.size.height - CARD_HEIGHT)/2, CARD_WIDTH, CARD_HEIGHT)
         //        let image = UIImage(named: "\(drug.name)Photo")
         //        drugPhoto.image = image
         
@@ -176,8 +184,8 @@ class DrugDetailVC: UIViewController {
     
     func loadInfoCards() {
         for var i=0 ; i < infoTitles.count ; i++ {
-            let size = CGRectMake((self.view.frame.size.width - CARD_WIDTH)/2, (self.view.frame.size.height - CARD_HEIGHT)/2, CARD_WIDTH, CARD_HEIGHT)
-            let draggableView = DraggableView(frame: size)
+            
+            let draggableView = DraggableView(frame: draggableViewSize)
             draggableView.delegate = self
             infoCards.append(draggableView)
             draggableView.addSubview(infoTitles[i])
@@ -185,32 +193,25 @@ class DrugDetailVC: UIViewController {
             if i == 0 {
                 
                 view.addSubview(infoCards[i])
-                if(infoPreviouslyLoaded == false) {
-                print("AA")
                 setTitleConstraints(infoTitles[i], draggableView: infoCards[i])
-                print("BB")
                 setInfoConstraints(infoTexts[i], draggableView: infoCards[i])
-                print("CC")
-                    
-                }
+                
             } else {
                 
-                    view.insertSubview(infoCards[i], belowSubview: infoCards[i-1])
-                if(infoPreviouslyLoaded == false) {
-                    setTitleConstraints(infoTitles[i], draggableView: infoCards[i])
+                view.insertSubview(infoCards[i], belowSubview: infoCards[i-1])
+                setTitleConstraints(infoTitles[i], draggableView: infoCards[i])
                 setInfoConstraints(infoTexts[i], draggableView: infoCards[i])
-                }
                 
             }
-                infoPreviouslyLoaded = false
+            
             setCardConstraints(infoCards[i])
             
         }
     }
     
     func loadEffectsCards() {
+            paragraphsArray = []
         
-            let size = CGRectMake((self.view.frame.size.width - CARD_WIDTH)/2, (self.view.frame.size.height - CARD_HEIGHT)/2, CARD_WIDTH, CARD_HEIGHT)
         
         if linesInUILabel(effectsText.text!) > 24 {
             let paragraphsNumber = paragraphsInText(effectsText.text!)
@@ -230,7 +231,7 @@ class DrugDetailVC: UIViewController {
             effectsTextArray.append(effectsText2)
             
             for var i = 0 ; i < 2 ; i++ {
-                let draggableView = DraggableView(frame: size)
+                let draggableView = DraggableView(frame: draggableViewSize)
                 draggableView.delegate = self
                 effectsCards.append(draggableView)
                 draggableView.addSubview(effectsTitles[i])
@@ -249,7 +250,7 @@ class DrugDetailVC: UIViewController {
             
             
         } else {
-            let draggableView = DraggableView(frame: size)
+            let draggableView = DraggableView(frame: draggableViewSize)
             draggableView.delegate = self
             effectsCards.append(draggableView)
             draggableView.addSubview(effectsTitle1)
@@ -259,6 +260,7 @@ class DrugDetailVC: UIViewController {
             setInfoConstraints(effectsText, draggableView: effectsCards[0])
             setCardConstraints(effectsCards[0])
         }
+        
     }
     
     func paragraphsInText(text: String) -> Int {
@@ -278,14 +280,14 @@ class DrugDetailVC: UIViewController {
         let leadingConstraint = NSLayoutConstraint(item: title, attribute: .Leading, relatedBy: .Equal, toItem: draggableView, attribute: .Leading, multiplier: 1, constant: 5)
         
         let topConstraint = NSLayoutConstraint(item: title, attribute: .Top, relatedBy: .Equal, toItem: draggableView, attribute: .Top, multiplier: 1, constant: 10)
-        print("AAA")
+        
         if selectedSegment == 1 {
             infoConstraints.append(leadingConstraint)
             infoConstraints.append(topConstraint)
         }
-        print("BBB")
+        
         view.addConstraints([leadingConstraint,topConstraint])
-        print("CCC")
+        
     }
     
     func removeInfoConstraints() {
@@ -383,13 +385,10 @@ class DrugDetailVC: UIViewController {
                 removeEffectsTexts()
             }
             selectedSegment = 1
-            print("A")
             setInfoTitles()
-            print("B")
             setInfoTexts()
-            print("c")
             loadInfoCards()
-            print("D")
+            
            // updatePhotoHeight()
 //            definitionTitle.text = "¿Qué es?"
 //            definitionText.text = decomposeStringArray(_drug.description!)
