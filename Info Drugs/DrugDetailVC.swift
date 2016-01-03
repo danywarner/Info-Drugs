@@ -30,10 +30,13 @@ class DrugDetailVC: UIViewController {
     var language = ""
     var infoCards: Array<DraggableView> = []
     var effectsCards: Array<DraggableView> = []
+    var mixesCards: Array<DraggableView> = []
     var infoTitles: Array<UILabel> = []
     var effectsTitles: Array<UILabel> = []
+    var mixesTitles: Array<UILabel> = []
     var infoTexts: Array<UILabel> = []
     var effectsTextArray: Array<UILabel> = []
+    var mixesTextArray: Array<UILabel> = []
     var definitionTitle: UILabel = UILabel()
     var risksTitle: UILabel = UILabel()
     var addictiveTitle: UILabel = UILabel()
@@ -147,8 +150,12 @@ class DrugDetailVC: UIViewController {
             risksTitle.text = "Riesgos: "
             addictiveTitle.text = "¿Es Adictivo?"
             damageReduceTitle.text = "Reducción de daños: "
+            
             effectsTitle1.text = "Efectos:"
             effectsTitle2.text = "Efectos:"
+            
+            mixesTitle1.text = "Mezclas comunes:"
+            mixesTitle2.text = "Mezclas comunes:"
             
         } else if language == "en" {
             
@@ -156,16 +163,24 @@ class DrugDetailVC: UIViewController {
             risksTitle.text = "Risks: "
             addictiveTitle.text = "Is It Addictive?"
             damageReduceTitle.text = "Damage Reduce: "
+            
             effectsTitle1.text = "Effects:"
             effectsTitle2.text = "Effects:"
+            
+            mixesTitle1.text = "Common Mixes:"
+            mixesTitle2.text = "Common Mixes:"
         }
         
         infoTitles.append(definitionTitle)
         infoTitles.append(risksTitle)
         infoTitles.append(addictiveTitle)
         infoTitles.append(damageReduceTitle)
+        
         effectsTitles.append(effectsTitle1)
         effectsTitles.append(effectsTitle2)
+        
+        mixesTitles.append(mixesTitle1)
+        mixesTitles.append(mixesTitle2)
     }
     
     func setInfoTexts() {
@@ -180,6 +195,8 @@ class DrugDetailVC: UIViewController {
         infoTexts.append(damageReduceText)
         
         effectsText.text = decomposeStringArray(_drug.effects!)
+        
+        mixesText.text = decomposeStringArray(_drug.mixes!)
     }
     
     func loadInfoCards() {
@@ -209,9 +226,61 @@ class DrugDetailVC: UIViewController {
         }
     }
     
+    func loadMixesCards() {
+        paragraphsArray = []
+        
+        if linesInUILabel(mixesText.text!) > 24 {
+            let paragraphsNumber = paragraphsInText(mixesText.text!)
+            
+            mixesText1.text = paragraphsArray[0]
+            mixesTextx2.text = ""
+            
+            for var k = 1 ; k < paragraphsNumber ; k++ {
+                if linesInUILabel(mixesText1.text!+paragraphsArray[k]) < 24 {
+                    mixesText1.text? += paragraphsArray[k] + "\n\n"
+                    
+                } else {
+                    mixesTextx2.text? += paragraphsArray[k] + "\n\n"
+                }
+            }
+            mixesTextArray.append(mixesText1)
+            mixesTextArray.append(mixesTextx2)
+            
+            for var i = 0 ; i < 2 ; i++ {
+                let draggableView = DraggableView(frame: draggableViewSize)
+                draggableView.delegate = self
+                mixesCards.append(draggableView)
+                draggableView.addSubview(mixesTitles[i])
+                draggableView.addSubview(mixesTextArray[i])
+                if i == 0 {
+                    view.addSubview(mixesCards[i])
+                    setTitleConstraints(mixesTitles[i], draggableView: mixesCards[i])
+                    setInfoConstraints(mixesTextArray[i], draggableView: mixesCards[i])
+                } else {
+                    view.insertSubview(mixesCards[i], belowSubview: mixesCards[i-1])
+                    setTitleConstraints(mixesTitles[i], draggableView: mixesCards[i])
+                    setInfoConstraints(mixesTextArray[i], draggableView: mixesCards[i])
+                }
+                setCardConstraints(mixesCards[i])
+            }
+            
+            
+        } else {
+            let draggableView = DraggableView(frame: draggableViewSize)
+            draggableView.delegate = self
+            mixesCards.append(draggableView)
+            draggableView.addSubview(mixesTitle1)
+            draggableView.addSubview(mixesText)
+            view.addSubview(mixesCards[0])
+            setTitleConstraints(mixesTitle1, draggableView: mixesCards[0])
+            setInfoConstraints(mixesText, draggableView: mixesCards[0])
+            setCardConstraints(mixesCards[0])
+        }
+
+    }
+    
     func loadEffectsCards() {
             paragraphsArray = []
-        
         
         if linesInUILabel(effectsText.text!) > 24 {
             let paragraphsNumber = paragraphsInText(effectsText.text!)
@@ -220,7 +289,7 @@ class DrugDetailVC: UIViewController {
             effectsText2.text = ""
             
             for var k = 1 ; k < paragraphsNumber ; k++ {
-                if linesInUILabel(effectsText1.text!+paragraphsArray[k]) < 25 {
+                if linesInUILabel(effectsText1.text!+paragraphsArray[k]) < 24 {
                     effectsText1.text? += paragraphsArray[k] + "\n\n"
                     
                 } else {
@@ -374,7 +443,8 @@ class DrugDetailVC: UIViewController {
     }
     
     @IBAction func segmentedControlActionChanged(sender: UISegmentedControl) {
-
+        setInfoTitles()
+        setInfoTexts()
         switch(sender.selectedSegmentIndex) {
             
         case 0:
@@ -383,17 +453,13 @@ class DrugDetailVC: UIViewController {
                 removeEffectsCards()
                 removeEffectsTitles()
                 removeEffectsTexts()
+            } else if (selectedSegment == 3) {
+                removeMixesCards()
+                removeMixesTitles()
+                removeMixesTexts()
             }
             selectedSegment = 1
-            setInfoTitles()
-            setInfoTexts()
             loadInfoCards()
-            
-           // updatePhotoHeight()
-//            definitionTitle.text = "¿Qué es?"
-//            definitionText.text = decomposeStringArray(_drug.description!)
-           // toggleTextLabels()
-            
             
         case 1:
             
@@ -401,21 +467,29 @@ class DrugDetailVC: UIViewController {
                 removeInfoCards()
                 removeInfoTitles()
                 removeInfoTexts()
-                removeInfoConstraints()
+               // removeInfoConstraints()
+                
+            } else if (selectedSegment == 3) {
+                removeMixesCards()
+                removeMixesTitles()
+                removeMixesTexts()
             }
             selectedSegment = 2
-            
             loadEffectsCards()
-//            drugPhotoHeight.constant = 0
-            
-            
             
         case 2:
-//            drugPhotoHeight.constant = 0
-//            definitionTitle.text = "Mezclas comunes:"
-//            definitionText.text = decomposeStringArray(_drug.mixes!)
-            //toggleTextLabels()
-            updateViewConstraints()
+            if selectedSegment == 1 {
+                removeInfoCards()
+                removeInfoTitles()
+                removeInfoTexts()
+                //removeInfoConstraints()
+            } else if(selectedSegment == 2) {
+                removeEffectsCards()
+                removeEffectsTitles()
+                removeEffectsTexts()
+            }
+            selectedSegment = 3
+            loadMixesCards()
             
         default:
             break
@@ -460,6 +534,25 @@ class DrugDetailVC: UIViewController {
         }
     }
     
+    func removeMixesCards() {
+        for var i = mixesCards.count - 1 ; i >= 0 ; i-- {
+            mixesCards[i].removeFromSuperview()
+            mixesCards.removeAtIndex(i)
+        }
+    }
+    
+    func removeMixesTitles() {
+        for var i = mixesTitles.count - 1 ; i >= 0 ; i-- {
+            mixesTitles.removeAtIndex(i)
+        }
+    }
+    
+    func removeMixesTexts() {
+        for var i = mixesTextArray.count - 1 ; i >= 0 ; i-- {
+            mixesTextArray.removeAtIndex(i)
+        }
+    }
+    
 
     
 //    func updatePhotoHeight() {
@@ -494,6 +587,8 @@ class DrugDetailVC: UIViewController {
             infoCards.removeAtIndex(0)
         } else if (selectedSegment == 2) {
             effectsCards.removeAtIndex(0)
+        } else if (selectedSegment == 3) {
+            mixesCards.removeAtIndex(0)
         }
         
     }
@@ -503,6 +598,8 @@ class DrugDetailVC: UIViewController {
             infoCards.removeAtIndex(0)
         } else if (selectedSegment == 2) {
             effectsCards.removeAtIndex(0)
+        } else if (selectedSegment == 3) {
+            mixesCards.removeAtIndex(0)
         }
     }
     
