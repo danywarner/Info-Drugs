@@ -68,6 +68,54 @@ class DrugDetailVC: UIViewController {
         }
     }
     
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        drugNameLabel.text = _drug.name
+        setInfoTitles()
+        setInfoTexts()
+        
+        //        let image = UIImage(named: "\(drug.name)Photo")
+        //        drugPhoto.image = image
+        
+        rotated()
+        loadInfoCards()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        //lines()
+    }
+    
+    func lines() {
+        var lineCount = 0;
+        let textSize = CGSizeMake(definitionText.frame.size.width, CGFloat(Float.infinity));
+        let rHeight = lroundf(Float(definitionText.sizeThatFits(textSize).height))
+        let charSize = lroundf(Float(definitionText.font.lineHeight));
+        print(textSize)
+        print(rHeight)
+        print(charSize)
+        lineCount = (rHeight/charSize)-2
+        print("No of lines \(lineCount)")
+    }
+    
+    func linesInUILabel(text: String) -> Int {
+        var width: Float = 0.0
+        let screenWidth = self.view.frame.size.width
+        if screenWidth == 375.0 {
+            width = 325.0
+        }
+        else if screenWidth == 320.0 {
+            width = 270.0
+            
+        } else if screenWidth == 414.0 {
+            width = 364.0
+        }
+        let charsInLine = lroundf(width/8.0)
+        let lines = Int((text.characters.count))/charsInLine
+        return lines
+    }
     
     
     func setInfoTitles() {
@@ -103,6 +151,34 @@ class DrugDetailVC: UIViewController {
         infoTexts.append(addictiveText)
         infoTexts.append(damageReduceText)
         
+        linesInUILabel(definitionText.text!)
+    }
+    
+    
+    
+
+    
+    func numberOfLinesInLabel(yourString: String, labelWidth: CGFloat, labelHeight: CGFloat, font: UIFont) -> Int {
+        print(yourString)
+        print(labelHeight)
+        print(labelWidth)
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.minimumLineHeight = labelHeight
+        paragraphStyle.maximumLineHeight = labelHeight
+        paragraphStyle.lineBreakMode = .ByWordWrapping
+        
+        let attributes: [String: AnyObject] = [NSFontAttributeName: font, NSParagraphStyleAttributeName: paragraphStyle]
+        
+        let constrain = CGSizeMake(labelWidth, CGFloat(Float.infinity))
+        
+        let size = yourString.sizeWithAttributes(attributes)
+        let stringWidth = size.width
+        print(stringWidth)
+        print(constrain.width)
+        let numberOfLines = ceil(Double(stringWidth/constrain.width))
+        
+        return Int(numberOfLines)
     }
     
     func loadInfoCards() {
@@ -130,21 +206,7 @@ class DrugDetailVC: UIViewController {
         }
     }
  
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        drugNameLabel.text = _drug.name
-        setInfoTitles()
-        setInfoTexts()
-        
-        
-//        let image = UIImage(named: "\(drug.name)Photo")
-//        drugPhoto.image = image
-        
-        rotated()
-        loadInfoCards()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
-    }
+    
     
     func setTitleConstraints(title: UILabel,draggableView: DraggableView) {
         
