@@ -29,6 +29,7 @@ class DrugDetailVC: UIViewController {
     
     var language = ""
     var infoCards: Array<DraggableView> = []
+    var effectsCards: Array<DraggableView> = []
     var infoTitles: Array<UILabel> = []
     var infoTexts: Array<UILabel> = []
     var definitionTitle: UILabel = UILabel()
@@ -40,9 +41,14 @@ class DrugDetailVC: UIViewController {
     var risksText: UILabel = UILabel()
     var addictiveText: UILabel = UILabel()
     var damageReduceText: UILabel = UILabel()
+    
+    var effectsTitle: UILabel = UILabel()
+    var effectsText: UILabel = UILabel()
+    
     var screenWidth: CGFloat = 0.0
     private var _drug: Drug!
     private var _previousOrientationIsPortrait = true
+    var selectedSegment = 1
     
     var drug: Drug {
         get {
@@ -125,6 +131,7 @@ class DrugDetailVC: UIViewController {
             risksTitle.text = "Riesgos: "
             addictiveTitle.text = "¿Es Adictivo?"
             damageReduceTitle.text = "Reducción de daños: "
+            effectsTitle.text = "Efectos:"
             
         } else if language == "en" {
             
@@ -132,6 +139,7 @@ class DrugDetailVC: UIViewController {
             risksTitle.text = "Risks: "
             addictiveTitle.text = "Is It Addictive?"
             damageReduceTitle.text = "Damage Reduce: "
+            effectsTitle.text = "Effects:"
         }
         
         infoTitles.append(definitionTitle)
@@ -150,6 +158,8 @@ class DrugDetailVC: UIViewController {
         infoTexts.append(risksText)
         infoTexts.append(addictiveText)
         infoTexts.append(damageReduceText)
+        
+        effectsText.text = decomposeStringArray(_drug.effects!)
         
         linesInUILabel(definitionText.text!)
     }
@@ -177,6 +187,21 @@ class DrugDetailVC: UIViewController {
             setCardConstraints(infoCards[i])
             
         }
+    }
+    
+    func loadEffectsCards() {
+        
+            let size = CGRectMake((self.view.frame.size.width - CARD_WIDTH)/2, (self.view.frame.size.height - CARD_HEIGHT)/2, CARD_WIDTH, CARD_HEIGHT)
+            let draggableView = DraggableView(frame: size)
+            draggableView.delegate = self
+            effectsCards.append(draggableView)
+            draggableView.addSubview(effectsTitle)
+            draggableView.addSubview(effectsText)
+            view.addSubview(effectsCards[0])
+            setTitleConstraints(effectsTitle, draggableView: effectsCards[0])
+            setInfoConstraints(effectsText, draggableView: effectsCards[0])
+            
+            setCardConstraints(effectsCards[0])
     }
  
     
@@ -277,6 +302,10 @@ class DrugDetailVC: UIViewController {
             
         case 0:
             
+            if(selectedSegment == 2) {
+                removeEffectsCards()
+            }
+            selectedSegment = 1
             setInfoTitles()
             setInfoTexts()
             loadInfoCards()
@@ -287,9 +316,15 @@ class DrugDetailVC: UIViewController {
             
             
         case 1:
-            removeInfoCards()
-            removeInfoTitles()
-            removeInfoTexts()
+            
+            if selectedSegment == 1 {
+                removeInfoCards()
+                removeInfoTitles()
+                removeInfoTexts()
+            }
+            selectedSegment = 2
+            
+            loadEffectsCards()
 //            drugPhotoHeight.constant = 0
             
             
@@ -324,6 +359,14 @@ class DrugDetailVC: UIViewController {
         }
     }
     
+    func removeEffectsCards() {
+        if effectsCards.count > 0 {
+            effectsCards[0].removeFromSuperview()
+        }
+        
+    }
+
+    
 //    func updatePhotoHeight() {
 //        if _previousOrientationIsPortrait == true {
 //            
@@ -352,12 +395,23 @@ class DrugDetailVC: UIViewController {
 //    }
     
     func cardSwipedLeft(card: UIView){
-        infoCards.removeAtIndex(0)
+        if(selectedSegment == 1) {
+            infoCards.removeAtIndex(0)
+        } else if (selectedSegment == 2) {
+            effectsCards.removeAtIndex(0)
+        }
+        
     }
     
     func cardSwipedRight(card: UIView){
-        infoCards.removeAtIndex(0)
+        if(selectedSegment == 1) {
+            infoCards.removeAtIndex(0)
+        } else if (selectedSegment == 2) {
+            effectsCards.removeAtIndex(0)
+        }
     }
+    
+    
     
     func decomposeStringArray(array: [String]) -> String {
         var fullText = ""

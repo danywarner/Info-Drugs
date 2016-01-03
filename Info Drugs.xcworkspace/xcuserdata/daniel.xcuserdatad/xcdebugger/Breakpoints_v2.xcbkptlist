@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Info Drugs/DrugDetailVC.swift"
-            timestampString = "473511223.771394"
+            timestampString = "473534640.632284"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "linesInUILabel(_:)"
             landmarkType = "5">
          </BreakpointContent>
