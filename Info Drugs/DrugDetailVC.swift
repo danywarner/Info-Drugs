@@ -31,7 +31,9 @@ class DrugDetailVC: UIViewController {
     var infoCards: Array<DraggableView> = []
     var effectsCards: Array<DraggableView> = []
     var infoTitles: Array<UILabel> = []
+    var effectsTitles: Array<UILabel> = []
     var infoTexts: Array<UILabel> = []
+    var effectsTextArray: Array<UILabel> = []
     var definitionTitle: UILabel = UILabel()
     var risksTitle: UILabel = UILabel()
     var addictiveTitle: UILabel = UILabel()
@@ -42,13 +44,19 @@ class DrugDetailVC: UIViewController {
     var addictiveText: UILabel = UILabel()
     var damageReduceText: UILabel = UILabel()
     
-    var effectsTitle: UILabel = UILabel()
+    var effectsTitle1: UILabel = UILabel()
+    var effectsTitle2: UILabel = UILabel()
     var effectsText: UILabel = UILabel()
-    
+    var effectsText1: UILabel = UILabel()
+    var effectsText2: UILabel = UILabel()
+    var paragraphsArray: Array<String> = []
     var screenWidth: CGFloat = 0.0
     private var _drug: Drug!
     private var _previousOrientationIsPortrait = true
     var selectedSegment = 1
+    var infoPreviouslyLoaded = false
+    
+    var infoConstraints: Array<NSLayoutConstraint> = []
     
     var drug: Drug {
         get {
@@ -131,7 +139,8 @@ class DrugDetailVC: UIViewController {
             risksTitle.text = "Riesgos: "
             addictiveTitle.text = "¿Es Adictivo?"
             damageReduceTitle.text = "Reducción de daños: "
-            effectsTitle.text = "Efectos:"
+            effectsTitle1.text = "Efectos:"
+            effectsTitle2.text = "Efectos:"
             
         } else if language == "en" {
             
@@ -139,13 +148,16 @@ class DrugDetailVC: UIViewController {
             risksTitle.text = "Risks: "
             addictiveTitle.text = "Is It Addictive?"
             damageReduceTitle.text = "Damage Reduce: "
-            effectsTitle.text = "Effects:"
+            effectsTitle1.text = "Effects:"
+            effectsTitle2.text = "Effects:"
         }
         
         infoTitles.append(definitionTitle)
         infoTitles.append(risksTitle)
         infoTitles.append(addictiveTitle)
         infoTitles.append(damageReduceTitle)
+        effectsTitles.append(effectsTitle1)
+        effectsTitles.append(effectsTitle2)
     }
     
     func setInfoTexts() {
@@ -160,8 +172,6 @@ class DrugDetailVC: UIViewController {
         infoTexts.append(damageReduceText)
         
         effectsText.text = decomposeStringArray(_drug.effects!)
-        
-        linesInUILabel(definitionText.text!)
     }
     
     func loadInfoCards() {
@@ -175,15 +185,24 @@ class DrugDetailVC: UIViewController {
             if i == 0 {
                 
                 view.addSubview(infoCards[i])
+                if(infoPreviouslyLoaded == false) {
+                print("AA")
                 setTitleConstraints(infoTitles[i], draggableView: infoCards[i])
+                print("BB")
                 setInfoConstraints(infoTexts[i], draggableView: infoCards[i])
+                print("CC")
+                    
+                }
             } else {
                 
                     view.insertSubview(infoCards[i], belowSubview: infoCards[i-1])
+                if(infoPreviouslyLoaded == false) {
                     setTitleConstraints(infoTitles[i], draggableView: infoCards[i])
                 setInfoConstraints(infoTexts[i], draggableView: infoCards[i])
+                }
                 
             }
+                infoPreviouslyLoaded = false
             setCardConstraints(infoCards[i])
             
         }
@@ -192,16 +211,59 @@ class DrugDetailVC: UIViewController {
     func loadEffectsCards() {
         
             let size = CGRectMake((self.view.frame.size.width - CARD_WIDTH)/2, (self.view.frame.size.height - CARD_HEIGHT)/2, CARD_WIDTH, CARD_HEIGHT)
+        
+        if linesInUILabel(effectsText.text!) > 24 {
+            let paragraphsNumber = paragraphsInText(effectsText.text!)
+            
+            effectsText1.text = paragraphsArray[0]
+            effectsText2.text = ""
+            
+            for var k = 1 ; k < paragraphsNumber ; k++ {
+                if linesInUILabel(effectsText1.text!+paragraphsArray[k]) < 25 {
+                    effectsText1.text? += paragraphsArray[k] + "\n\n"
+                    
+                } else {
+                    effectsText2.text? += paragraphsArray[k] + "\n\n"
+                }
+            }
+            effectsTextArray.append(effectsText1)
+            effectsTextArray.append(effectsText2)
+            
+            for var i = 0 ; i < 2 ; i++ {
+                let draggableView = DraggableView(frame: size)
+                draggableView.delegate = self
+                effectsCards.append(draggableView)
+                draggableView.addSubview(effectsTitles[i])
+                draggableView.addSubview(effectsTextArray[i])
+                if i == 0 {
+                    view.addSubview(effectsCards[i])
+                    setTitleConstraints(effectsTitles[i], draggableView: effectsCards[i])
+                    setInfoConstraints(effectsTextArray[i], draggableView: effectsCards[i])
+                } else {
+                    view.insertSubview(effectsCards[i], belowSubview: effectsCards[i-1])
+                    setTitleConstraints(effectsTitles[i], draggableView: effectsCards[i])
+                    setInfoConstraints(effectsTextArray[i], draggableView: effectsCards[i])
+                }
+                setCardConstraints(effectsCards[i])
+            }
+            
+            
+        } else {
             let draggableView = DraggableView(frame: size)
             draggableView.delegate = self
             effectsCards.append(draggableView)
-            draggableView.addSubview(effectsTitle)
+            draggableView.addSubview(effectsTitle1)
             draggableView.addSubview(effectsText)
             view.addSubview(effectsCards[0])
-            setTitleConstraints(effectsTitle, draggableView: effectsCards[0])
+            setTitleConstraints(effectsTitle1, draggableView: effectsCards[0])
             setInfoConstraints(effectsText, draggableView: effectsCards[0])
-            
             setCardConstraints(effectsCards[0])
+        }
+    }
+    
+    func paragraphsInText(text: String) -> Int {
+        paragraphsArray = text.characters.split{$0 == "\n"}.map(String.init)
+        return paragraphsArray.count
     }
  
     
@@ -216,8 +278,21 @@ class DrugDetailVC: UIViewController {
         let leadingConstraint = NSLayoutConstraint(item: title, attribute: .Leading, relatedBy: .Equal, toItem: draggableView, attribute: .Leading, multiplier: 1, constant: 5)
         
         let topConstraint = NSLayoutConstraint(item: title, attribute: .Top, relatedBy: .Equal, toItem: draggableView, attribute: .Top, multiplier: 1, constant: 10)
-        
+        print("AAA")
+        if selectedSegment == 1 {
+            infoConstraints.append(leadingConstraint)
+            infoConstraints.append(topConstraint)
+        }
+        print("BBB")
         view.addConstraints([leadingConstraint,topConstraint])
+        print("CCC")
+    }
+    
+    func removeInfoConstraints() {
+        for var i = 0 ; i < infoConstraints.count ; i++ {
+            view.removeConstraint(infoConstraints[i])
+        }
+        
     }
     
     func setInfoConstraints(text: UILabel,draggableView: DraggableView) {
@@ -304,11 +379,17 @@ class DrugDetailVC: UIViewController {
             
             if(selectedSegment == 2) {
                 removeEffectsCards()
+                removeEffectsTitles()
+                removeEffectsTexts()
             }
             selectedSegment = 1
+            print("A")
             setInfoTitles()
+            print("B")
             setInfoTexts()
+            print("c")
             loadInfoCards()
+            print("D")
            // updatePhotoHeight()
 //            definitionTitle.text = "¿Qué es?"
 //            definitionText.text = decomposeStringArray(_drug.description!)
@@ -321,6 +402,7 @@ class DrugDetailVC: UIViewController {
                 removeInfoCards()
                 removeInfoTitles()
                 removeInfoTexts()
+                removeInfoConstraints()
             }
             selectedSegment = 2
             
@@ -354,17 +436,29 @@ class DrugDetailVC: UIViewController {
     }
     
     func removeInfoTexts() {
-        for var i = infoCards.count - 1 ; i >= 0 ; i-- {
-            infoCards.removeAtIndex(i)
+        for var i = infoTexts.count - 1 ; i >= 0 ; i-- {
+            infoTexts.removeAtIndex(i)
         }
     }
     
     func removeEffectsCards() {
-        if effectsCards.count > 0 {
-            effectsCards[0].removeFromSuperview()
+        for var i = effectsCards.count - 1 ; i >= 0 ; i-- {
+            effectsCards[i].removeFromSuperview()
         }
-        
     }
+    
+    func removeEffectsTitles() {
+        for var i = effectsTitles.count - 1 ; i >= 0 ; i-- {
+            effectsTitles.removeAtIndex(i)
+        }
+    }
+    
+    func removeEffectsTexts() {
+        for var i = effectsTextArray.count - 1 ; i >= 0 ; i-- {
+            effectsTextArray.removeAtIndex(i)
+        }
+    }
+    
 
     
 //    func updatePhotoHeight() {
