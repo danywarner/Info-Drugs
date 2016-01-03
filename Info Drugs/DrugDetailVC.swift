@@ -40,7 +40,7 @@ class DrugDetailVC: UIViewController {
     var risksText: UILabel = UILabel()
     var addictiveText: UILabel = UILabel()
     var damageReduceText: UILabel = UILabel()
-    
+    var screenWidth: CGFloat = 0.0
     private var _drug: Drug!
     private var _previousOrientationIsPortrait = true
     
@@ -71,6 +71,7 @@ class DrugDetailVC: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        screenWidth = self.view.frame.size.width
         drugNameLabel.text = _drug.name
         setInfoTitles()
         setInfoTexts()
@@ -102,7 +103,6 @@ class DrugDetailVC: UIViewController {
     
     func linesInUILabel(text: String) -> Int {
         var width: Float = 0.0
-        let screenWidth = self.view.frame.size.width
         if screenWidth == 375.0 {
             width = 325.0
         }
@@ -152,33 +152,6 @@ class DrugDetailVC: UIViewController {
         infoTexts.append(damageReduceText)
         
         linesInUILabel(definitionText.text!)
-    }
-    
-    
-    
-
-    
-    func numberOfLinesInLabel(yourString: String, labelWidth: CGFloat, labelHeight: CGFloat, font: UIFont) -> Int {
-        print(yourString)
-        print(labelHeight)
-        print(labelWidth)
-        
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.minimumLineHeight = labelHeight
-        paragraphStyle.maximumLineHeight = labelHeight
-        paragraphStyle.lineBreakMode = .ByWordWrapping
-        
-        let attributes: [String: AnyObject] = [NSFontAttributeName: font, NSParagraphStyleAttributeName: paragraphStyle]
-        
-        let constrain = CGSizeMake(labelWidth, CGFloat(Float.infinity))
-        
-        let size = yourString.sizeWithAttributes(attributes)
-        let stringWidth = size.width
-        print(stringWidth)
-        print(constrain.width)
-        let numberOfLines = ceil(Double(stringWidth/constrain.width))
-        
-        return Int(numberOfLines)
     }
     
     func loadInfoCards() {
