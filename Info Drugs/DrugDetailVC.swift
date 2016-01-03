@@ -426,6 +426,7 @@ class DrugDetailVC: UIViewController {
     func removeInfoCards() {
         for var i = infoCards.count - 1 ; i >= 0 ; i-- {
             infoCards[i].removeFromSuperview()
+            infoCards.removeAtIndex(i)
         }
     }
     
@@ -444,6 +445,7 @@ class DrugDetailVC: UIViewController {
     func removeEffectsCards() {
         for var i = effectsCards.count - 1 ; i >= 0 ; i-- {
             effectsCards[i].removeFromSuperview()
+            effectsCards.removeAtIndex(i)
         }
     }
     
