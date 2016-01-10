@@ -69,34 +69,34 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         //createInitialDrugs()
         
-        rotated()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        //rotated()
+       // NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
     
 //    override func viewDidAppear(animated: Bool) {
 //        rotated()
 //    }
     
-    func rotated()
-    {
-        
-        if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation))
-        {
-            setPortraitConstraints()
-            
-        } else if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation))
-        {
-            setLandscapeConstraints()
-            
-        } else if previousOrientationIsPortrait == true {
-            
-            setPortraitConstraints()
-            
-        } else if previousOrientationIsPortrait == false {
-            
-            setLandscapeConstraints()
-        }
-    }
+//    func rotated()
+//    {
+//        
+//        if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation))
+//        {
+//            setPortraitConstraints()
+//            
+//        } else if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation))
+//        {
+//            setLandscapeConstraints()
+//            
+//        } else if previousOrientationIsPortrait == true {
+//            
+//            setPortraitConstraints()
+//            
+//        } else if previousOrientationIsPortrait == false {
+//            
+//            setLandscapeConstraints()
+//        }
+//    }
     
     func setPortraitConstraints() {
         topBarHeight.constant = 45

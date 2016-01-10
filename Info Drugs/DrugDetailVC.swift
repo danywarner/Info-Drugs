@@ -15,11 +15,7 @@ class DrugDetailVC: UIViewController {
     @IBOutlet weak var topBarHeight: NSLayoutConstraint!
     @IBOutlet weak var segmentedControlTop: NSLayoutConstraint!
     @IBOutlet weak var backButtonBottom: NSLayoutConstraint!
-    
     @IBOutlet weak var drugNameLabel: UILabel!
-   
-
-    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     
@@ -104,9 +100,9 @@ class DrugDetailVC: UIViewController {
         //        let image = UIImage(named: "\(drug.name)Photo")
         //        drugPhoto.image = image
         
-        rotated()
+       // rotated()
         loadInfoCards()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
+       // NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -128,15 +124,16 @@ class DrugDetailVC: UIViewController {
     
     func linesInUILabel(text: String) -> Int {
         var width: Float = 0.0
-        if screenWidth == 375.0 {
+        if screenWidth == 375.0 { //iPhone 6
             width = 325.0
         }
-        else if screenWidth == 320.0 {
+        else if screenWidth == 320.0 { //iPhone 5
             width = 270.0
             
-        } else if screenWidth == 414.0 {
+        } else if screenWidth == 414.0 { //iPhone 6+
             width = 364.0
         }
+        //The current font size is 16, so 8.0 is the size to divide into.
         let charsInLine = lroundf(width/8.0)
         let lines = Int((text.characters.count))/charsInLine
         return lines
@@ -337,8 +334,6 @@ class DrugDetailVC: UIViewController {
         return paragraphsArray.count
     }
  
-    
-    
     func setTitleConstraints(title: UILabel,draggableView: DraggableView) {
         
         title.textColor = UIColor.redColor()
@@ -397,26 +392,26 @@ class DrugDetailVC: UIViewController {
          view.addConstraints([leadingConstraint,trailingConstraint,topConstraint,bottomConstraint])
     }
     
-    func rotated()
-    {
-        
-        if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation))
-        {
-            setPortraitConstraints()
-            
-        } else if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation))
-        {
-            setLandscapeConstraints()
-            
-        } else if previousOrientationIsPortrait == true {
-            
-            setPortraitConstraints()
-            
-        } else if previousOrientationIsPortrait == false {
-            
-            setLandscapeConstraints()
-        }
-    }
+//    func rotated()
+//    {
+//        
+//        if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation))
+//        {
+//            setPortraitConstraints()
+//            
+//        } else if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation))
+//        {
+//            setLandscapeConstraints()
+//            
+//        } else if previousOrientationIsPortrait == true {
+//            
+//            setPortraitConstraints()
+//            
+//        } else if previousOrientationIsPortrait == false {
+//            
+//            setLandscapeConstraints()
+//        }
+//    }
     
     func setPortraitConstraints() {
         //drugPhotoHeight.constant = 128
@@ -467,7 +462,6 @@ class DrugDetailVC: UIViewController {
                 removeInfoCards()
                 removeInfoTitles()
                 removeInfoTexts()
-               // removeInfoConstraints()
                 
             } else if (selectedSegment == 3) {
                 removeMixesCards()
@@ -482,7 +476,6 @@ class DrugDetailVC: UIViewController {
                 removeInfoCards()
                 removeInfoTitles()
                 removeInfoTexts()
-                //removeInfoConstraints()
             } else if(selectedSegment == 2) {
                 removeEffectsCards()
                 removeEffectsTitles()
@@ -553,34 +546,6 @@ class DrugDetailVC: UIViewController {
         }
     }
     
-
-    
-//    func updatePhotoHeight() {
-//        if _previousOrientationIsPortrait == true {
-//            
-//            drugPhotoHeight.constant = 128
-//        } else {
-//            drugPhotoHeight.constant = 0
-//        }
-//    }
-    
-//    func toggleTextLabels() {
-//        toggleLabel(risksTitle)
-//        toggleLabel(risksText)
-//        toggleLabel(addictiveTitle)
-//        toggleLabel(addictiveText)
-//        toggleLabel(damageReduceTitle)
-//        toggleLabel(damageReduceText)
-//    }
-    
-//    func toggleLabel(label: UILabel) {
-//        
-//        if label.hidden == true && definitionTitle.text == "¿Qué es?" {
-//            label.hidden = false
-//        } else {
-//            label.hidden = true
-//        }
-//    }
     
     func cardSwipedLeft(card: UIView){
         if(selectedSegment == 1) {
@@ -602,8 +567,6 @@ class DrugDetailVC: UIViewController {
             mixesCards.removeAtIndex(0)
         }
     }
-    
-    
     
     func decomposeStringArray(array: [String]) -> String {
         var fullText = ""
