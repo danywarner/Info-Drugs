@@ -18,6 +18,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBOutlet weak var drugLabelBottom: NSLayoutConstraint!
     
+    @IBOutlet weak var appNameLabel: UILabel!
     
    // @IBOutlet weak var searchBar: UISearchBar!
     
@@ -39,9 +40,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
        // searchBar.returnKeyType = UIReturnKeyType.Done
         
         lang = (pre as NSString).substringToIndex(2)
-        if lang == "es" {print(lang)
+        if lang == "es" {
+            
+            print(lang)
+            self.appNameLabel.text = "Info Drogas"
             DataService.ds.REF_ES_DRUGS.observeEventType(.Value, withBlock: { snapshot in
                 //print(snapshot.value)
+                
                 self.drugs = []
                 if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
                     
@@ -73,6 +78,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
        // NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
     
+//    func organizeDrugs() {
+//        let organizedStringsArray = ["Alcohol", "2C-B", "Cannabis", "DMT", "Cocaina", "Crack", "Heroina", "Ketamina", "LSD", "MDMA", "Metanfetamina", "NBOMe", "Psilocybe", "Solventes", "Tabaco"]
+//        var organizedDrugsArray = []
+//        
+//        for var x = 0 ; x < organizedStringsArray.count ; x++ {
+//            let oDrug = drugs.sort
+//        }
+//    }
+//    
 //    override func viewDidAppear(animated: Bool) {
 //        rotated()
 //    }

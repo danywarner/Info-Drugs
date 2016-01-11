@@ -114,6 +114,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="appNameLabel" destination="nqZ-Bx-QDV" id="h0u-zW-30c"/>
                         <outlet property="collection" destination="wON-hR-i1g" id="kyK-bZ-i0e"/>
                         <outlet property="drugLabelBottom" destination="BaG-bb-fL8" id="20F-vJ-VOk"/>
                         <outlet property="drugLabelHeight" destination="OoV-yS-sTg" id="xvR-z3-Wsx"/>
