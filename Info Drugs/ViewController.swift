@@ -70,7 +70,29 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
               self.collection.reloadData()
             })
         } else {
-            print("NOLLANNGNGNGNNG: \(lang)")
+            DataService.ds.REF_EN_DRUGS.observeEventType(.Value, withBlock: { snapshot in
+                //print(snapshot.value)
+                
+                self.drugs = []
+                if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                    
+                    for snap in snapshots {
+                        
+                        // print("SNAP: \(snap)")
+                        
+                        if let drugDict = snap.value as? Dictionary<String, AnyObject> {
+                            let key = snap.key
+                            let drug = Drug(drugName: key, dictionary: drugDict)
+                            self.drugs.append(drug)
+                            
+                        }
+                        
+                    }
+                    
+                    
+                }
+                self.collection.reloadData()
+            })
         }
         collection.reloadData()
         
