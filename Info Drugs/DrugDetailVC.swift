@@ -34,14 +34,20 @@ class DrugDetailVC: UIViewController {
     var effectsTextArray: Array<UILabel> = []
     var mixesTextArray: Array<UILabel> = []
     var definitionTitle: UILabel = UILabel()
-    var risksTitle: UILabel = UILabel()
+    var risksTitle1: UILabel = UILabel()
+    var risksTitle2: UILabel = UILabel()
     var addictiveTitle: UILabel = UILabel()
-    var damageReduceTitle: UILabel = UILabel()
+    var damageReduceTitle1: UILabel = UILabel()
+    var damageReduceTitle2: UILabel = UILabel()
     
     var definitionText: UILabel = UILabel()
     var risksText: UILabel = UILabel()
+    var risksText1: UILabel = UILabel()
+    var risksText2: UILabel = UILabel()
     var addictiveText: UILabel = UILabel()
     var damageReduceText: UILabel = UILabel()
+    var damageReduceText1: UILabel = UILabel()
+    var damageReduceText2: UILabel = UILabel()
     
     var effectsTitle1: UILabel = UILabel()
     var effectsTitle2: UILabel = UILabel()
@@ -148,9 +154,11 @@ class DrugDetailVC: UIViewController {
         if language == "es" {
             
             definitionTitle.text = "¿Qué es?"
-            risksTitle.text = "Riesgos: "
+            risksTitle1.text = "Riesgos: "
+            risksTitle2.text = "Riesgos: "
             addictiveTitle.text = "¿Es Adictivo?"
-            damageReduceTitle.text = "Reducción de daños: "
+            damageReduceTitle1.text = "Reducción de daños: "
+            damageReduceTitle2.text = "Reducción de daños: "
             
             effectsTitle1.text = "Efectos:"
             effectsTitle2.text = "Efectos:"
@@ -163,9 +171,11 @@ class DrugDetailVC: UIViewController {
         } else if language == "en" {
             
             definitionTitle.text = "What is it?"
-            risksTitle.text = "Risks: "
+            risksTitle1.text = "Risks: "
+            risksTitle2.text = "Risks: "
             addictiveTitle.text = "Is It Addictive?"
-            damageReduceTitle.text = "Damage Reduce: "
+            damageReduceTitle1.text = "Damage Reduce: "
+            damageReduceTitle2.text = "Damage Reduce: "
             
             effectsTitle1.text = "Effects:"
             effectsTitle2.text = "Effects:"
@@ -177,9 +187,11 @@ class DrugDetailVC: UIViewController {
         }
         
         infoTitles.append(definitionTitle)
-        infoTitles.append(risksTitle)
+        infoTitles.append(risksTitle1)
+        infoTitles.append(risksTitle2)
         infoTitles.append(addictiveTitle)
-        infoTitles.append(damageReduceTitle)
+        infoTitles.append(damageReduceTitle1)
+        infoTitles.append(damageReduceTitle2)
         
         effectsTitles.append(effectsTitle1)
         effectsTitles.append(effectsTitle2)
@@ -197,9 +209,57 @@ class DrugDetailVC: UIViewController {
         damageReduceText.text = decomposeStringArray(_drug.riskAvoiding!)
         
         infoTexts.append(definitionText)
-        infoTexts.append(risksText)
+        
+        
+        paragraphsArray = []
+        if linesInUILabel(risksText.text!) > 24 {
+            let paragraphsNumber = paragraphsInText(risksText.text!)
+            
+            risksText1.text = paragraphsArray[0]
+            risksText2.text = ""
+            for var k = 1 ; k < paragraphsNumber ; k++ {
+                
+                if linesInUILabel(risksText1.text!+paragraphsArray[k]) < 24 {
+                    risksText1.text? += paragraphsArray[k] + "\n\n"
+                    
+                } else {
+                    risksText2.text? += paragraphsArray[k] + "\n\n"
+                }
+                
+            }
+            infoTexts.append(risksText1)
+            infoTexts.append(risksText2)
+        } else {
+            infoTexts.append(risksText)
+        }
+        
         infoTexts.append(addictiveText)
-        infoTexts.append(damageReduceText)
+        
+        paragraphsArray = []
+        if linesInUILabel(damageReduceText.text!) > 24 {
+            let paragraphsNumber = paragraphsInText(damageReduceText.text!)
+            
+            damageReduceText1.text = paragraphsArray[0]
+            damageReduceText2.text = ""
+            for var k = 1 ; k < paragraphsNumber ; k++ {
+                
+                if linesInUILabel(damageReduceText1.text!+paragraphsArray[k]) < 24 {
+                    damageReduceText1.text? += paragraphsArray[k] + "\n\n"
+                    
+                } else {
+                    damageReduceText2.text? += paragraphsArray[k] + "\n\n"
+                }
+                
+            }
+            infoTexts.append(damageReduceText1)
+            infoTexts.append(damageReduceText2)
+        } else {
+            infoTexts.append(damageReduceText)
+        }
+
+        
+        
+        
         
         effectsText.text = decomposeStringArray(_drug.effects!)
         
@@ -207,7 +267,7 @@ class DrugDetailVC: UIViewController {
     }
     
     func loadInfoCards() {
-        for var i=0 ; i < infoTitles.count ; i++ {
+        for var i=0 ; i < infoTexts.count ; i++ {
             
             let draggableView = DraggableView(frame: draggableViewSize)
             draggableView.delegate = self
