@@ -4,7 +4,8 @@
 use_frameworks!
 
 target 'Info Drugs' do
+source 'https://github.com/CocoaPods/Specs.git'
 pod 'Firebase', '>= 2.5.0'
 pod 'Alamofire', '~> 3.0'
+pod 'Flurry-iOS-SDK/FlurrySDK'
 end
-

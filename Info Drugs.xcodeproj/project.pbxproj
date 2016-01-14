@@ -8,11 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		653DBE7E1C23022500956C98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 653DBE7D1C23022500956C98 /* Assets.xcassets */; };
+		655CC7821C47E24800C91438 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CC7811C47E24800C91438 /* Keys.swift */; };
 		65A46F651C20EDE9009F6274 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A46F641C20EDE9009F6274 /* UIDevice.swift */; };
 		65A46F671C20F103009F6274 /* DrugDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A46F661C20F103009F6274 /* DrugDetailVC.swift */; };
 		65A46F6A1C2226EB009F6274 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A46F691C2226EB009F6274 /* DataService.swift */; };
 		65CA63241C32F77700592DCB /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CA63231C32F77700592DCB /* DraggableView.swift */; };
 		65CA63261C32F7DA00592DCB /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CA63251C32F7DA00592DCB /* OverlayView.swift */; };
+		65D451521C47DEFB00B71F37 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D451511C47DEFB00B71F37 /* AVFoundation.framework */; };
+		65D451541C47DF0700B71F37 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D451531C47DF0700B71F37 /* CoreGraphics.framework */; };
+		65D451561C47DF1200B71F37 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D451551C47DF1200B71F37 /* CoreMedia.framework */; };
+		65D451581C47DF1B00B71F37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D451571C47DF1B00B71F37 /* Foundation.framework */; };
+		65D4515A1C47DF2300B71F37 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D451591C47DF2300B71F37 /* MediaPlayer.framework */; };
+		65D4515C1C47DF2C00B71F37 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D4515B1C47DF2C00B71F37 /* Security.framework */; };
+		65D4515E1C47DF3400B71F37 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D4515D1C47DF3400B71F37 /* StoreKit.framework */; };
+		65D451601C47DF4100B71F37 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D4515F1C47DF4100B71F37 /* SystemConfiguration.framework */; };
+		65D451621C47DF4E00B71F37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D451611C47DF4E00B71F37 /* UIKit.framework */; };
 		65F72D9F1C20C31A0010BAE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F72D9E1C20C31A0010BAE5 /* AppDelegate.swift */; };
 		65F72DA11C20C31A0010BAE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F72DA01C20C31A0010BAE5 /* ViewController.swift */; };
 		65F72DA41C20C31A0010BAE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F72DA21C20C31A0010BAE5 /* Main.storyboard */; };
@@ -26,11 +36,21 @@
 		16B2A60A4733EF5331D114F2 /* Pods-Info Drugs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Drugs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Info Drugs/Pods-Info Drugs.debug.xcconfig"; sourceTree = "<group>"; };
 		36C8A22114580C5B57E3C980 /* Pods_Info_Drugs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Info_Drugs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		653DBE7D1C23022500956C98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Info Drugs/Assets.xcassets"; sourceTree = "<group>"; };
+		655CC7811C47E24800C91438 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		65A46F641C20EDE9009F6274 /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		65A46F661C20F103009F6274 /* DrugDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugDetailVC.swift; sourceTree = "<group>"; };
 		65A46F691C2226EB009F6274 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		65CA63231C32F77700592DCB /* DraggableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
 		65CA63251C32F7DA00592DCB /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
+		65D451511C47DEFB00B71F37 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		65D451531C47DF0700B71F37 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		65D451551C47DF1200B71F37 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		65D451571C47DF1B00B71F37 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		65D451591C47DF2300B71F37 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		65D4515B1C47DF2C00B71F37 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		65D4515D1C47DF3400B71F37 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		65D4515F1C47DF4100B71F37 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		65D451611C47DF4E00B71F37 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		65F72D9B1C20C31A0010BAE5 /* Info Drugs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Info Drugs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65F72D9E1C20C31A0010BAE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65F72DA01C20C31A0010BAE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +67,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65D451621C47DF4E00B71F37 /* UIKit.framework in Frameworks */,
+				65D451601C47DF4100B71F37 /* SystemConfiguration.framework in Frameworks */,
+				65D4515E1C47DF3400B71F37 /* StoreKit.framework in Frameworks */,
+				65D4515C1C47DF2C00B71F37 /* Security.framework in Frameworks */,
+				65D4515A1C47DF2300B71F37 /* MediaPlayer.framework in Frameworks */,
+				65D451581C47DF1B00B71F37 /* Foundation.framework in Frameworks */,
+				65D451561C47DF1200B71F37 /* CoreMedia.framework in Frameworks */,
+				65D451541C47DF0700B71F37 /* CoreGraphics.framework in Frameworks */,
+				65D451521C47DEFB00B71F37 /* AVFoundation.framework in Frameworks */,
 				EA4E99DECFD2BCBA7639AA2A /* Pods_Info_Drugs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				65A46F691C2226EB009F6274 /* DataService.swift */,
+				655CC7811C47E24800C91438 /* Keys.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -136,6 +166,15 @@
 		BAA57696582D971A5A721DB1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				65D451611C47DF4E00B71F37 /* UIKit.framework */,
+				65D4515F1C47DF4100B71F37 /* SystemConfiguration.framework */,
+				65D4515D1C47DF3400B71F37 /* StoreKit.framework */,
+				65D4515B1C47DF2C00B71F37 /* Security.framework */,
+				65D451591C47DF2300B71F37 /* MediaPlayer.framework */,
+				65D451571C47DF1B00B71F37 /* Foundation.framework */,
+				65D451551C47DF1200B71F37 /* CoreMedia.framework */,
+				65D451531C47DF0700B71F37 /* CoreGraphics.framework */,
+				65D451511C47DEFB00B71F37 /* AVFoundation.framework */,
 				36C8A22114580C5B57E3C980 /* Pods_Info_Drugs.framework */,
 			);
 			name = Frameworks;
@@ -272,6 +311,7 @@
 				65A46F671C20F103009F6274 /* DrugDetailVC.swift in Sources */,
 				65F72DB41C20C5730010BAE5 /* Drug.swift in Sources */,
 				65F72DB61C20CCC60010BAE5 /* DrugCell.swift in Sources */,
+				655CC7821C47E24800C91438 /* Keys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +427,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Info Drugs/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Info",
+					Drugs,
+					"$(PROJECT_DIR)/Info",
+					Drugs/Flurry,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.danywarner.infodrugs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -400,6 +447,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Info Drugs/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Info",
+					Drugs,
+					"$(PROJECT_DIR)/Info",
+					Drugs/Flurry,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.danywarner.infodrugs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import Flurry_iOS_SDK
+
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
 
@@ -188,6 +190,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         view.endEditing(true)
+    }
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // Override point for customization after application launch.
+        let flurryKey = Keys.FlurryKey
+        Flurry.startSession(flurryKey);// development
+        return true;
     }
     
     
