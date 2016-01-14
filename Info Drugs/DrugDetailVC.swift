@@ -209,14 +209,14 @@ class DrugDetailVC: UIViewController {
         
         
         paragraphsArray = []
-        if linesInUILabel(risksText.text!) > 24 {
+        if linesInUILabel(risksText.text!) > 23 {
             let paragraphsNumber = paragraphsInText(risksText.text!)
             
-            risksText1.text = paragraphsArray[0]
+            risksText1.text = paragraphsArray[0]+"\n\n"
             risksText2.text = ""
             for var k = 1 ; k < paragraphsNumber ; k++ {
                 
-                if linesInUILabel(risksText1.text!+paragraphsArray[k]) < 24 {
+                if linesInUILabel(risksText1.text!+paragraphsArray[k]) < 23 {
                     risksText1.text? += paragraphsArray[k] + "\n\n"
                     
                 } else {
@@ -233,14 +233,14 @@ class DrugDetailVC: UIViewController {
         infoTexts.append(addictiveText)
         
         paragraphsArray = []
-        if linesInUILabel(damageReduceText.text!) > 24 {
+        if linesInUILabel(damageReduceText.text!) > 23 {
             let paragraphsNumber = paragraphsInText(damageReduceText.text!)
             
-            damageReduceText1.text = paragraphsArray[0]
+            damageReduceText1.text = paragraphsArray[0]+"\n\n"
             damageReduceText2.text = ""
             for var k = 1 ; k < paragraphsNumber ; k++ {
                 
-                if linesInUILabel(damageReduceText1.text!+paragraphsArray[k]) < 24 {
+                if linesInUILabel(damageReduceText1.text!+paragraphsArray[k]) < 23 {
                     damageReduceText1.text? += paragraphsArray[k] + "\n\n"
                     
                 } else {
@@ -253,10 +253,6 @@ class DrugDetailVC: UIViewController {
         } else {
             infoTexts.append(damageReduceText)
         }
-
-        
-        
-        
         
         effectsText.text = decomposeStringArray(_drug.effects!)
         
@@ -295,7 +291,7 @@ class DrugDetailVC: UIViewController {
         if linesInUILabel(mixesText.text!) > 24 {
             let paragraphsNumber = paragraphsInText(mixesText.text!)
             
-            mixesText1.text = paragraphsArray[0]
+            mixesText1.text = paragraphsArray[0]+"\n\n"
             mixesTextx2.text = ""
             mixesTextx3.text = ""
             mixesTextx4.text = ""
@@ -358,14 +354,14 @@ class DrugDetailVC: UIViewController {
     func loadEffectsCards() {
             paragraphsArray = []
         
-        if linesInUILabel(effectsText.text!) > 24 {
+        if linesInUILabel(effectsText.text!) > 22 {
             let paragraphsNumber = paragraphsInText(effectsText.text!)
             
-            effectsText1.text = paragraphsArray[0]
+            effectsText1.text = paragraphsArray[0]+"\n\n"
             effectsText2.text = ""
             
             for var k = 1 ; k < paragraphsNumber ; k++ {
-                if linesInUILabel(effectsText1.text!+paragraphsArray[k]) < 24 {
+                if linesInUILabel(effectsText1.text!+paragraphsArray[k]) < 22 {
                     effectsText1.text? += paragraphsArray[k] + "\n\n"
                     
                 } else {
