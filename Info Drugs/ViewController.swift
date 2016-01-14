@@ -22,8 +22,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBOutlet weak var appNameLabel: UILabel!
     
-   // @IBOutlet weak var searchBar: UISearchBar!
-    
     var drugs = [Drug]()
     var filteredDrugs = [Drug]()
     var inSearchMode = false
@@ -38,8 +36,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         super.viewDidLoad()
         collection.delegate = self
         collection.dataSource = self
-       // searchBar.delegate = self
-       // searchBar.returnKeyType = UIReturnKeyType.Done
         
         lang = (pre as NSString).substringToIndex(2)
         if lang == "es" {
@@ -47,14 +43,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             print(lang)
             self.appNameLabel.text = "Info Drogas"
             DataService.ds.REF_ES_DRUGS.observeEventType(.Value, withBlock: { snapshot in
-                //print(snapshot.value)
                 
                 self.drugs = []
                 if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
                     
                     for snap in snapshots {
-                        
-                       // print("SNAP: \(snap)")
                         
                         if let drugDict = snap.value as? Dictionary<String, AnyObject> {
                             let key = snap.key
@@ -62,10 +55,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                             self.drugs.append(drug)
                             
                         }
-                        
                     }
-                    
-                    
                 }
               self.collection.reloadData()
             })
@@ -86,78 +76,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                             self.drugs.append(drug)
                             
                         }
-                        
                     }
-                    
-                    
                 }
                 self.collection.reloadData()
             })
         }
         collection.reloadData()
-        
-        //createInitialDrugs()
-        
-        //rotated()
-       // NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
     
-//    func organizeDrugs() {
-//        let organizedStringsArray = ["Alcohol", "2C-B", "Cannabis", "DMT", "Cocaina", "Crack", "Heroina", "Ketamina", "LSD", "MDMA", "Metanfetamina", "NBOMe", "Psilocybe", "Solventes", "Tabaco"]
-//        var organizedDrugsArray = []
-//        
-//        for var x = 0 ; x < organizedStringsArray.count ; x++ {
-//            let oDrug = drugs.sort
-//        }
-//    }
-//    
-//    override func viewDidAppear(animated: Bool) {
-//        rotated()
-//    }
-    
-//    func rotated()
-//    {
-//        
-//        if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation))
-//        {
-//            setPortraitConstraints()
-//            
-//        } else if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation))
-//        {
-//            setLandscapeConstraints()
-//            
-//        } else if previousOrientationIsPortrait == true {
-//            
-//            setPortraitConstraints()
-//            
-//        } else if previousOrientationIsPortrait == false {
-//            
-//            setLandscapeConstraints()
-//        }
-//    }
-    
-    func setPortraitConstraints() {
-        topBarHeight.constant = 45
-        drugLabelHeight.constant = 30
-        drugLabelBottom.constant = 0
-        previousOrientationIsPortrait = true
-    }
-    
-    func setLandscapeConstraints() {
-        topBarHeight.constant = 25
-        drugLabelHeight.constant = 20
-        drugLabelBottom.constant = 3
-        previousOrientationIsPortrait = false
-    }
-    
-    func createInitialDrugs() {
-        let drugsArray = ["Heroina", "Ketamina", "Metanfetamina", "NBOMe", "Alcohol", "Benzodiazepinas", "Cannabis", "Cocaina", "Crack", "DMT", "Inhalantes", "LSD", "MDMA", "Tabaco"]
-        
-        for drugName in drugsArray {
-            let tempDrug = Drug(name: drugName)
-            drugs.append(tempDrug)
-        }
-    }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         

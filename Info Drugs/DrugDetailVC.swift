@@ -110,14 +110,11 @@ class DrugDetailVC: UIViewController {
         //        let image = UIImage(named: "\(drug.name)Photo")
         //        drugPhoto.image = image
         
-       // rotated()
         loadInfoCards()
-       // NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        //lines()
     }
     
     func lines() {
@@ -285,11 +282,10 @@ class DrugDetailVC: UIViewController {
                 view.insertSubview(infoCards[i], belowSubview: infoCards[i-1])
                 setTitleConstraints(infoTitles[i], draggableView: infoCards[i])
                 setInfoConstraints(infoTexts[i], draggableView: infoCards[i])
-                
+ 
             }
             
             setCardConstraints(infoCards[i])
-            
         }
     }
     
@@ -474,27 +470,6 @@ class DrugDetailVC: UIViewController {
 
          view.addConstraints([leadingConstraint,trailingConstraint,topConstraint,bottomConstraint])
     }
-    
-//    func rotated()
-//    {
-//        
-//        if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation))
-//        {
-//            setPortraitConstraints()
-//            
-//        } else if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation))
-//        {
-//            setLandscapeConstraints()
-//            
-//        } else if previousOrientationIsPortrait == true {
-//            
-//            setPortraitConstraints()
-//            
-//        } else if previousOrientationIsPortrait == false {
-//            
-//            setLandscapeConstraints()
-//        }
-//    }
     
     func setPortraitConstraints() {
         //drugPhotoHeight.constant = 128
