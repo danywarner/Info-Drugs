@@ -18,7 +18,7 @@ protocol DraggableViewDelegate {
 
 class DraggableView: UIView{
     
-    var overlayView: OverlayView!
+    //var overlayView: OverlayView!
     var xFromCenter: CGFloat!
     var yFromCenter: CGFloat!
     var originalPoint: CGPoint!
@@ -50,9 +50,9 @@ class DraggableView: UIView{
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action:"beingDragged:")
         self.addGestureRecognizer(panGestureRecognizer)
         
-        overlayView = OverlayView(frame: CGRectMake(self.frame.size.width/2-100, 0, 100, 100))
-        overlayView!.alpha = 0
-        self.addSubview(overlayView)
+//        overlayView = OverlayView(frame: CGRectMake(self.frame.size.width/2-100, 0, 100, 100))
+//        overlayView!.alpha = 0
+//        self.addSubview(overlayView)
         
     }
     
@@ -97,7 +97,7 @@ class DraggableView: UIView{
             let scaleTransform: CGAffineTransform = CGAffineTransformScale(transform, scale, scale)
             
             self.transform = scaleTransform
-            self.updateOverlay(xFromCenter)
+         //     self.updateOverlay(xFromCenter)
             
         case .Ended:
             self.afterSwipeAction()
@@ -113,15 +113,15 @@ class DraggableView: UIView{
         }
     }
     
-    func updateOverlay(distance: CGFloat) {
-        if distance > 0 {
-            overlayView.mode = OverlayView.CGOverlayViewMode.GGOverlayViewModeRight
-        } else {
-            overlayView.mode = OverlayView.CGOverlayViewMode.GGOverlayViewModeLeft
-        }
-        
-        overlayView.alpha = min(CGFloat(fabsf(Float(distance))/100), CGFloat(0.4))
-    }
+//    func updateOverlay(distance: CGFloat) {
+//        if distance > 0 {
+//            overlayView.mode = OverlayView.CGOverlayViewMode.GGOverlayViewModeRight
+//        } else {
+//            overlayView.mode = OverlayView.CGOverlayViewMode.GGOverlayViewModeLeft
+//        }
+//        
+//        overlayView.alpha = min(CGFloat(fabsf(Float(distance))/100), CGFloat(0.4))
+//    }
     
     func afterSwipeAction() {
         if xFromCenter > ACTION_MARGIN {
@@ -132,7 +132,7 @@ class DraggableView: UIView{
             UIView.animateWithDuration(0.3, animations: {
                 self.center = self.originalPoint
                 self.transform = CGAffineTransformMakeRotation(0)
-                self.overlayView.alpha = 0
+               // self.overlayView.alpha = 0
             })
         }
     }
