@@ -53,9 +53,13 @@ class DrugDetailVC: UIViewController {
     
     var mixesTitle1: UILabel = UILabel()
     var mixesTitle2: UILabel = UILabel()
+    var mixesTitle3: UILabel = UILabel()
+    var mixesTitle4: UILabel = UILabel()
     var mixesText: UILabel = UILabel()
     var mixesText1: UILabel = UILabel()
     var mixesTextx2: UILabel = UILabel()
+    var mixesTextx3: UILabel = UILabel()
+    var mixesTextx4: UILabel = UILabel()
     
     var screenWidth: CGFloat = 0.0
     private var _drug: Drug!
@@ -153,6 +157,8 @@ class DrugDetailVC: UIViewController {
             
             mixesTitle1.text = "Mezclas comunes:"
             mixesTitle2.text = "Mezclas comunes:"
+            mixesTitle3.text = "Mezclas comunes:"
+            mixesTitle4.text = "Mezclas comunes:"
             
         } else if language == "en" {
             
@@ -166,6 +172,8 @@ class DrugDetailVC: UIViewController {
             
             mixesTitle1.text = "Common Mixes:"
             mixesTitle2.text = "Common Mixes:"
+            mixesTitle3.text = "Common Mixes:"
+            mixesTitle4.text = "Common Mixes:"
         }
         
         infoTitles.append(definitionTitle)
@@ -178,6 +186,8 @@ class DrugDetailVC: UIViewController {
         
         mixesTitles.append(mixesTitle1)
         mixesTitles.append(mixesTitle2)
+        mixesTitles.append(mixesTitle3)
+        mixesTitles.append(mixesTitle4)
     }
     
     func setInfoTexts() {
@@ -231,19 +241,32 @@ class DrugDetailVC: UIViewController {
             
             mixesText1.text = paragraphsArray[0]
             mixesTextx2.text = ""
+            mixesTextx3.text = ""
+            mixesTextx4.text = ""
             
             for var k = 1 ; k < paragraphsNumber ; k++ {
                 if linesInUILabel(mixesText1.text!+paragraphsArray[k]) < 24 {
                     mixesText1.text? += paragraphsArray[k] + "\n\n"
                     
-                } else {
+                } else if linesInUILabel(mixesTextx2.text!+paragraphsArray[k]) < 24 {
                     mixesTextx2.text? += paragraphsArray[k] + "\n\n"
+                } else if linesInUILabel(mixesTextx3.text!+paragraphsArray[k]) < 24 {
+                    mixesTextx3.text? += paragraphsArray[k] + "\n\n"
+                } else {
+                    mixesTextx4.text? += paragraphsArray[k] + "\n\n"
                 }
             }
             mixesTextArray.append(mixesText1)
             mixesTextArray.append(mixesTextx2)
+            if mixesTextx3.text != "" {
+                mixesTextArray.append(mixesTextx3)
+            }
+            if mixesTextx4.text != "" {
+                mixesTextArray.append(mixesTextx4)
+            }
             
-            for var i = 0 ; i < 2 ; i++ {
+            
+            for var i = 0 ; i < mixesTextArray.count ; i++ {
                 let draggableView = DraggableView(frame: draggableViewSize)
                 draggableView.delegate = self
                 mixesCards.append(draggableView)
