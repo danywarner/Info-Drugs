@@ -19,7 +19,35 @@ class DrugCell: UICollectionViewCell {
         self.drug = drug
         
         nameLbl.text = self.drug.name
-        thumbImg.image = UIImage(named: "\(drug.name)")
+        
+        if drug.name == "Cocaine" {
+            
+            thumbImg.image = UIImage(named: "Cocaina")
+            
+        } else if drug.name == "Heroine" {
+            
+            thumbImg.image = UIImage(named: "Heroina")
+            
+        } else if drug.name == "Ketamine" {
+            
+            thumbImg.image = UIImage(named: "Ketamina")
+            
+        } else if drug.name == "Methamphetamine" {
+            
+            thumbImg.image = UIImage(named: "Metanfetamina")
+            
+        } else if drug.name == "Solvents" {
+            
+            thumbImg.image = UIImage(named: "Solventes")
+            
+        } else if drug.name == "Tobacco" {
+            
+            thumbImg.image = UIImage(named: "Tabaco")
+            
+        } else {
+            thumbImg.image = UIImage(named: "\(drug.name)")
+        }
+        
     }
     
 }
