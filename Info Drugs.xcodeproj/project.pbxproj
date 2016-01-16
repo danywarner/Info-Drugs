@@ -215,6 +215,7 @@
 				TargetAttributes = {
 					65F72D9A1C20C31A0010BAE5 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = UE6NL24U52;
 					};
 				};
 			};
@@ -425,6 +426,8 @@
 			baseConfigurationReference = 16B2A60A4733EF5331D114F2 /* Pods-Info Drugs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Info Drugs/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -436,6 +439,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.danywarner.infodrugs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -445,6 +449,8 @@
 			baseConfigurationReference = B998C7548FB05FA65E4F8058 /* Pods-Info Drugs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Info Drugs/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -456,6 +462,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.danywarner.infodrugs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

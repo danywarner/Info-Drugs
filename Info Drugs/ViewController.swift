@@ -82,6 +82,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             })
         }
         collection.reloadData()
+        
+        let flurryKey = Keys.FlurryKey
+        print(flurryKey)
+        Flurry.startSession(flurryKey);// development
     }
     
     
@@ -140,12 +144,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         view.endEditing(true)
     }
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        let flurryKey = Keys.FlurryKey
-        Flurry.startSession(flurryKey);// development
-        return true;
-    }
+//    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+//        // Override point for customization after application launch.
+//        let flurryKey = Keys.FlurryKey
+//        print(flurryKey)
+//        Flurry.startSession(flurryKey);// development
+//        return true;
+//    }
     
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
