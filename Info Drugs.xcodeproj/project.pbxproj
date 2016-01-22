@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		653DBE7E1C23022500956C98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 653DBE7D1C23022500956C98 /* Assets.xcassets */; };
 		655CC7821C47E24800C91438 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CC7811C47E24800C91438 /* Keys.swift */; };
+		658E1AED1C52E5A100A30B7C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 658E1AEF1C52E5A100A30B7C /* InfoPlist.strings */; };
 		65A46F651C20EDE9009F6274 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A46F641C20EDE9009F6274 /* UIDevice.swift */; };
 		65A46F671C20F103009F6274 /* DrugDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A46F661C20F103009F6274 /* DrugDetailVC.swift */; };
 		65A46F6A1C2226EB009F6274 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A46F691C2226EB009F6274 /* DataService.swift */; };
@@ -37,6 +38,11 @@
 		36C8A22114580C5B57E3C980 /* Pods_Info_Drugs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Info_Drugs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		653DBE7D1C23022500956C98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Info Drugs/Assets.xcassets"; sourceTree = "<group>"; };
 		655CC7811C47E24800C91438 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		658E1AEE1C52E5A100A30B7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		658E1AF01C52E5CD00A30B7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		658E1AF11C52E62700A30B7C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		658E1AF21C52E62700A30B7C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		658E1AF31C52E62700A30B7C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		65A46F641C20EDE9009F6274 /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		65A46F661C20F103009F6274 /* DrugDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugDetailVC.swift; sourceTree = "<group>"; };
 		65A46F691C2226EB009F6274 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -95,6 +101,7 @@
 		65F72D921C20C31A0010BAE5 = {
 			isa = PBXGroup;
 			children = (
+				658E1AEF1C52E5A100A30B7C /* InfoPlist.strings */,
 				65F72D9D1C20C31A0010BAE5 /* Info Drugs */,
 				65F72D9C1C20C31A0010BAE5 /* Products */,
 				653DBE7D1C23022500956C98 /* Assets.xcassets */,
@@ -226,6 +233,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 65F72D921C20C31A0010BAE5;
 			productRefGroup = 65F72D9C1C20C31A0010BAE5 /* Products */;
@@ -243,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65F72DA91C20C31A0010BAE5 /* LaunchScreen.storyboard in Resources */,
+				658E1AED1C52E5A100A30B7C /* InfoPlist.strings in Resources */,
 				653DBE7E1C23022500956C98 /* Assets.xcassets in Resources */,
 				65F72DA41C20C31A0010BAE5 /* Main.storyboard in Resources */,
 			);
@@ -319,10 +328,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		658E1AEF1C52E5A100A30B7C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				658E1AEE1C52E5A100A30B7C /* en */,
+				658E1AF01C52E5CD00A30B7C /* Base */,
+				658E1AF11C52E62700A30B7C /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		65F72DA21C20C31A0010BAE5 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				65F72DA31C20C31A0010BAE5 /* Base */,
+				658E1AF21C52E62700A30B7C /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -331,6 +351,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				65F72DA81C20C31A0010BAE5 /* Base */,
+				658E1AF31C52E62700A30B7C /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
