@@ -146,6 +146,41 @@ class DrugDetailVC: UIViewController {
         return lines
     }
     
+    func setEffectsTitles() {
+        if language == "es" {
+            effectsTitle1.text = "Efectos:"
+            effectsTitle2.text = "Efectos:"
+        } else {
+            effectsTitle1.text = "Effects:"
+            effectsTitle2.text = "Effects:"
+        }
+        
+        effectsTitles.append(effectsTitle1)
+        effectsTitles.append(effectsTitle2)
+        
+    }
+    
+    func setMixesTitles() {
+        if language == "es" {
+            mixesTitle1.text = "Mezclas comunes:"
+            mixesTitle2.text = "Mezclas comunes:"
+            mixesTitle3.text = "Mezclas comunes:"
+            mixesTitle4.text = "Mezclas comunes:"
+        
+        } else {
+            mixesTitle1.text = "Common Mixes:"
+            mixesTitle2.text = "Common Mixes:"
+            mixesTitle3.text = "Common Mixes:"
+            mixesTitle4.text = "Common Mixes:"
+        }
+        
+        mixesTitles.append(mixesTitle1)
+        mixesTitles.append(mixesTitle2)
+        mixesTitles.append(mixesTitle3)
+        mixesTitles.append(mixesTitle4)
+        
+    }
+    
     
     func setInfoTitles() {
         if language == "es" {
@@ -157,15 +192,6 @@ class DrugDetailVC: UIViewController {
             damageReduceTitle1.text = "Reducción de daños: "
             damageReduceTitle2.text = "Reducción de daños: "
             
-            effectsTitle1.text = "Efectos:"
-            effectsTitle2.text = "Efectos:"
-            
-            mixesTitle1.text = "Mezclas comunes:"
-            mixesTitle2.text = "Mezclas comunes:"
-            mixesTitle3.text = "Mezclas comunes:"
-            mixesTitle4.text = "Mezclas comunes:"
-            
-            
         } else if language == "en" {
             
             definitionTitle.text = "What is it?"
@@ -175,13 +201,7 @@ class DrugDetailVC: UIViewController {
             damageReduceTitle1.text = "Harm Reduction: "
             damageReduceTitle2.text = "Harm Reduction: "
             
-            effectsTitle1.text = "Effects:"
-            effectsTitle2.text = "Effects:"
-            
-            mixesTitle1.text = "Common Mixes:"
-            mixesTitle2.text = "Common Mixes:"
-            mixesTitle3.text = "Common Mixes:"
-            mixesTitle4.text = "Common Mixes:"
+         
             segmentedControl.setTitle("Effects", forSegmentAtIndex: 1)
             segmentedControl.setTitle("Mixes", forSegmentAtIndex: 2)
         }
@@ -193,13 +213,6 @@ class DrugDetailVC: UIViewController {
         infoTitles.append(damageReduceTitle1)
         infoTitles.append(damageReduceTitle2)
         
-        effectsTitles.append(effectsTitle1)
-        effectsTitles.append(effectsTitle2)
-        
-        mixesTitles.append(mixesTitle1)
-        mixesTitles.append(mixesTitle2)
-        mixesTitles.append(mixesTitle3)
-        mixesTitles.append(mixesTitle4)
     }
     
     func setInfoTexts() {
@@ -527,6 +540,7 @@ class DrugDetailVC: UIViewController {
                 removeMixesTexts()
             }
             selectedSegment = 2
+            setEffectsTitles()
             loadEffectsCards()
             
         case 2:
@@ -540,6 +554,7 @@ class DrugDetailVC: UIViewController {
                 removeEffectsTexts()
             }
             selectedSegment = 3
+            setMixesTitles()
             loadMixesCards()
             
         default:
