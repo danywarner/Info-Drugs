@@ -495,8 +495,7 @@ class DrugDetailVC: UIViewController {
     }
     
     @IBAction func segmentedControlActionChanged(sender: UISegmentedControl) {
-        setInfoTitles()
-        setInfoTexts()
+        
         switch(sender.selectedSegmentIndex) {
             
         case 0:
@@ -505,18 +504,14 @@ class DrugDetailVC: UIViewController {
                 removeEffectsCards()
                 removeEffectsTitles()
                 removeEffectsTexts()
-                removeEffectsCards()
-                removeEffectsTitles()
-                removeEffectsTexts()
             } else if (selectedSegment == 3) {
-                removeMixesCards()
-                removeMixesTitles()
-                removeMixesTexts()
                 removeMixesCards()
                 removeMixesTitles()
                 removeMixesTexts()
             }
             selectedSegment = 1
+            setInfoTitles()
+            setInfoTexts()
             loadInfoCards()
             
         case 1:

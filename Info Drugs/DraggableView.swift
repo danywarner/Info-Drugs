@@ -146,7 +146,7 @@ class DraggableView: UIView{
                 self.removeFromSuperview()
         })
         delegate.cardSwipedRight(self)
-        print("YES")
+        //print("YES")
     }
     
     func leftAction() {
@@ -158,7 +158,7 @@ class DraggableView: UIView{
                 self.removeFromSuperview()
         })
         delegate.cardSwipedLeft(self)
-        print("NO")
+        //print("NO")
     }
     
     

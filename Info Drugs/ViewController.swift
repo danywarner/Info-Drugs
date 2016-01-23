@@ -32,7 +32,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidLoad() {
         
-        print("language: \(pre)")
+        //print("language: \(pre)")
         super.viewDidLoad()
         collection.delegate = self
         collection.dataSource = self
@@ -40,7 +40,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         lang = (pre as NSString).substringToIndex(2)
         if lang == "es" {
             
-            print(lang)
+            //print(lang)
             self.appNameLabel.text = "Info Drogas"
             DataService.ds.REF_ES_DRUGS.observeEventType(.Value, withBlock: { snapshot in
                 
@@ -84,7 +84,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collection.reloadData()
         
         let flurryKey = Keys.FlurryKey
-        print(flurryKey)
+        //print(flurryKey)
         Flurry.startSession(flurryKey);// development
     }
     
