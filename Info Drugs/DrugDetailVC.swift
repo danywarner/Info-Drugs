@@ -505,7 +505,13 @@ class DrugDetailVC: UIViewController {
                 removeEffectsCards()
                 removeEffectsTitles()
                 removeEffectsTexts()
+                removeEffectsCards()
+                removeEffectsTitles()
+                removeEffectsTexts()
             } else if (selectedSegment == 3) {
+                removeMixesCards()
+                removeMixesTitles()
+                removeMixesTexts()
                 removeMixesCards()
                 removeMixesTitles()
                 removeMixesTexts()

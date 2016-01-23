@@ -16,9 +16,16 @@ class DrugCell: UICollectionViewCell {
     var drug: Drug!
     
     func configureCell(drug: Drug) {
+        
         self.drug = drug
         
-        nameLbl.text = self.drug.name
+        if(drug.name == "Metanfetamina" || drug.name == "Methamphetamine") {
+            nameLbl.text = "Meth"
+        } else {
+            nameLbl.text = self.drug.name
+        }
+        
+        
         
         if drug.name == "Cocaine" {
             
