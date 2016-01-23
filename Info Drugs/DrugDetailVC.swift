@@ -165,14 +165,15 @@ class DrugDetailVC: UIViewController {
             mixesTitle3.text = "Mezclas comunes:"
             mixesTitle4.text = "Mezclas comunes:"
             
+            
         } else if language == "en" {
             
             definitionTitle.text = "What is it?"
             risksTitle1.text = "Risks: "
             risksTitle2.text = "Risks: "
             addictiveTitle.text = "Is It Addictive?"
-            damageReduceTitle1.text = "Damage Reduce: "
-            damageReduceTitle2.text = "Damage Reduce: "
+            damageReduceTitle1.text = "Harm Reduction: "
+            damageReduceTitle2.text = "Harm Reduction: "
             
             effectsTitle1.text = "Effects:"
             effectsTitle2.text = "Effects:"
@@ -181,6 +182,8 @@ class DrugDetailVC: UIViewController {
             mixesTitle2.text = "Common Mixes:"
             mixesTitle3.text = "Common Mixes:"
             mixesTitle4.text = "Common Mixes:"
+            segmentedControl.setTitle("Effects", forSegmentAtIndex: 1)
+            segmentedControl.setTitle("Mixes", forSegmentAtIndex: 2)
         }
         
         infoTitles.append(definitionTitle)
