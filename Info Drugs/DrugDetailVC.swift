@@ -68,6 +68,7 @@ class DrugDetailVC: UIViewController {
     var mixesTextx4: UILabel = UILabel()
     
     var screenWidth: CGFloat = 0.0
+    var screenHeight: CGFloat = 0.0
     private var _drug: Drug!
     private var _previousOrientationIsPortrait = true
     var selectedSegment = 1
@@ -103,6 +104,7 @@ class DrugDetailVC: UIViewController {
         
         super.viewDidLoad()
         screenWidth = self.view.frame.size.width
+        screenHeight = self.view.frame.size.height
         drugNameLabel.text = _drug.name
         setInfoTitles()
         setInfoTexts()
@@ -456,10 +458,31 @@ class DrugDetailVC: UIViewController {
     func setInfoConstraints(text: UILabel,draggableView: DraggableView) {
         
         text.textColor = UIColor.blackColor()
-        text.font = UIFont(name: "HelveticaNeue", size: CGFloat(12))
+        
         text.numberOfLines = 0
         text.translatesAutoresizingMaskIntoConstraints = false
-        text.minimumScaleFactor = 9
+        
+        if screenWidth == 375.0 { //iPhone 6
+            text.font = UIFont(name: "HelveticaNeue", size: CGFloat(15))
+        }
+        else if screenWidth == 320.0 {
+            
+            if screenHeight == 480.0 { //iPhone 4s
+                text.font = UIFont(name: "HelveticaNeue", size: CGFloat(12))
+            } else if screenHeight == 568.0 { //iPhone 5
+                text.font = UIFont(name: "HelveticaNeue", size: CGFloat(14))
+            }
+            
+            
+        } else if screenWidth == 414.0 { //iPhone 6+
+            text.font = UIFont(name: "HelveticaNeue", size: CGFloat(16))
+        } else {
+            text.font = UIFont(name: "HelveticaNeue", size: CGFloat(12))
+        }
+        //print(screenWidth)
+        //print(screenHeight)
+        
+        
         let leadingConstraint = NSLayoutConstraint(item: text, attribute: .Leading, relatedBy: .Equal, toItem: draggableView, attribute: .Leading, multiplier: 1, constant: 5)
         
         let topConstraint = NSLayoutConstraint(item: text, attribute: .Top, relatedBy: .Equal, toItem: draggableView, attribute: .Top, multiplier: 1, constant: 40)
