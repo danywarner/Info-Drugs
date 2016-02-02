@@ -217,6 +217,7 @@ class DrugDetailVC: UIViewController {
     
     func setInfoTexts() {
         definitionText.text = decomposeStringArray(_drug.description!)
+
         risksText.text = decomposeStringArray(_drug.risks!)
         addictiveText.text = decomposeStringArray(_drug.addictive!)
         damageReduceText.text = decomposeStringArray(_drug.riskAvoiding!)
@@ -455,10 +456,10 @@ class DrugDetailVC: UIViewController {
     func setInfoConstraints(text: UILabel,draggableView: DraggableView) {
         
         text.textColor = UIColor.blackColor()
-        text.font = UIFont(name: "HelveticaNeue", size: CGFloat(14))
+        text.font = UIFont(name: "HelveticaNeue", size: CGFloat(12))
         text.numberOfLines = 0
         text.translatesAutoresizingMaskIntoConstraints = false
-        
+        text.minimumScaleFactor = 9
         let leadingConstraint = NSLayoutConstraint(item: text, attribute: .Leading, relatedBy: .Equal, toItem: draggableView, attribute: .Leading, multiplier: 1, constant: 5)
         
         let topConstraint = NSLayoutConstraint(item: text, attribute: .Top, relatedBy: .Equal, toItem: draggableView, attribute: .Top, multiplier: 1, constant: 40)
