@@ -18,6 +18,7 @@ class DataService {
     private var _REF_BASE = Firebase(url: "\(URL_BASE)")
     private var _REF_ES_DRUGS = Firebase(url: "\(URL_BASE)/es_drugs")
     private var _REF_EN_DRUGS = Firebase(url: "\(URL_BASE)/en_drugs")
+    private var _REF_DATA_VERSION = Firebase(url: "\(URL_BASE)/dataVersion")
     
     var REF_BASE: Firebase {
         return _REF_BASE

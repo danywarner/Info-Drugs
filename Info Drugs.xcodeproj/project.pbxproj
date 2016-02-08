@@ -13,6 +13,9 @@
 		65A46F651C20EDE9009F6274 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A46F641C20EDE9009F6274 /* UIDevice.swift */; };
 		65A46F671C20F103009F6274 /* DrugDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A46F661C20F103009F6274 /* DrugDetailVC.swift */; };
 		65A46F6A1C2226EB009F6274 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A46F691C2226EB009F6274 /* DataService.swift */; };
+		65C52A1D1C692D91007055C5 /* Info_Drugs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65C52A1B1C692D91007055C5 /* Info_Drugs.xcdatamodeld */; };
+		65C52A281C693107007055C5 /* Drug+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C52A261C693107007055C5 /* Drug+CoreDataProperties.swift */; };
+		65C52A291C693107007055C5 /* Drug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C52A271C693107007055C5 /* Drug.swift */; };
 		65CA63241C32F77700592DCB /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CA63231C32F77700592DCB /* DraggableView.swift */; };
 		65CA63261C32F7DA00592DCB /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CA63251C32F7DA00592DCB /* OverlayView.swift */; };
 		65D451521C47DEFB00B71F37 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D451511C47DEFB00B71F37 /* AVFoundation.framework */; };
@@ -28,7 +31,6 @@
 		65F72DA11C20C31A0010BAE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F72DA01C20C31A0010BAE5 /* ViewController.swift */; };
 		65F72DA41C20C31A0010BAE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F72DA21C20C31A0010BAE5 /* Main.storyboard */; };
 		65F72DA91C20C31A0010BAE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F72DA71C20C31A0010BAE5 /* LaunchScreen.storyboard */; };
-		65F72DB41C20C5730010BAE5 /* Drug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F72DB31C20C5730010BAE5 /* Drug.swift */; };
 		65F72DB61C20CCC60010BAE5 /* DrugCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F72DB51C20CCC60010BAE5 /* DrugCell.swift */; };
 		EA4E99DECFD2BCBA7639AA2A /* Pods_Info_Drugs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C8A22114580C5B57E3C980 /* Pods_Info_Drugs.framework */; };
 /* End PBXBuildFile section */
@@ -46,6 +48,9 @@
 		65A46F641C20EDE9009F6274 /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		65A46F661C20F103009F6274 /* DrugDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugDetailVC.swift; sourceTree = "<group>"; };
 		65A46F691C2226EB009F6274 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		65C52A1C1C692D91007055C5 /* Info_Drugs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Info_Drugs.xcdatamodel; sourceTree = "<group>"; };
+		65C52A261C693107007055C5 /* Drug+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Drug+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		65C52A271C693107007055C5 /* Drug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drug.swift; sourceTree = "<group>"; };
 		65CA63231C32F77700592DCB /* DraggableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
 		65CA63251C32F7DA00592DCB /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		65D451511C47DEFB00B71F37 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -63,7 +68,6 @@
 		65F72DA31C20C31A0010BAE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		65F72DA81C20C31A0010BAE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65F72DAA1C20C31A0010BAE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		65F72DB31C20C5730010BAE5 /* Drug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drug.swift; sourceTree = "<group>"; };
 		65F72DB51C20CCC60010BAE5 /* DrugCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugCell.swift; sourceTree = "<group>"; };
 		B998C7548FB05FA65E4F8058 /* Pods-Info Drugs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Drugs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Info Drugs/Pods-Info Drugs.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +133,7 @@
 				65F72DA21C20C31A0010BAE5 /* Main.storyboard */,
 				65F72DA71C20C31A0010BAE5 /* LaunchScreen.storyboard */,
 				65F72DAA1C20C31A0010BAE5 /* Info.plist */,
+				65C52A1B1C692D91007055C5 /* Info_Drugs.xcdatamodeld */,
 			);
 			path = "Info Drugs";
 			sourceTree = "<group>";
@@ -155,7 +160,8 @@
 		65F72DB21C20C5370010BAE5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				65F72DB31C20C5730010BAE5 /* Drug.swift */,
+				65C52A261C693107007055C5 /* Drug+CoreDataProperties.swift */,
+				65C52A271C693107007055C5 /* Drug.swift */,
 				65A46F641C20EDE9009F6274 /* UIDevice.swift */,
 			);
 			name = Model;
@@ -317,11 +323,13 @@
 				65A46F6A1C2226EB009F6274 /* DataService.swift in Sources */,
 				65CA63241C32F77700592DCB /* DraggableView.swift in Sources */,
 				65F72DA11C20C31A0010BAE5 /* ViewController.swift in Sources */,
+				65C52A281C693107007055C5 /* Drug+CoreDataProperties.swift in Sources */,
 				65F72D9F1C20C31A0010BAE5 /* AppDelegate.swift in Sources */,
 				65A46F671C20F103009F6274 /* DrugDetailVC.swift in Sources */,
-				65F72DB41C20C5730010BAE5 /* Drug.swift in Sources */,
 				65F72DB61C20CCC60010BAE5 /* DrugCell.swift in Sources */,
 				655CC7821C47E24800C91438 /* Keys.swift in Sources */,
+				65C52A1D1C692D91007055C5 /* Info_Drugs.xcdatamodeld in Sources */,
+				65C52A291C693107007055C5 /* Drug.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +520,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		65C52A1B1C692D91007055C5 /* Info_Drugs.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				65C52A1C1C692D91007055C5 /* Info_Drugs.xcdatamodel */,
+			);
+			currentVersion = 65C52A1C1C692D91007055C5 /* Info_Drugs.xcdatamodel */;
+			path = Info_Drugs.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 65F72D931C20C31A0010BAE5 /* Project object */;
 }

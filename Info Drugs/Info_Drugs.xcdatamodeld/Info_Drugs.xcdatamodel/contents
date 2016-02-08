@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Xcode 7.0">
+    <entity name="Drug" representedClassName=".Drug" syncable="YES">
+        <attribute name="addictive" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="drugDescription" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="effects" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="legal" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="mixes" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="riskAvoiding" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="risks" optional="YES" attributeType="Transformable" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Drug" positionX="-63" positionY="-18" width="128" height="165"/>
+    </elements>
+</model>

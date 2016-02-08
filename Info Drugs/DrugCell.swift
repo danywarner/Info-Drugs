@@ -18,41 +18,42 @@ class DrugCell: UICollectionViewCell {
     func configureCell(drug: Drug) {
         
         self.drug = drug
+        let drugName = drug.name!
         
-        if(drug.name == "Metanfetamina" || drug.name == "Methamphetamine") {
+        if(drugName == "Metanfetamina" || drugName == "Methamphetamine") {
             nameLbl.text = "Meth"
         } else {
-            nameLbl.text = self.drug.name
+            nameLbl.text = drugName
         }
         
         
         
-        if drug.name == "Cocaine" {
+        if drugName == "Cocaine" {
             
             thumbImg.image = UIImage(named: "Cocaina")
             
-        } else if drug.name == "Heroine" {
+        } else if drugName == "Heroine" {
             
             thumbImg.image = UIImage(named: "Heroina")
             
-        } else if drug.name == "Ketamine" {
+        } else if drugName == "Ketamine" {
             
             thumbImg.image = UIImage(named: "Ketamina")
             
-        } else if drug.name == "Methamphetamine" {
+        } else if drugName == "Methamphetamine" {
             
             thumbImg.image = UIImage(named: "Metanfetamina")
             
-        } else if drug.name == "Solvents" {
+        } else if drugName == "Solvents" {
             
             thumbImg.image = UIImage(named: "Solventes")
             
-        } else if drug.name == "Tobacco" {
+        } else if drugName == "Tobacco" {
             
             thumbImg.image = UIImage(named: "Tabaco")
             
         } else {
-            thumbImg.image = UIImage(named: "\(drug.name)")
+            thumbImg.image = UIImage(named: "\(drugName)")
         }
         
     }

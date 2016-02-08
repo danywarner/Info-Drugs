@@ -149,6 +149,7 @@ class DrugDetailVC: UIViewController {
     }
     
     func setEffectsTitles() {
+        print(language)
         if language == "es" {
             effectsTitle1.text = "Efectos:"
             effectsTitle2.text = "Efectos:"
@@ -218,11 +219,10 @@ class DrugDetailVC: UIViewController {
     }
     
     func setInfoTexts() {
-        definitionText.text = decomposeStringArray(_drug.description!)
-
-        risksText.text = decomposeStringArray(_drug.risks!)
-        addictiveText.text = decomposeStringArray(_drug.addictive!)
-        damageReduceText.text = decomposeStringArray(_drug.riskAvoiding!)
+        definitionText.text = decomposeStringArray(_drug.drugDescription! as! [String])
+        addictiveText.text = decomposeStringArray(_drug.addictive! as! [String])
+        risksText.text = decomposeStringArray(_drug.risks! as! [String])
+        damageReduceText.text = decomposeStringArray(_drug.riskAvoiding! as! [String])
         
         infoTexts.append(definitionText)
         
@@ -273,9 +273,9 @@ class DrugDetailVC: UIViewController {
             infoTexts.append(damageReduceText)
         }
         
-        effectsText.text = decomposeStringArray(_drug.effects!)
+        effectsText.text = decomposeStringArray(_drug.effects! as! [String])
         
-        mixesText.text = decomposeStringArray(_drug.mixes!)
+        mixesText.text = decomposeStringArray(_drug.mixes! as! [String])
     }
     
     func loadInfoCards() {

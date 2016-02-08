@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import CoreData
 import Flurry_iOS_SDK
 
 
@@ -32,12 +33,30 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidLoad() {
         
-        //print("language: \(pre)")
+        
+        lang = (pre as NSString).substringToIndex(2)
         super.viewDidLoad()
         collection.delegate = self
         collection.dataSource = self
         
-        lang = (pre as NSString).substringToIndex(2)
+        fetchAndSetResults()
+        
+        if drugs.count == 0 {
+            downloadData()
+        }
+        collection.reloadData()
+        
+        let flurryKey = Keys.FlurryKey
+        Flurry.startSession(flurryKey);
+    }
+    
+    func checkDataVersion() {
+        DataService.ds.REF_ES_DRUGS.observeEventType(.Value, withBlock: { snapshot in
+        })
+    }
+    
+    func downloadData() {
+        
         if lang == "es" {
             
             //print(lang)
@@ -51,13 +70,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         
                         if let drugDict = snap.value as? Dictionary<String, AnyObject> {
                             let key = snap.key
-                            let drug = Drug(drugName: key, dictionary: drugDict)
-                            self.drugs.append(drug)
+                            self.createDrug(key, dictionary: drugDict)
+                            
                             
                         }
                     }
                 }
-              self.collection.reloadData()
+                self.collection.reloadData()
             })
         } else {
             DataService.ds.REF_EN_DRUGS.observeEventType(.Value, withBlock: { snapshot in
@@ -72,8 +91,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         
                         if let drugDict = snap.value as? Dictionary<String, AnyObject> {
                             let key = snap.key
-                            let drug = Drug(drugName: key, dictionary: drugDict)
-                            self.drugs.append(drug)
+                            self.createDrug(key, dictionary: drugDict)
+                            
                             
                         }
                     }
@@ -81,11 +100,76 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 self.collection.reloadData()
             })
         }
-        collection.reloadData()
+
+    }
+    
+    func createDrug(name: String, dictionary: Dictionary<String, AnyObject>) {
         
-        let flurryKey = Keys.FlurryKey
-        //print(flurryKey)
-        Flurry.startSession(flurryKey);// development
+        var _description = [String]()
+        var _effects = [String]()
+        var _risks = [String]()
+        var _addictive = [String]()
+        //var _legal = [String]()
+        var _riskAvoiding = [String]()
+        var _mixes = [String]()
+        
+        let app = UIApplication.sharedApplication().delegate as! AppDelegate
+        let context = app.managedObjectContext
+        let entity = NSEntityDescription.entityForName("Drug", inManagedObjectContext: context)!
+        let drug = Drug(entity: entity, insertIntoManagedObjectContext: context)
+        
+        drug.name = name
+        
+        if let effects = dictionary["effects"] as? [String] {
+            for effect in effects {
+                _effects.append(effect)
+            }
+            drug.effects = _effects
+        }
+        
+        if let definitionArr = dictionary["definition"] as? [String] {
+            for definition in definitionArr {
+                _description.append(definition)
+            }
+            drug.drugDescription = _description
+        }
+        
+        if let risks = dictionary["risks"] as? [String] {
+            for risk in risks {
+                _risks.append(risk)
+            }
+            drug.risks = _risks
+        }
+        
+        if let addictiveText = dictionary["addictive"] as? [String] {
+            for addictive in addictiveText {
+                _addictive.append(addictive)
+            }
+            drug.addictive = _addictive
+        }
+        
+        if let damageReduceOptions = dictionary["damageReduce"] as? [String] {
+            for damageReduce in damageReduceOptions {
+                _riskAvoiding.append(damageReduce)
+            }
+            drug.riskAvoiding = _riskAvoiding
+        }
+        
+        if let mixes = dictionary["mixes"] as? [String] {
+            for mix in mixes {
+                _mixes.append(mix)
+            }
+            drug.mixes = _mixes
+        }
+        
+        drugs.append(drug)
+        context.insertObject(drug)
+        
+        do {
+            try context.save()
+        } catch {
+            print("Could not save Application in context")
+        }
     }
     
     
@@ -94,12 +178,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("DrugCell", forIndexPath: indexPath) as? DrugCell {
             
             let drug: Drug!
+            drug = drugs[indexPath.row]
             
-            if inSearchMode {
-                drug = filteredDrugs[indexPath.row]
-            } else {
-               drug = drugs[indexPath.row]
-            }
             //print(drug.name)
             cell.configureCell(drug)
             return cell
@@ -107,16 +187,29 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             return UICollectionViewCell()
         }
     }
+    
+    func fetchAndSetResults() {
+        
+        let app = UIApplication.sharedApplication().delegate as! AppDelegate
+        let context = app.managedObjectContext
+        let fetchRequest1 = NSFetchRequest(entityName: "Drug")
+        
+        
+        do {
+            let results = try context.executeFetchRequest(fetchRequest1)
+            self.drugs = results as! [Drug]
+            
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+        
+    }
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         var drug: Drug!
+        drug = drugs[indexPath.row]
         
-        if inSearchMode {
-            drug = filteredDrugs[indexPath.row]
-        } else {
-            drug = drugs[indexPath.row]
-        }
         
         performSegueWithIdentifier("DrugDetailVC", sender: drug)
     }
@@ -153,19 +246,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 //    }
     
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text == nil || searchBar.text == "" {
-            inSearchMode = false
-            view.endEditing(true)
-            collection.reloadData()
-        } else {
-            inSearchMode = true
-            let lower = searchBar.text!.lowercaseString
-            filteredDrugs = drugs.filter({$0.name.lowercaseString.rangeOfString(lower) != nil})
-            collection.reloadData()
-        }
-        
-    }
+    
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "DrugDetailVC" {
@@ -174,6 +255,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     detailsVC.drug = drug
                     detailsVC.previousOrientationIsPortrait = self.previousOrientationIsPortrait
                     detailsVC.language = lang
+                    
                 }
             }
         }
