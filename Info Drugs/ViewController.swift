@@ -30,7 +30,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var pre = NSLocale.preferredLanguages()[0]
     var previousOrientationIsPortrait = true
     var lang = ""
-    
+    var versions = [Version]();
+    var currentDataVersion = 0
+    var onlineDataVersion = 0
     override func viewDidLoad() {
         
         
@@ -39,20 +41,54 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collection.delegate = self
         collection.dataSource = self
         
-        fetchAndSetResults()
-        
-        if drugs.count == 0 {
-            downloadData()
+        fetchVersion()
+        checkDataVersion()
+        if versions.count > 0 {
+            let currentVersion = versions.last
+            currentDataVersion = Int(currentVersion!.versionNumber!)
+            
         }
+        
+       
         collection.reloadData()
         
         let flurryKey = Keys.FlurryKey
         Flurry.startSession(flurryKey);
     }
     
+    
     func checkDataVersion() {
-        DataService.ds.REF_ES_DRUGS.observeEventType(.Value, withBlock: { snapshot in
+        DataService.ds.REF_DATA_VERSION.observeEventType(.Value, withBlock: { snapshot in
+            let onlineVersion = snapshot.value as! Int
+            self.onlineDataVersion = onlineVersion
+            
+            if (self.onlineDataVersion > self.currentDataVersion) {
+                
+                self.deleteStoredDrugs()
+                self.downloadData()
+                self.createVersion(self.onlineDataVersion)
+            } else {
+                
+                self.fetchAndSetResults()
+                self.collection.reloadData()
+            }
         })
+    }
+    
+    func createVersion(versionNumber: Int) {
+        let app = UIApplication.sharedApplication().delegate as! AppDelegate
+        let context = app.managedObjectContext
+        let entity = NSEntityDescription.entityForName("Version", inManagedObjectContext: context)!
+        let version = Version(entity: entity, insertIntoManagedObjectContext: context)
+        
+        version.versionNumber = versionNumber
+        context.insertObject(version)
+        
+        do {
+            try context.save()
+        } catch {
+            print("Could not save Version in context")
+        }
     }
     
     func downloadData() {
@@ -185,6 +221,37 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             return cell
         } else {
             return UICollectionViewCell()
+        }
+    }
+    
+    func fetchVersion() {
+        let app = UIApplication.sharedApplication().delegate as! AppDelegate
+        let context = app.managedObjectContext
+        let fetchRequest1 = NSFetchRequest(entityName: "Version")
+        
+        
+        do {
+            let results = try context.executeFetchRequest(fetchRequest1)
+            self.versions = results as! [Version]
+            
+            
+            
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+    }
+    
+    func deleteStoredDrugs() {
+        let app = UIApplication.sharedApplication().delegate as! AppDelegate
+        let context = app.managedObjectContext
+        
+        let fetchRequest = NSFetchRequest(entityName: "Drug")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try context.executeRequest(deleteRequest)
+        } catch let error as NSError {
+           print(error.debugDescription)
         }
     }
     

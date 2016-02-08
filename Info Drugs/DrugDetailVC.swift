@@ -149,7 +149,7 @@ class DrugDetailVC: UIViewController {
     }
     
     func setEffectsTitles() {
-        print(language)
+        
         if language == "es" {
             effectsTitle1.text = "Efectos:"
             effectsTitle2.text = "Efectos:"

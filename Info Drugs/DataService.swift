@@ -32,6 +32,10 @@ class DataService {
         return _REF_EN_DRUGS
     }
     
+    var REF_DATA_VERSION: Firebase {
+        return _REF_DATA_VERSION
+    }
+    
     
 
 
