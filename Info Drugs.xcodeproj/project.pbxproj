@@ -18,6 +18,7 @@
 		65C52A291C693107007055C5 /* Drug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C52A271C693107007055C5 /* Drug.swift */; };
 		65C52A2C1C693B32007055C5 /* Version+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C52A2A1C693B32007055C5 /* Version+CoreDataProperties.swift */; };
 		65C52A2D1C693B32007055C5 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C52A2B1C693B32007055C5 /* Version.swift */; };
+		65C52A3A1C697360007055C5 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C52A391C697360007055C5 /* TransitionManager.swift */; };
 		65CA63241C32F77700592DCB /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CA63231C32F77700592DCB /* DraggableView.swift */; };
 		65CA63261C32F7DA00592DCB /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CA63251C32F7DA00592DCB /* OverlayView.swift */; };
 		65D451521C47DEFB00B71F37 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D451511C47DEFB00B71F37 /* AVFoundation.framework */; };
@@ -55,6 +56,7 @@
 		65C52A271C693107007055C5 /* Drug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drug.swift; sourceTree = "<group>"; };
 		65C52A2A1C693B32007055C5 /* Version+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Version+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		65C52A2B1C693B32007055C5 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
+		65C52A391C697360007055C5 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		65CA63231C32F77700592DCB /* DraggableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
 		65CA63251C32F7DA00592DCB /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		65D451511C47DEFB00B71F37 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -147,6 +149,7 @@
 			children = (
 				65F72DA01C20C31A0010BAE5 /* ViewController.swift */,
 				65A46F661C20F103009F6274 /* DrugDetailVC.swift */,
+				65C52A391C697360007055C5 /* TransitionManager.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				65CA63241C32F77700592DCB /* DraggableView.swift in Sources */,
 				65C52A2D1C693B32007055C5 /* Version.swift in Sources */,
 				65F72DA11C20C31A0010BAE5 /* ViewController.swift in Sources */,
+				65C52A3A1C697360007055C5 /* TransitionManager.swift in Sources */,
 				65C52A281C693107007055C5 /* Drug+CoreDataProperties.swift in Sources */,
 				65F72D9F1C20C31A0010BAE5 /* AppDelegate.swift in Sources */,
 				65C52A2C1C693B32007055C5 /* Version+CoreDataProperties.swift in Sources */,

@@ -33,8 +33,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var versions = [Version]();
     var currentDataVersion = 0
     var onlineDataVersion = 0
+    private var transitionManager = TransitionManager()
+    
     override func viewDidLoad() {
-        
         
         lang = (pre as NSString).substringToIndex(2)
         super.viewDidLoad()
@@ -324,6 +325,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     detailsVC.language = lang
                     
                 }
+            detailsVC.transitioningDelegate = self.transitionManager
             }
         }
     }
