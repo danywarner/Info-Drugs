@@ -10,7 +10,7 @@ This is a psychoactive drugs information app which purpose is educating and info
 
 [Download from the App Store](https://itunes.apple.com/us/app/info-drugs/id1068494182?mt=8) 
 
-# Features:
+### Features:
 * Read about the main psychoactive substances present in the market
 * Know their risks, effects and addictive potential 
 * Learn about the effects of the possible mixes of every one 
