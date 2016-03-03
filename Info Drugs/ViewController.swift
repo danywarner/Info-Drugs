@@ -41,13 +41,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         super.viewDidLoad()
         collection.delegate = self
         collection.dataSource = self
-        
+        fetchAndSetResults()
         fetchVersion()
         checkDataVersion()
         if versions.count > 0 {
             let currentVersion = versions.last
             currentDataVersion = Int(currentVersion!.versionNumber!)
-            
         }
         
        
