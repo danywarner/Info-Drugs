@@ -2,6 +2,7 @@ Info Drugs
 ======================
 ![alt tag](http://i.imgur.com/FJxEnTG.gif)
 
+## Description
 
 Learn and inform yourself about different illegal drugs' effects, their composition, their risks, how to prevent dangerous situations and even save lives!
 
