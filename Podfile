@@ -8,4 +8,5 @@ source 'https://github.com/CocoaPods/Specs.git'
 pod 'Firebase', '>= 2.5.0'
 pod 'Alamofire', '~> 3.0'
 pod 'Flurry-iOS-SDK/FlurrySDK'
+pod 'SwiftOverlays', '~> 2.0.0'
 end

@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import CoreData
 import Flurry_iOS_SDK
+import SwiftOverlays
 
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
@@ -94,7 +95,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func downloadData() {
         
         if lang == "es" {
-            
+            self.showWaitOverlayWithText("descargando info.")
             //print(lang)
             self.appNameLabel.text = "Info Drogas"
             DataService.ds.REF_ES_DRUGS.observeEventType(.Value, withBlock: { snapshot in
@@ -113,8 +114,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     }
                 }
                 self.collection.reloadData()
+                self.removeAllOverlays()
+
             })
         } else {
+            self.showWaitOverlayWithText("downloading info.")
             DataService.ds.REF_EN_DRUGS.observeEventType(.Value, withBlock: { snapshot in
                 //print(snapshot.value)
                 
@@ -134,6 +138,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     }
                 }
                 self.collection.reloadData()
+                self.removeAllOverlays()
             })
         }
 
