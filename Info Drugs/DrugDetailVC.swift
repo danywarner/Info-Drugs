@@ -109,8 +109,6 @@ class DrugDetailVC: UIViewController {
         setInfoTitles()
         setInfoTexts()
         draggableViewSize = CGRectMake((self.view.frame.size.width - CARD_WIDTH)/2, (self.view.frame.size.height - CARD_HEIGHT)/2, CARD_WIDTH, CARD_HEIGHT)
-        //        let image = UIImage(named: "\(drug.name)Photo")
-        //        drugPhoto.image = image
         
         loadInfoCards()
     }
@@ -150,13 +148,8 @@ class DrugDetailVC: UIViewController {
     
     func setEffectsTitles() {
         
-        if language == "es" {
-            effectsTitle1.text = "Efectos:"
-            effectsTitle2.text = "Efectos:"
-        } else {
-            effectsTitle1.text = "Effects:"
-            effectsTitle2.text = "Effects:"
-        }
+        effectsTitle1.text = NSLocalizedString("Efectos:", comment: "Efectos")
+        effectsTitle2.text = NSLocalizedString("Efectos:", comment: "Efectos")
         
         effectsTitles.append(effectsTitle1)
         effectsTitles.append(effectsTitle2)
@@ -164,18 +157,11 @@ class DrugDetailVC: UIViewController {
     }
     
     func setMixesTitles() {
-        if language == "es" {
-            mixesTitle1.text = "Mezclas comunes:"
-            mixesTitle2.text = "Mezclas comunes:"
-            mixesTitle3.text = "Mezclas comunes:"
-            mixesTitle4.text = "Mezclas comunes:"
         
-        } else {
-            mixesTitle1.text = "Common Mixes:"
-            mixesTitle2.text = "Common Mixes:"
-            mixesTitle3.text = "Common Mixes:"
-            mixesTitle4.text = "Common Mixes:"
-        }
+        mixesTitle1.text = NSLocalizedString("Mezclas comunes:", comment: "Mezclas comunes:")
+        mixesTitle2.text = NSLocalizedString("Mezclas comunes:", comment: "Mezclas comunes:")
+        mixesTitle3.text = NSLocalizedString("Mezclas comunes:", comment: "Mezclas comunes:")
+        mixesTitle4.text = NSLocalizedString("Mezclas comunes:", comment: "Mezclas comunes:")
         
         mixesTitles.append(mixesTitle1)
         mixesTitles.append(mixesTitle2)
@@ -186,29 +172,14 @@ class DrugDetailVC: UIViewController {
     
     
     func setInfoTitles() {
-        if language == "es" {
             
-            definitionTitle.text = "¿Qué es?"
-            risksTitle1.text = "Riesgos: "
-            risksTitle2.text = "Riesgos: "
-            addictiveTitle.text = "¿Es Adictivo?"
-            damageReduceTitle1.text = "Reducción de daños: "
-            damageReduceTitle2.text = "Reducción de daños: "
+        definitionTitle.text = NSLocalizedString("¿Qué es?", comment: "¿Qué es?")
+        risksTitle1.text = NSLocalizedString("Riesgos:", comment: "Riesgos:")
+        risksTitle2.text = NSLocalizedString("Riesgos:", comment: "Riesgos:")
+        addictiveTitle.text = NSLocalizedString("¿Es Adictivo?", comment: "¿Es Adictivo?")
+        damageReduceTitle1.text = NSLocalizedString("Reducción de daños: ", comment: "Reducción de daños: ")
+        damageReduceTitle2.text = NSLocalizedString("Reducción de daños: ", comment: "Reducción de daños: ")
             
-        } else if language == "en" {
-            
-            definitionTitle.text = "What is it?"
-            risksTitle1.text = "Risks: "
-            risksTitle2.text = "Risks: "
-            addictiveTitle.text = "Is It Addictive?"
-            damageReduceTitle1.text = "Harm Reduction: "
-            damageReduceTitle2.text = "Harm Reduction: "
-            
-         
-            segmentedControl.setTitle("Effects", forSegmentAtIndex: 1)
-            segmentedControl.setTitle("Mixes", forSegmentAtIndex: 2)
-        }
-        
         infoTitles.append(definitionTitle)
         infoTitles.append(risksTitle1)
         infoTitles.append(risksTitle2)
@@ -233,7 +204,7 @@ class DrugDetailVC: UIViewController {
             
             risksText1.text = paragraphsArray[0]+"\n\n"
             risksText2.text = ""
-            for var k = 1 ; k < paragraphsNumber ; k++ {
+            for k in 1  ..< paragraphsNumber  {
                 
                 if linesInUILabel(risksText1.text!+paragraphsArray[k]) < 23 {
                     risksText1.text? += paragraphsArray[k] + "\n\n"
@@ -257,7 +228,7 @@ class DrugDetailVC: UIViewController {
             
             damageReduceText1.text = paragraphsArray[0]+"\n\n"
             damageReduceText2.text = ""
-            for var k = 1 ; k < paragraphsNumber ; k++ {
+            for k in 1  ..< paragraphsNumber  {
                 
                 if linesInUILabel(damageReduceText1.text!+paragraphsArray[k]) < 23 {
                     damageReduceText1.text? += paragraphsArray[k] + "\n\n"
@@ -279,7 +250,7 @@ class DrugDetailVC: UIViewController {
     }
     
     func loadInfoCards() {
-        for var i=0 ; i < infoTexts.count ; i++ {
+        for i in 0  ..< infoTexts.count  {
             
             let draggableView = DraggableView(frame: draggableViewSize)
             draggableView.delegate = self
@@ -315,7 +286,7 @@ class DrugDetailVC: UIViewController {
             mixesTextx3.text = ""
             mixesTextx4.text = ""
             
-            for var k = 1 ; k < paragraphsNumber ; k++ {
+            for k in 1  ..< paragraphsNumber  {
                 if linesInUILabel(mixesText1.text!+paragraphsArray[k]) < 24 {
                     mixesText1.text? += paragraphsArray[k] + "\n\n"
                     
@@ -337,7 +308,7 @@ class DrugDetailVC: UIViewController {
             }
             
             
-            for var i = 0 ; i < mixesTextArray.count ; i++ {
+            for i in 0  ..< mixesTextArray.count  {
                 let draggableView = DraggableView(frame: draggableViewSize)
                 draggableView.delegate = self
                 mixesCards.append(draggableView)
@@ -379,7 +350,7 @@ class DrugDetailVC: UIViewController {
             effectsText1.text = paragraphsArray[0]+"\n\n"
             effectsText2.text = ""
             
-            for var k = 1 ; k < paragraphsNumber ; k++ {
+            for k in 1  ..< paragraphsNumber  {
                 if linesInUILabel(effectsText1.text!+paragraphsArray[k]) < 22 {
                     effectsText1.text? += paragraphsArray[k] + "\n\n"
                     
@@ -390,7 +361,7 @@ class DrugDetailVC: UIViewController {
             effectsTextArray.append(effectsText1)
             effectsTextArray.append(effectsText2)
             
-            for var i = 0 ; i < 2 ; i++ {
+            for i in 0  ..< 2  {
                 let draggableView = DraggableView(frame: draggableViewSize)
                 draggableView.delegate = self
                 effectsCards.append(draggableView)
@@ -449,7 +420,7 @@ class DrugDetailVC: UIViewController {
     }
     
     func removeInfoConstraints() {
-        for var i = 0 ; i < infoConstraints.count ; i++ {
+        for i in 0  ..< infoConstraints.count  {
             view.removeConstraint(infoConstraints[i])
         }
         
@@ -587,58 +558,58 @@ class DrugDetailVC: UIViewController {
     }
     
     func removeInfoCards() {
-        for var i = infoCards.count - 1 ; i >= 0 ; i-- {
+        for var i = infoCards.count - 1 ; i >= 0 ; i -= 1 {
             infoCards[i].removeFromSuperview()
             infoCards.removeAtIndex(i)
         }
     }
     
     func removeInfoTitles() {
-        for var i = infoTitles.count - 1 ; i >= 0 ; i-- {
+        for var i = infoTitles.count - 1 ; i >= 0 ; i -= 1 {
             infoTitles.removeAtIndex(i)
         }
     }
     
     func removeInfoTexts() {
-        for var i = infoTexts.count - 1 ; i >= 0 ; i-- {
+        for var i = infoTexts.count - 1 ; i >= 0 ; i -= 1 {
             infoTexts.removeAtIndex(i)
         }
     }
     
     func removeEffectsCards() {
-        for var i = effectsCards.count - 1 ; i >= 0 ; i-- {
+        for var i = effectsCards.count - 1 ; i >= 0 ; i -= 1 {
             effectsCards[i].removeFromSuperview()
             effectsCards.removeAtIndex(i)
         }
     }
     
     func removeEffectsTitles() {
-        for var i = effectsTitles.count - 1 ; i >= 0 ; i-- {
+        for var i = effectsTitles.count - 1 ; i >= 0 ; i -= 1 {
             effectsTitles.removeAtIndex(i)
         }
     }
     
     func removeEffectsTexts() {
-        for var i = effectsTextArray.count - 1 ; i >= 0 ; i-- {
+        for var i = effectsTextArray.count - 1 ; i >= 0 ; i -= 1 {
             effectsTextArray.removeAtIndex(i)
         }
     }
     
     func removeMixesCards() {
-        for var i = mixesCards.count - 1 ; i >= 0 ; i-- {
+        for var i = mixesCards.count - 1 ; i >= 0 ; i -= 1 {
             mixesCards[i].removeFromSuperview()
             mixesCards.removeAtIndex(i)
         }
     }
     
     func removeMixesTitles() {
-        for var i = mixesTitles.count - 1 ; i >= 0 ; i-- {
+        for var i = mixesTitles.count - 1 ; i >= 0 ; i -= 1 {
             mixesTitles.removeAtIndex(i)
         }
     }
     
     func removeMixesTexts() {
-        for var i = mixesTextArray.count - 1 ; i >= 0 ; i-- {
+        for var i = mixesTextArray.count - 1 ; i >= 0 ; i -= 1 {
             mixesTextArray.removeAtIndex(i)
         }
     }

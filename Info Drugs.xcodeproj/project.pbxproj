@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65358E0D1CE6961600B8B24E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65358E0F1CE6961600B8B24E /* Localizable.strings */; };
 		653DBE7E1C23022500956C98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 653DBE7D1C23022500956C98 /* Assets.xcassets */; };
 		655CC7821C47E24800C91438 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CC7811C47E24800C91438 /* Keys.swift */; };
 		658E1AED1C52E5A100A30B7C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 658E1AEF1C52E5A100A30B7C /* InfoPlist.strings */; };
@@ -27,7 +28,6 @@
 		65D451581C47DF1B00B71F37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D451571C47DF1B00B71F37 /* Foundation.framework */; };
 		65D4515A1C47DF2300B71F37 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D451591C47DF2300B71F37 /* MediaPlayer.framework */; };
 		65D4515C1C47DF2C00B71F37 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D4515B1C47DF2C00B71F37 /* Security.framework */; };
-		65D4515E1C47DF3400B71F37 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D4515D1C47DF3400B71F37 /* StoreKit.framework */; };
 		65D451601C47DF4100B71F37 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D4515F1C47DF4100B71F37 /* SystemConfiguration.framework */; };
 		65D451621C47DF4E00B71F37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D451611C47DF4E00B71F37 /* UIKit.framework */; };
 		65F72D9F1C20C31A0010BAE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F72D9E1C20C31A0010BAE5 /* AppDelegate.swift */; };
@@ -41,13 +41,16 @@
 /* Begin PBXFileReference section */
 		16B2A60A4733EF5331D114F2 /* Pods-Info Drugs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Drugs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Info Drugs/Pods-Info Drugs.debug.xcconfig"; sourceTree = "<group>"; };
 		36C8A22114580C5B57E3C980 /* Pods_Info_Drugs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Info_Drugs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65358E051CE6955C00B8B24E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		65358E061CE6955C00B8B24E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		65358E071CE6955C00B8B24E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		65358E081CE6956A00B8B24E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		65358E091CE6956A00B8B24E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		65358E0A1CE6956A00B8B24E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		65358E0E1CE6961600B8B24E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		653DBE7D1C23022500956C98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Info Drugs/Assets.xcassets"; sourceTree = "<group>"; };
 		655CC7811C47E24800C91438 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
-		658E1AEE1C52E5A100A30B7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		658E1AF01C52E5CD00A30B7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		658E1AF11C52E62700A30B7C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		658E1AF21C52E62700A30B7C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
-		658E1AF31C52E62700A30B7C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		65A46F641C20EDE9009F6274 /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		65A46F661C20F103009F6274 /* DrugDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugDetailVC.swift; sourceTree = "<group>"; };
 		65A46F691C2226EB009F6274 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -65,7 +68,6 @@
 		65D451571C47DF1B00B71F37 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		65D451591C47DF2300B71F37 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		65D4515B1C47DF2C00B71F37 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		65D4515D1C47DF3400B71F37 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		65D4515F1C47DF4100B71F37 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		65D451611C47DF4E00B71F37 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		65F72D9B1C20C31A0010BAE5 /* Info Drugs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Info Drugs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +87,6 @@
 			files = (
 				65D451621C47DF4E00B71F37 /* UIKit.framework in Frameworks */,
 				65D451601C47DF4100B71F37 /* SystemConfiguration.framework in Frameworks */,
-				65D4515E1C47DF3400B71F37 /* StoreKit.framework in Frameworks */,
 				65D4515C1C47DF2C00B71F37 /* Security.framework in Frameworks */,
 				65D4515A1C47DF2300B71F37 /* MediaPlayer.framework in Frameworks */,
 				65D451581C47DF1B00B71F37 /* Foundation.framework in Frameworks */,
@@ -131,6 +132,7 @@
 		65F72D9D1C20C31A0010BAE5 /* Info Drugs */ = {
 			isa = PBXGroup;
 			children = (
+				65358E0F1CE6961600B8B24E /* Localizable.strings */,
 				65A46F681C2226D8009F6274 /* Services */,
 				65F72DB21C20C5370010BAE5 /* Model */,
 				65F72DB11C20C5340010BAE5 /* View */,
@@ -190,7 +192,6 @@
 			children = (
 				65D451611C47DF4E00B71F37 /* UIKit.framework */,
 				65D4515F1C47DF4100B71F37 /* SystemConfiguration.framework */,
-				65D4515D1C47DF3400B71F37 /* StoreKit.framework */,
 				65D4515B1C47DF2C00B71F37 /* Security.framework */,
 				65D451591C47DF2300B71F37 /* MediaPlayer.framework */,
 				65D451571C47DF1B00B71F37 /* Foundation.framework */,
@@ -238,16 +239,21 @@
 					65F72D9A1C20C31A0010BAE5 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = UE6NL24U52;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
 			buildConfigurationList = 65F72D961C20C31A0010BAE5 /* Build configuration list for PBXProject "Info Drugs" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = Spanish;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				en,
 				es,
 			);
 			mainGroup = 65F72D921C20C31A0010BAE5;
@@ -265,6 +271,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65358E0D1CE6961600B8B24E /* Localizable.strings in Resources */,
 				65F72DA91C20C31A0010BAE5 /* LaunchScreen.storyboard in Resources */,
 				658E1AED1C52E5A100A30B7C /* InfoPlist.strings in Resources */,
 				653DBE7E1C23022500956C98 /* Assets.xcassets in Resources */,
@@ -348,12 +355,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		65358E0F1CE6961600B8B24E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65358E0E1CE6961600B8B24E /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		658E1AEF1C52E5A100A30B7C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				658E1AEE1C52E5A100A30B7C /* en */,
 				658E1AF01C52E5CD00A30B7C /* Base */,
-				658E1AF11C52E62700A30B7C /* es */,
+				65358E071CE6955C00B8B24E /* en */,
+				65358E0A1CE6956A00B8B24E /* es */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -362,7 +377,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				65F72DA31C20C31A0010BAE5 /* Base */,
-				658E1AF21C52E62700A30B7C /* es */,
+				65358E051CE6955C00B8B24E /* en */,
+				65358E081CE6956A00B8B24E /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -371,7 +387,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				65F72DA81C20C31A0010BAE5 /* Base */,
-				658E1AF31C52E62700A30B7C /* es */,
+				65358E061CE6955C00B8B24E /* en */,
+				65358E091CE6956A00B8B24E /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

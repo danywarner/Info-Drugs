@@ -1,0 +1,18 @@
+/* Class = "UILabel"; text = "Label"; ObjectID = "N5a-6R-zED"; */
+"N5a-6R-zED.text" = "Label";
+
+/* Class = "UILabel"; text = "Info Drugs"; ObjectID = "nqZ-Bx-QDV"; */
+"nqZ-Bx-QDV.text" = "Info Drugs";
+
+/* Class = "UISegmentedControl"; oRB-hG-GIW.segmentTitles[0] = "Info"; ObjectID = "oRB-hG-GIW"; */
+"oRB-hG-GIW.segmentTitles[0]" = "Info";
+
+/* Class = "UISegmentedControl"; oRB-hG-GIW.segmentTitles[1] = "Efectos"; ObjectID = "oRB-hG-GIW"; */
+"oRB-hG-GIW.segmentTitles[1]" = "Effects";
+
+/* Class = "UISegmentedControl"; oRB-hG-GIW.segmentTitles[2] = "Mezclas"; ObjectID = "oRB-hG-GIW"; */
+"oRB-hG-GIW.segmentTitles[2]" = "Mixes";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qLS-M0-j6H"; */
+"qLS-M0-j6H.text" = "Label";
+

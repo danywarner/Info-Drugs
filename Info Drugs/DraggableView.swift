@@ -10,15 +10,13 @@ import Foundation
 import UIKit
 
 protocol DraggableViewDelegate {
-    // The following command (ie, method) must be obeyed by any
-    // underling (ie, delegate) of the older sibling.
+    
     func cardSwipedLeft(card: UIView)
     func cardSwipedRight(card: UIView)
 }
 
 class DraggableView: UIView{
     
-    //var overlayView: OverlayView!
     var xFromCenter: CGFloat!
     var yFromCenter: CGFloat!
     var originalPoint: CGPoint!
@@ -45,35 +43,19 @@ class DraggableView: UIView{
     func start() {
         
         self.setupView()
-        
         self.backgroundColor = UIColor.whiteColor()
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action:"beingDragged:")
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action:#selector(DraggableView.beingDragged(_:)))
         self.addGestureRecognizer(panGestureRecognizer)
-        
-//        overlayView = OverlayView(frame: CGRectMake(self.frame.size.width/2-100, 0, 100, 100))
-//        overlayView!.alpha = 0
-//        self.addSubview(overlayView)
-        
     }
     
     
     
     
     func setupView() {
-        
         self.layer.cornerRadius = 4;
         self.layer.shadowRadius = 3;
         self.layer.shadowOpacity = 0.2;
         self.layer.shadowOffset = CGSizeMake(1, 1);
-        
-//        let leadingConstraint = NSLayoutConstraint(item: self, attribute: .Leading, relatedBy: .Equal, toItem: superview, attribute: .Leading, multiplier: 1, constant: 0)
-//        
-//        let trailingConstraint = NSLayoutConstraint(item: self, attribute: .Trailing, relatedBy: .Equal, toItem: superview, attribute: .Trailing, multiplier: 1, constant: 0)
-        
-        //let topConstraint = NSLayoutConstraint(item: self, attribute: .Top, relatedBy: .Equal, toItem: segmented, attribute: .Top, multiplier: 1, constant: 25)
-
-        //self.addConstraints([leadingConstraint,trailingConstraint])
-        
     }
     
     
@@ -97,31 +79,14 @@ class DraggableView: UIView{
             let scaleTransform: CGAffineTransform = CGAffineTransformScale(transform, scale, scale)
             
             self.transform = scaleTransform
-         //     self.updateOverlay(xFromCenter)
             
         case .Ended:
             self.afterSwipeAction()
             
-            //            case .Possible:
-            //                break
-            //            case .Cancelled:
-            //                break
-            //            case .Failed:
-            //                break
         default:
             break
         }
     }
-    
-//    func updateOverlay(distance: CGFloat) {
-//        if distance > 0 {
-//            overlayView.mode = OverlayView.CGOverlayViewMode.GGOverlayViewModeRight
-//        } else {
-//            overlayView.mode = OverlayView.CGOverlayViewMode.GGOverlayViewModeLeft
-//        }
-//        
-//        overlayView.alpha = min(CGFloat(fabsf(Float(distance))/100), CGFloat(0.4))
-//    }
     
     func afterSwipeAction() {
         if xFromCenter > ACTION_MARGIN {
@@ -132,7 +97,6 @@ class DraggableView: UIView{
             UIView.animateWithDuration(0.3, animations: {
                 self.center = self.originalPoint
                 self.transform = CGAffineTransformMakeRotation(0)
-               // self.overlayView.alpha = 0
             })
         }
     }
@@ -146,7 +110,6 @@ class DraggableView: UIView{
                 self.removeFromSuperview()
         })
         delegate.cardSwipedRight(self)
-        //print("YES")
     }
     
     func leftAction() {
@@ -158,12 +121,5 @@ class DraggableView: UIView{
                 self.removeFromSuperview()
         })
         delegate.cardSwipedLeft(self)
-        //print("NO")
     }
-    
-    
-    
-    
-    
-    
 }

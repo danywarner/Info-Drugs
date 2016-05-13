@@ -96,7 +96,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         if lang == "es" {
             self.showWaitOverlayWithText("descargando info.")
-            //print(lang)
             self.appNameLabel.text = "Info Drogas"
             DataService.ds.REF_ES_DRUGS.observeEventType(.Value, withBlock: { snapshot in
                 
@@ -120,19 +119,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         } else {
             self.showWaitOverlayWithText("downloading info.")
             DataService.ds.REF_EN_DRUGS.observeEventType(.Value, withBlock: { snapshot in
-                //print(snapshot.value)
                 
                 self.drugs = []
                 if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
                     
                     for snap in snapshots {
                         
-                        // print("SNAP: \(snap)")
-                        
                         if let drugDict = snap.value as? Dictionary<String, AnyObject> {
                             let key = snap.key
                             self.createDrug(key, dictionary: drugDict)
-                            
                             
                         }
                     }
@@ -141,7 +136,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 self.removeAllOverlays()
             })
         }
-
     }
     
     func createDrug(name: String, dictionary: Dictionary<String, AnyObject>) {
@@ -220,8 +214,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             let drug: Drug!
             drug = drugs[indexPath.row]
-            
-            //print(drug.name)
             cell.configureCell(drug)
             return cell
         } else {
@@ -234,12 +226,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let context = app.managedObjectContext
         let fetchRequest1 = NSFetchRequest(entityName: "Version")
         
-        
         do {
             let results = try context.executeFetchRequest(fetchRequest1)
             self.versions = results as! [Version]
-            
-            
             
         } catch let err as NSError {
             print(err.debugDescription)
@@ -266,7 +255,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let context = app.managedObjectContext
         let fetchRequest1 = NSFetchRequest(entityName: "Drug")
         
-        
         do {
             let results = try context.executeFetchRequest(fetchRequest1)
             self.drugs = results as! [Drug]
@@ -274,20 +262,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         } catch let err as NSError {
             print(err.debugDescription)
         }
-        
     }
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         var drug: Drug!
         drug = drugs[indexPath.row]
-        
-        
         performSegueWithIdentifier("DrugDetailVC", sender: drug)
     }
     
-    
-
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if inSearchMode {
@@ -308,17 +291,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         view.endEditing(true)
     }
-    
-//    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-//        // Override point for customization after application launch.
-//        let flurryKey = Keys.FlurryKey
-//        print(flurryKey)
-//        Flurry.startSession(flurryKey);// development
-//        return true;
-//    }
-    
-    
-    
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "DrugDetailVC" {

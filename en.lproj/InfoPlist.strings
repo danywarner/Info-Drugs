@@ -1,7 +1,6 @@
-/* 
-  InfoPlist.strings
-  Info Drugs
+/* (No Commment) */
+"CFBundleName" = "$(PRODUCT_NAME)";
 
-  Created by Daniel Warner on 1/22/16.
-  Copyright © 2016 Daniel Warner. All rights reserved.
-*/
+/* (No Commment) */
+"CFBundleShortVersionString" = "1.3";
+
