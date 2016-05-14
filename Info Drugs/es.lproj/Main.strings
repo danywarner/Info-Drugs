@@ -3,7 +3,7 @@
 "N5a-6R-zED.text" = "Label";
 
 /* Class = "UILabel"; text = "Info Drugs"; ObjectID = "nqZ-Bx-QDV"; */
-"nqZ-Bx-QDV.text" = "Info Drugs";
+"nqZ-Bx-QDV.text" = "Info Drogas";
 
 /* Class = "UISegmentedControl"; oRB-hG-GIW.segmentTitles[0] = "Info"; ObjectID = "oRB-hG-GIW"; */
 "oRB-hG-GIW.segmentTitles[0]" = "Info";

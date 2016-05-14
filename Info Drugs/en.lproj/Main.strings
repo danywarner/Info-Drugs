@@ -1,7 +1,7 @@
 /* Class = "UILabel"; text = "Label"; ObjectID = "N5a-6R-zED"; */
 "N5a-6R-zED.text" = "Label";
 
-/* Class = "UILabel"; text = "Info Drugs"; ObjectID = "nqZ-Bx-QDV"; */
+/* Class = "UILabel"; text = "Info Drogas"; ObjectID = "nqZ-Bx-QDV"; */
 "nqZ-Bx-QDV.text" = "Info Drugs";
 
 /* Class = "UISegmentedControl"; oRB-hG-GIW.segmentTitles[0] = "Info"; ObjectID = "oRB-hG-GIW"; */

@@ -10,6 +10,12 @@
 /* Riesgos: */
 "Riesgos:" = "Risks:";
 
+/* descargando info. */
+"descargando info." = "downloading data.";
+
+/* drugsEndUrl */
+"es_drugs" = "en_drugs";
+
 /* ¿Es Adictivo? */
 "¿Es Adictivo?" = "Is it addictive?";
 

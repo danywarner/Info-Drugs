@@ -42,7 +42,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         super.viewDidLoad()
         collection.delegate = self
         collection.dataSource = self
-        fetchAndSetResults()
+        self.fetchAndSetResults()
         fetchVersion()
         checkDataVersion()
         if versions.count > 0 {
@@ -54,7 +54,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collection.reloadData()
         
         let flurryKey = Keys.FlurryKey
-        Flurry.startSession(flurryKey);
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+            Flurry.startSession(flurryKey);
+        }
     }
     
     
@@ -64,9 +66,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             self.onlineDataVersion = onlineVersion
             
             if (self.onlineDataVersion > self.currentDataVersion) {
-                
-                self.deleteStoredDrugs()
-                self.downloadData()
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+                    self.deleteStoredDrugs()
+                    self.downloadData()
+                }
                 self.createVersion(self.onlineDataVersion)
             } else {
                 
@@ -94,48 +97,25 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func downloadData() {
         
-        if lang == "es" {
-            self.showWaitOverlayWithText("descargando info.")
-            self.appNameLabel.text = "Info Drogas"
-            DataService.ds.REF_ES_DRUGS.observeEventType(.Value, withBlock: { snapshot in
-                
-                self.drugs = []
-                if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
-                    
-                    for snap in snapshots {
-                        
-                        if let drugDict = snap.value as? Dictionary<String, AnyObject> {
-                            let key = snap.key
-                            self.createDrug(key, dictionary: drugDict)
-                            
-                            
-                        }
-                    }
-                }
-                self.collection.reloadData()
-                self.removeAllOverlays()
-
-            })
-        } else {
-            self.showWaitOverlayWithText("downloading info.")
-            DataService.ds.REF_EN_DRUGS.observeEventType(.Value, withBlock: { snapshot in
-                
-                self.drugs = []
-                if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
-                    
-                    for snap in snapshots {
-                        
-                        if let drugDict = snap.value as? Dictionary<String, AnyObject> {
-                            let key = snap.key
-                            self.createDrug(key, dictionary: drugDict)
-                            
-                        }
-                    }
-                }
-                self.collection.reloadData()
-                self.removeAllOverlays()
-            })
+        dispatch_async(dispatch_get_main_queue()) {
+            self.showWaitOverlayWithText(NSLocalizedString("descargando info.", comment: "descargando info."))
         }
+        DataService.ds.REF_DRUGS.observeEventType(.Value, withBlock: { snapshot in
+            
+            self.drugs = []
+            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                
+                for snap in snapshots {
+                    
+                    if let drugDict = snap.value as? Dictionary<String, AnyObject> {
+                        let key = snap.key
+                        self.createDrug(key, dictionary: drugDict)
+                    }
+                }
+            }
+            self.collection.reloadData()
+            self.removeAllOverlays()
+        })
     }
     
     func createDrug(name: String, dictionary: Dictionary<String, AnyObject>) {
