@@ -23,7 +23,6 @@ class DrugDetailVC: UIViewController {
     let CARD_HEIGHT:CGFloat = 520
     let CARD_WIDTH:CGFloat = 290
     
-    var language = ""
     var infoCards: Array<DraggableView> = []
     var effectsCards: Array<DraggableView> = []
     var mixesCards: Array<DraggableView> = []
@@ -70,7 +69,6 @@ class DrugDetailVC: UIViewController {
     var screenWidth: CGFloat = 0.0
     var screenHeight: CGFloat = 0.0
     private var _drug: Drug!
-    private var _previousOrientationIsPortrait = true
     var selectedSegment = 1
     
     var infoConstraints: Array<NSLayoutConstraint> = []
@@ -82,15 +80,6 @@ class DrugDetailVC: UIViewController {
         }
         set {
             _drug = newValue
-        }
-    }
-    
-    var previousOrientationIsPortrait: Bool {
-        get {
-            return _previousOrientationIsPortrait
-        }
-        set {
-            _previousOrientationIsPortrait = newValue
         }
     }
     
@@ -476,26 +465,6 @@ class DrugDetailVC: UIViewController {
         let bottomConstraint = NSLayoutConstraint(item: draggableView, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1, constant: -20)
 
          view.addConstraints([leadingConstraint,trailingConstraint,topConstraint,bottomConstraint])
-    }
-    
-    func setPortraitConstraints() {
-        //drugPhotoHeight.constant = 128
-        segmentedControlTop.constant = 25
-        topBarHeight.constant = 45
-        drugLabelHeight.constant = 30
-        drugLabelBottom.constant = 0
-        backButtonBottom.constant = 4
-        _previousOrientationIsPortrait = true
-    }
-    
-    func setLandscapeConstraints() {
-        //drugPhotoHeight.constant = 0
-        segmentedControlTop.constant = 5
-        topBarHeight.constant = 25
-        drugLabelHeight.constant = 20
-        drugLabelBottom.constant = 3
-        backButtonBottom.constant = 3
-        _previousOrientationIsPortrait = false
     }
     
     @IBAction func backBtnPressed(sender: AnyObject) {

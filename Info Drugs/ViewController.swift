@@ -27,10 +27,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var drugs = [Drug]()
     var filteredDrugs = [Drug]()
     var inSearchMode = false
-    var preferredLanguages : NSLocale!
-    var pre = NSLocale.preferredLanguages()[0]
     var previousOrientationIsPortrait = true
-    var lang = ""
     var versions = [Version]();
     var currentDataVersion = 0
     var onlineDataVersion = 0
@@ -38,7 +35,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidLoad() {
         
-        lang = (pre as NSString).substringToIndex(2)
+        let flurryKey = Keys.FlurryKey
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+            Flurry.startSession(flurryKey);
+        }
+        
         super.viewDidLoad()
         collection.delegate = self
         collection.dataSource = self
@@ -53,10 +54,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
        
         collection.reloadData()
         
-        let flurryKey = Keys.FlurryKey
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-            Flurry.startSession(flurryKey);
-        }
+        
     }
     
     
@@ -277,9 +275,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             if let detailsVC = segue.destinationViewController as? DrugDetailVC {
                 if let drug = sender as? Drug {
                     detailsVC.drug = drug
-                    detailsVC.previousOrientationIsPortrait = self.previousOrientationIsPortrait
-                    detailsVC.language = lang
-                    
                 }
             detailsVC.transitioningDelegate = self.transitionManager
             }
