@@ -43,44 +43,39 @@ class DraggableView: UIView{
     func start() {
         
         self.setupView()
-        self.backgroundColor = UIColor.whiteColor()
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action:#selector(DraggableView.beingDragged(_:)))
+        self.backgroundColor = UIColor.white
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action:#selector(DraggableView.beingDragged))
         self.addGestureRecognizer(panGestureRecognizer)
     }
-    
-    
-    
     
     func setupView() {
         self.layer.cornerRadius = 4;
         self.layer.shadowRadius = 3;
         self.layer.shadowOpacity = 0.2;
-        self.layer.shadowOffset = CGSizeMake(1, 1);
+        self.layer.shadowOffset = CGSize(width: 1, height: 1);
     }
     
-    
-    
-    func beingDragged(gestureRecognizer: UIPanGestureRecognizer) {
+    @objc func beingDragged(gestureRecognizer: UIPanGestureRecognizer) {
         
-        xFromCenter = gestureRecognizer.translationInView(self).x
-        yFromCenter = gestureRecognizer.translationInView(self).y
+        xFromCenter = gestureRecognizer.translation(in: self).x
+        yFromCenter = gestureRecognizer.translation(in: self).y
         
         switch(gestureRecognizer.state) {
-        case .Began:
+        case .began:
             originalPoint = self.center
             
-        case .Changed:
+        case .changed:
             let rotationStrength: CGFloat = min(xFromCenter / ROTATION_STRENGTH, ROTATION_MAX)
             let rotationAngle = CGFloat(ROTATION_ANGLE * rotationStrength)
             let scale = max(CGFloat(1 - fabsf(Float(rotationStrength))) / SCALE_STRENGTH, SCALE_MAX)
             
-            self.center = CGPointMake(originalPoint.x + xFromCenter, originalPoint.y + yFromCenter)
-            let transform: CGAffineTransform = CGAffineTransformMakeRotation(rotationAngle)
-            let scaleTransform: CGAffineTransform = CGAffineTransformScale(transform, scale, scale)
+            self.center = CGPoint(x: originalPoint.x + xFromCenter, y: originalPoint.y + yFromCenter)
+            let transform: CGAffineTransform = CGAffineTransform(rotationAngle: rotationAngle)
+            let scaleTransform: CGAffineTransform = transform.scaledBy(x: scale, y: scale)
             
             self.transform = scaleTransform
             
-        case .Ended:
+        case .ended:
             self.afterSwipeAction()
             
         default:
@@ -94,32 +89,32 @@ class DraggableView: UIView{
         } else if xFromCenter < -ACTION_MARGIN {
             self.leftAction()
         } else {
-            UIView.animateWithDuration(0.3, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                 self.center = self.originalPoint
-                self.transform = CGAffineTransformMakeRotation(0)
+                self.transform = CGAffineTransform(rotationAngle: 0)
             })
         }
     }
     
     func rightAction() {
-        let finishPoint: CGPoint = CGPointMake(500, 2*yFromCenter + self.originalPoint.y)
-        UIView.animateWithDuration(0.3, animations: {
+        let finishPoint: CGPoint = CGPoint(x: 500, y: 2*yFromCenter + self.originalPoint.y)
+        UIView.animate(withDuration: 0.3, animations: {
             self.center = finishPoint
             }, completion: {
                 (value: Bool) in
                 self.removeFromSuperview()
         })
-        delegate.cardSwipedRight(self)
+        delegate.cardSwipedRight(card: self)
     }
     
     func leftAction() {
-        let finishPoint: CGPoint = CGPointMake(-500, 2*yFromCenter + self.originalPoint.y)
-        UIView.animateWithDuration(0.3, animations: {
+        let finishPoint: CGPoint = CGPoint(x: -500, y: 2*yFromCenter + self.originalPoint.y)
+        UIView.animate(withDuration: 0.3, animations: {
             self.center = finishPoint
             }, completion: {
                 (value: Bool) in
                 self.removeFromSuperview()
         })
-        delegate.cardSwipedLeft(self)
+        delegate.cardSwipedLeft(card: self)
     }
 }

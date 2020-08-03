@@ -12,15 +12,15 @@ class TransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIView
     
     var presenting = false
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        let container = transitionContext.containerView()
-        let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey)!
-        let toView = transitionContext.viewForKey(UITransitionContextToViewKey)!
+        let container = transitionContext.containerView
+        let fromView = transitionContext.view(forKey: UITransitionContextViewKey.from)!
+        let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)!
         
         
-        let offScreenRight = CGAffineTransformMakeTranslation(container!.frame.width, 0)
-        let offScreenLeft = CGAffineTransformMakeTranslation(-container!.frame.width, 0)
+        let offScreenRight = CGAffineTransform(translationX: container.frame.width, y: 0)
+        let offScreenLeft = CGAffineTransform(translationX: -container.frame.width, y: 0)
         
         if (self.presenting){
             toView.transform = offScreenRight
@@ -29,12 +29,12 @@ class TransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIView
             toView.transform = offScreenLeft
         }
         
-        container!.addSubview(toView)
-        container!.addSubview(fromView)
+        container.addSubview(toView)
+        container.addSubview(fromView)
         
-        let duration = self.transitionDuration(transitionContext)
+        let duration = self.transitionDuration(using: transitionContext)
         
-        UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.1, options: UIViewAnimationOptions(), animations: {
+        UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.1, options: UIView.AnimationOptions(), animations: {
             if (self.presenting){
                 fromView.transform = offScreenLeft
             }
@@ -42,7 +42,7 @@ class TransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIView
                 fromView.transform = offScreenRight
             }
             
-            toView.transform = CGAffineTransformIdentity
+            toView.transform = .identity
             
             }, completion: { finished in
                 
@@ -51,7 +51,7 @@ class TransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIView
         })
     }
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.7
     }
     

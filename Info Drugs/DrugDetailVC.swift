@@ -97,7 +97,7 @@ class DrugDetailVC: UIViewController {
         drugNameLabel.text = _drug.name
         setInfoTitles()
         setInfoTexts()
-        draggableViewSize = CGRectMake((self.view.frame.size.width - CARD_WIDTH)/2, (self.view.frame.size.height - CARD_HEIGHT)/2, CARD_WIDTH, CARD_HEIGHT)
+        draggableViewSize = CGRect(x: (self.view.frame.size.width - CARD_WIDTH)/2, y: (self.view.frame.size.height - CARD_HEIGHT)/2, width: CARD_WIDTH, height: CARD_HEIGHT)
         
         loadInfoCards()
     }
@@ -108,7 +108,7 @@ class DrugDetailVC: UIViewController {
     
     func lines() {
         var lineCount = 0;
-        let textSize = CGSizeMake(definitionText.frame.size.width, CGFloat(Float.infinity));
+        let textSize = CGSize(width: definitionText.frame.size.width, height: CGFloat(Float.infinity));
         let rHeight = lroundf(Float(definitionText.sizeThatFits(textSize).height))
         let charSize = lroundf(Float(definitionText.font.lineHeight));
         print(textSize)
@@ -131,7 +131,7 @@ class DrugDetailVC: UIViewController {
         }
         //The current font size is 16, so 8.0 is the size to divide into.
         let charsInLine = lroundf(width/8.0)
-        let lines = Int((text.characters.count))/charsInLine
+        let lines = Int((text.count))/charsInLine
         return lines
     }
     
@@ -179,23 +179,23 @@ class DrugDetailVC: UIViewController {
     }
     
     func setInfoTexts() {
-        definitionText.text = decomposeStringArray(_drug.drugDescription! as! [String])
-        addictiveText.text = decomposeStringArray(_drug.addictive! as! [String])
-        risksText.text = decomposeStringArray(_drug.risks! as! [String])
-        damageReduceText.text = decomposeStringArray(_drug.riskAvoiding! as! [String])
+        definitionText.text = decomposeStringArray(array: _drug.drugDescription! as! [String])
+        addictiveText.text = decomposeStringArray(array: _drug.addictive! as! [String])
+        risksText.text = decomposeStringArray(array: _drug.risks! as! [String])
+        damageReduceText.text = decomposeStringArray(array: _drug.riskAvoiding! as! [String])
         
         infoTexts.append(definitionText)
         
         
         paragraphsArray = []
-        if linesInUILabel(risksText.text!) > 23 {
-            let paragraphsNumber = paragraphsInText(risksText.text!)
+        if linesInUILabel(text: risksText.text!) > 23 {
+            let paragraphsNumber = paragraphsInText(text: risksText.text!)
             
             risksText1.text = paragraphsArray[0]+"\n\n"
             risksText2.text = ""
             for k in 1  ..< paragraphsNumber  {
                 
-                if linesInUILabel(risksText1.text!+paragraphsArray[k]) < 23 {
+                if linesInUILabel(text: risksText1.text! + paragraphsArray[k]) < 23 {
                     risksText1.text? += paragraphsArray[k] + "\n\n"
                     
                 } else {
@@ -212,14 +212,14 @@ class DrugDetailVC: UIViewController {
         infoTexts.append(addictiveText)
         
         paragraphsArray = []
-        if linesInUILabel(damageReduceText.text!) > 23 {
-            let paragraphsNumber = paragraphsInText(damageReduceText.text!)
+        if linesInUILabel(text: damageReduceText.text!) > 23 {
+            let paragraphsNumber = paragraphsInText(text: damageReduceText.text!)
             
             damageReduceText1.text = paragraphsArray[0]+"\n\n"
             damageReduceText2.text = ""
             for k in 1  ..< paragraphsNumber  {
                 
-                if linesInUILabel(damageReduceText1.text!+paragraphsArray[k]) < 23 {
+                if linesInUILabel(text: damageReduceText1.text! + paragraphsArray[k]) < 23 {
                     damageReduceText1.text? += paragraphsArray[k] + "\n\n"
                     
                 } else {
@@ -233,9 +233,9 @@ class DrugDetailVC: UIViewController {
             infoTexts.append(damageReduceText)
         }
         
-        effectsText.text = decomposeStringArray(_drug.effects! as! [String])
+        effectsText.text = decomposeStringArray(array: _drug.effects! as! [String])
         
-        mixesText.text = decomposeStringArray(_drug.mixes! as! [String])
+        mixesText.text = decomposeStringArray(array: _drug.mixes! as! [String])
     }
     
     func loadInfoCards() {
@@ -249,26 +249,26 @@ class DrugDetailVC: UIViewController {
             if i == 0 {
                 
                 view.addSubview(infoCards[i])
-                setTitleConstraints(infoTitles[i], draggableView: infoCards[i])
-                setInfoConstraints(infoTexts[i], draggableView: infoCards[i])
+                setTitleConstraints(title: infoTitles[i], draggableView: infoCards[i])
+                setInfoConstraints(text: infoTexts[i], draggableView: infoCards[i])
                 
             } else {
                 
                 view.insertSubview(infoCards[i], belowSubview: infoCards[i-1])
-                setTitleConstraints(infoTitles[i], draggableView: infoCards[i])
-                setInfoConstraints(infoTexts[i], draggableView: infoCards[i])
+                setTitleConstraints(title: infoTitles[i], draggableView: infoCards[i])
+                setInfoConstraints(text: infoTexts[i], draggableView: infoCards[i])
  
             }
             
-            setCardConstraints(infoCards[i])
+            setCardConstraints(draggableView: infoCards[i])
         }
     }
     
     func loadMixesCards() {
         paragraphsArray = []
         
-        if linesInUILabel(mixesText.text!) > 24 {
-            let paragraphsNumber = paragraphsInText(mixesText.text!)
+        if linesInUILabel(text: mixesText.text!) > 24 {
+            let paragraphsNumber = paragraphsInText(text: mixesText.text!)
             
             mixesText1.text = paragraphsArray[0]+"\n\n"
             mixesTextx2.text = ""
@@ -276,12 +276,12 @@ class DrugDetailVC: UIViewController {
             mixesTextx4.text = ""
             
             for k in 1  ..< paragraphsNumber  {
-                if linesInUILabel(mixesText1.text!+paragraphsArray[k]) < 24 {
+                if linesInUILabel(text: mixesText1.text!+paragraphsArray[k]) < 24 {
                     mixesText1.text? += paragraphsArray[k] + "\n\n"
                     
-                } else if linesInUILabel(mixesTextx2.text!+paragraphsArray[k]) < 24 {
+                } else if linesInUILabel(text: mixesTextx2.text!+paragraphsArray[k]) < 24 {
                     mixesTextx2.text? += paragraphsArray[k] + "\n\n"
-                } else if linesInUILabel(mixesTextx3.text!+paragraphsArray[k]) < 24 {
+                } else if linesInUILabel(text: mixesTextx3.text!+paragraphsArray[k]) < 24 {
                     mixesTextx3.text? += paragraphsArray[k] + "\n\n"
                 } else {
                     mixesTextx4.text? += paragraphsArray[k] + "\n\n"
@@ -305,14 +305,14 @@ class DrugDetailVC: UIViewController {
                 draggableView.addSubview(mixesTextArray[i])
                 if i == 0 {
                     view.addSubview(mixesCards[i])
-                    setTitleConstraints(mixesTitles[i], draggableView: mixesCards[i])
-                    setInfoConstraints(mixesTextArray[i], draggableView: mixesCards[i])
+                    setTitleConstraints(title: mixesTitles[i], draggableView: mixesCards[i])
+                    setInfoConstraints(text: mixesTextArray[i], draggableView: mixesCards[i])
                 } else {
                     view.insertSubview(mixesCards[i], belowSubview: mixesCards[i-1])
-                    setTitleConstraints(mixesTitles[i], draggableView: mixesCards[i])
-                    setInfoConstraints(mixesTextArray[i], draggableView: mixesCards[i])
+                    setTitleConstraints(title: mixesTitles[i], draggableView: mixesCards[i])
+                    setInfoConstraints(text: mixesTextArray[i], draggableView: mixesCards[i])
                 }
-                setCardConstraints(mixesCards[i])
+                setCardConstraints(draggableView: mixesCards[i])
             }
             
             
@@ -323,9 +323,9 @@ class DrugDetailVC: UIViewController {
             draggableView.addSubview(mixesTitle1)
             draggableView.addSubview(mixesText)
             view.addSubview(mixesCards[0])
-            setTitleConstraints(mixesTitle1, draggableView: mixesCards[0])
-            setInfoConstraints(mixesText, draggableView: mixesCards[0])
-            setCardConstraints(mixesCards[0])
+            setTitleConstraints(title: mixesTitle1, draggableView: mixesCards[0])
+            setInfoConstraints(text: mixesText, draggableView: mixesCards[0])
+            setCardConstraints(draggableView: mixesCards[0])
         }
 
     }
@@ -333,14 +333,14 @@ class DrugDetailVC: UIViewController {
     func loadEffectsCards() {
             paragraphsArray = []
         
-        if linesInUILabel(effectsText.text!) > 22 {
-            let paragraphsNumber = paragraphsInText(effectsText.text!)
+        if linesInUILabel(text: effectsText.text!) > 22 {
+            let paragraphsNumber = paragraphsInText(text: effectsText.text!)
             
             effectsText1.text = paragraphsArray[0]+"\n\n"
             effectsText2.text = ""
             
             for k in 1  ..< paragraphsNumber  {
-                if linesInUILabel(effectsText1.text!+paragraphsArray[k]) < 22 {
+                if linesInUILabel(text: effectsText1.text!+paragraphsArray[k]) < 22 {
                     effectsText1.text? += paragraphsArray[k] + "\n\n"
                     
                 } else {
@@ -358,14 +358,14 @@ class DrugDetailVC: UIViewController {
                 draggableView.addSubview(effectsTextArray[i])
                 if i == 0 {
                     view.addSubview(effectsCards[i])
-                    setTitleConstraints(effectsTitles[i], draggableView: effectsCards[i])
-                    setInfoConstraints(effectsTextArray[i], draggableView: effectsCards[i])
+                    setTitleConstraints(title: effectsTitles[i], draggableView: effectsCards[i])
+                    setInfoConstraints(text: effectsTextArray[i], draggableView: effectsCards[i])
                 } else {
                     view.insertSubview(effectsCards[i], belowSubview: effectsCards[i-1])
-                    setTitleConstraints(effectsTitles[i], draggableView: effectsCards[i])
-                    setInfoConstraints(effectsTextArray[i], draggableView: effectsCards[i])
+                    setTitleConstraints(title: effectsTitles[i], draggableView: effectsCards[i])
+                    setInfoConstraints(text: effectsTextArray[i], draggableView: effectsCards[i])
                 }
-                setCardConstraints(effectsCards[i])
+                setCardConstraints(draggableView: effectsCards[i])
             }
             
             
@@ -376,28 +376,28 @@ class DrugDetailVC: UIViewController {
             draggableView.addSubview(effectsTitle1)
             draggableView.addSubview(effectsText)
             view.addSubview(effectsCards[0])
-            setTitleConstraints(effectsTitle1, draggableView: effectsCards[0])
-            setInfoConstraints(effectsText, draggableView: effectsCards[0])
-            setCardConstraints(effectsCards[0])
+            setTitleConstraints(title: effectsTitle1, draggableView: effectsCards[0])
+            setInfoConstraints(text: effectsText, draggableView: effectsCards[0])
+            setCardConstraints(draggableView: effectsCards[0])
         }
         
     }
     
     func paragraphsInText(text: String) -> Int {
-        paragraphsArray = text.characters.split{$0 == "\n"}.map(String.init)
+        paragraphsArray = text.split{$0 == "\n"}.map(String.init)
         return paragraphsArray.count
     }
  
     func setTitleConstraints(title: UILabel,draggableView: DraggableView) {
         
-        title.textColor = UIColor.redColor()
+        title.textColor = UIColor.red
         title.font = UIFont(name: "HelveticaNeue", size: CGFloat(22))
         
         title.translatesAutoresizingMaskIntoConstraints = false
         
-        let leadingConstraint = NSLayoutConstraint(item: title, attribute: .Leading, relatedBy: .Equal, toItem: draggableView, attribute: .Leading, multiplier: 1, constant: 5)
+        let leadingConstraint = NSLayoutConstraint(item: title, attribute: .leading, relatedBy: .equal, toItem: draggableView, attribute: .leading, multiplier: 1, constant: 5)
         
-        let topConstraint = NSLayoutConstraint(item: title, attribute: .Top, relatedBy: .Equal, toItem: draggableView, attribute: .Top, multiplier: 1, constant: 10)
+        let topConstraint = NSLayoutConstraint(item: title, attribute: .top, relatedBy: .equal, toItem: draggableView, attribute: .top, multiplier: 1, constant: 10)
         
         if selectedSegment == 1 {
             infoConstraints.append(leadingConstraint)
@@ -417,7 +417,7 @@ class DrugDetailVC: UIViewController {
     
     func setInfoConstraints(text: UILabel,draggableView: DraggableView) {
         
-        text.textColor = UIColor.blackColor()
+        text.textColor = UIColor.black
         
         text.numberOfLines = 0
         text.translatesAutoresizingMaskIntoConstraints = false
@@ -443,11 +443,11 @@ class DrugDetailVC: UIViewController {
         //print(screenHeight)
         
         
-        let leadingConstraint = NSLayoutConstraint(item: text, attribute: .Leading, relatedBy: .Equal, toItem: draggableView, attribute: .Leading, multiplier: 1, constant: 5)
+        let leadingConstraint = NSLayoutConstraint(item: text, attribute: .leading, relatedBy: .equal, toItem: draggableView, attribute: .leading, multiplier: 1, constant: 5)
         
-        let topConstraint = NSLayoutConstraint(item: text, attribute: .Top, relatedBy: .Equal, toItem: draggableView, attribute: .Top, multiplier: 1, constant: 40)
+        let topConstraint = NSLayoutConstraint(item: text, attribute: .top, relatedBy: .equal, toItem: draggableView, attribute: .top, multiplier: 1, constant: 40)
         
-        let trailingConstraint = NSLayoutConstraint(item: text, attribute: .Trailing, relatedBy: .Equal, toItem: draggableView, attribute: .Trailing, multiplier: 1, constant: -5)
+        let trailingConstraint = NSLayoutConstraint(item: text, attribute: .trailing, relatedBy: .equal, toItem: draggableView, attribute: .trailing, multiplier: 1, constant: -5)
         
         view.addConstraints([leadingConstraint,topConstraint,trailingConstraint])
     }
@@ -456,19 +456,19 @@ class DrugDetailVC: UIViewController {
         
         draggableView.translatesAutoresizingMaskIntoConstraints = false
         
-        let leadingConstraint = NSLayoutConstraint(item: draggableView, attribute: .Leading, relatedBy: .Equal, toItem: segmentedControl, attribute: .Leading, multiplier: 1, constant: 0)
+        let leadingConstraint = NSLayoutConstraint(item: draggableView, attribute: .leading, relatedBy: .equal, toItem: segmentedControl, attribute: .leading, multiplier: 1, constant: 0)
         
-        let trailingConstraint = NSLayoutConstraint(item: draggableView, attribute: .Trailing, relatedBy: .Equal, toItem: segmentedControl, attribute: .Trailing, multiplier: 1, constant: 0)
+        let trailingConstraint = NSLayoutConstraint(item: draggableView, attribute: .trailing, relatedBy: .equal, toItem: segmentedControl, attribute: .trailing, multiplier: 1, constant: 0)
         
-        let topConstraint = NSLayoutConstraint(item: draggableView, attribute: .Top, relatedBy: .Equal, toItem: segmentedControl, attribute: .Bottom, multiplier: 1, constant: 25)
+        let topConstraint = NSLayoutConstraint(item: draggableView, attribute: .top, relatedBy: .equal, toItem: segmentedControl, attribute: .bottom, multiplier: 1, constant: 25)
         
-        let bottomConstraint = NSLayoutConstraint(item: draggableView, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1, constant: -20)
+        let bottomConstraint = NSLayoutConstraint(item: draggableView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: -20)
 
          view.addConstraints([leadingConstraint,trailingConstraint,topConstraint,bottomConstraint])
     }
     
     @IBAction func backBtnPressed(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func segmentedControlActionChanged(sender: UISegmentedControl) {
@@ -527,81 +527,80 @@ class DrugDetailVC: UIViewController {
     }
     
     func removeInfoCards() {
-        for var i = infoCards.count - 1 ; i >= 0 ; i -= 1 {
-            infoCards[i].removeFromSuperview()
-            infoCards.removeAtIndex(i)
+        for (index, card) in infoCards.enumerated() {
+            card.removeFromSuperview()
+            infoCards.remove(at: index)
         }
     }
     
     func removeInfoTitles() {
-        for var i = infoTitles.count - 1 ; i >= 0 ; i -= 1 {
-            infoTitles.removeAtIndex(i)
+        for (index, infoTitle) in infoTitles.enumerated() {
+            infoTitles.remove(at: index)
         }
     }
     
     func removeInfoTexts() {
-        for var i = infoTexts.count - 1 ; i >= 0 ; i -= 1 {
-            infoTexts.removeAtIndex(i)
+        for (index, text) in infoTexts.enumerated() {
+            infoTexts.remove(at: index)
         }
     }
     
     func removeEffectsCards() {
-        for var i = effectsCards.count - 1 ; i >= 0 ; i -= 1 {
-            effectsCards[i].removeFromSuperview()
-            effectsCards.removeAtIndex(i)
+        for (index, effectsCard) in effectsCards.enumerated() {
+            effectsCard.removeFromSuperview()
+            effectsCards.remove(at: index)
         }
     }
     
     func removeEffectsTitles() {
-        for var i = effectsTitles.count - 1 ; i >= 0 ; i -= 1 {
-            effectsTitles.removeAtIndex(i)
+        for (index, effectTitle) in effectsTitles.enumerated() {
+            effectsTitles.remove(at: index)
         }
     }
     
     func removeEffectsTexts() {
-        for var i = effectsTextArray.count - 1 ; i >= 0 ; i -= 1 {
-            effectsTextArray.removeAtIndex(i)
+        for (index, effectText) in effectsTextArray.enumerated() {
+            effectsTextArray.remove(at: index)
         }
     }
     
     func removeMixesCards() {
-        for var i = mixesCards.count - 1 ; i >= 0 ; i -= 1 {
-            mixesCards[i].removeFromSuperview()
-            mixesCards.removeAtIndex(i)
+        for (index, mixesCard) in mixesCards.enumerated() {
+            mixesCard.removeFromSuperview()
+            mixesCards.remove(at: index)
         }
     }
     
     func removeMixesTitles() {
-        for var i = mixesTitles.count - 1 ; i >= 0 ; i -= 1 {
-            mixesTitles.removeAtIndex(i)
+        for (index, mixesTitle) in mixesTitles.enumerated() {
+            mixesTitles.remove(at: index)
         }
     }
     
     func removeMixesTexts() {
-        for var i = mixesTextArray.count - 1 ; i >= 0 ; i -= 1 {
-            mixesTextArray.removeAtIndex(i)
+        for (index, mixesText) in mixesTextArray.enumerated() {
+            mixesTextArray.remove(at: index)
         }
     }
     
-    
     func cardSwipedLeft(card: UIView){
         if(selectedSegment == 1) {
-            infoCards.removeAtIndex(0)
+            infoCards.remove(at: 0)
         } else if (selectedSegment == 2) {
-            effectsCards.removeAtIndex(0)
+            effectsCards.remove(at: 0)
         } else if (selectedSegment == 3) {
-            mixesCards.removeAtIndex(0)
+            mixesCards.remove(at: 0)
         }
         
     }
     
     func cardSwipedRight(card: UIView){
         if(selectedSegment == 1) {
-            infoCards.removeAtIndex(0)
+            infoCards.remove(at: 0)
         } else if (selectedSegment == 2) {
-            effectsCards.removeAtIndex(0)
+            effectsCards.remove(at: 0)
         } else if (selectedSegment == 3) {
-            mixesCards.removeAtIndex(0)
+            mixesCards.remove(at: 0)
         }
     }
     
