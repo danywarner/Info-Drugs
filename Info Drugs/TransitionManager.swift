@@ -1,6 +1,6 @@
 //
 //  TransitionManager.swift
-//  pruebaRappi
+//  Info Drugs
 //
 //  Created by Daniel Warner on 2/4/16.
 //  Copyright © 2016 Daniel Warner. All rights reserved.

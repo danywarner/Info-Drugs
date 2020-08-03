@@ -9,3 +9,10 @@ Pods/
 */Pods/
 */Podfile.lock
 Podfile.lock
+
+## Other
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint
+*.orig
