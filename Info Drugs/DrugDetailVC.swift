@@ -8,18 +8,16 @@
 
 import UIKit
 
-class DrugDetailVC: UIViewController {
+final class DrugDetailVC: UIViewController {
 
-    @IBOutlet weak var drugLabelBottom: NSLayoutConstraint!
-    @IBOutlet weak var drugLabelHeight: NSLayoutConstraint!
-    @IBOutlet weak var topBarHeight: NSLayoutConstraint!
-    @IBOutlet weak var segmentedControlTop: NSLayoutConstraint!
-    @IBOutlet weak var backButtonBottom: NSLayoutConstraint!
-    @IBOutlet weak var drugNameLabel: UILabel!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet private weak var drugLabelBottom: NSLayoutConstraint!
+    @IBOutlet private weak var drugLabelHeight: NSLayoutConstraint!
+    @IBOutlet private weak var topBarHeight: NSLayoutConstraint!
+    @IBOutlet private weak var segmentedControlTop: NSLayoutConstraint!
+    @IBOutlet private weak var backButtonBottom: NSLayoutConstraint!
+    @IBOutlet private weak var drugNameLabel: UILabel!
+    @IBOutlet private weak var segmentedControl: UISegmentedControl!
     
-    
-    let MAX_BUFFER_SIZE = 2
     let CARD_HEIGHT:CGFloat = 520
     let CARD_WIDTH:CGFloat = 290
     
@@ -90,7 +88,6 @@ class DrugDetailVC: UIViewController {
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         screenWidth = self.view.frame.size.width
         screenHeight = self.view.frame.size.height
@@ -100,22 +97,6 @@ class DrugDetailVC: UIViewController {
         draggableViewSize = CGRect(x: (self.view.frame.size.width - CARD_WIDTH)/2, y: (self.view.frame.size.height - CARD_HEIGHT)/2, width: CARD_WIDTH, height: CARD_HEIGHT)
         
         loadInfoCards()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-    
-    func lines() {
-        var lineCount = 0;
-        let textSize = CGSize(width: definitionText.frame.size.width, height: CGFloat(Float.infinity));
-        let rHeight = lroundf(Float(definitionText.sizeThatFits(textSize).height))
-        let charSize = lroundf(Float(definitionText.font.lineHeight));
-        print(textSize)
-        print(rHeight)
-        print(charSize)
-        lineCount = (rHeight/charSize)-2
-        print("No of lines \(lineCount)")
     }
     
     func linesInUILabel(text: String) -> Int {
@@ -136,32 +117,25 @@ class DrugDetailVC: UIViewController {
     }
     
     func setEffectsTitles() {
-        
         effectsTitle1.text = NSLocalizedString("Efectos:", comment: "Efectos")
         effectsTitle2.text = NSLocalizedString("Efectos:", comment: "Efectos")
-        
         effectsTitles.append(effectsTitle1)
         effectsTitles.append(effectsTitle2)
-        
     }
     
     func setMixesTitles() {
-        
         mixesTitle1.text = NSLocalizedString("Mezclas comunes:", comment: "Mezclas comunes:")
         mixesTitle2.text = NSLocalizedString("Mezclas comunes:", comment: "Mezclas comunes:")
         mixesTitle3.text = NSLocalizedString("Mezclas comunes:", comment: "Mezclas comunes:")
         mixesTitle4.text = NSLocalizedString("Mezclas comunes:", comment: "Mezclas comunes:")
-        
         mixesTitles.append(mixesTitle1)
         mixesTitles.append(mixesTitle2)
         mixesTitles.append(mixesTitle3)
         mixesTitles.append(mixesTitle4)
-        
     }
     
     
     func setInfoTitles() {
-            
         definitionTitle.text = NSLocalizedString("¿Qué es?", comment: "¿Qué es?")
         risksTitle1.text = NSLocalizedString("Riesgos:", comment: "Riesgos:")
         risksTitle2.text = NSLocalizedString("Riesgos:", comment: "Riesgos:")
@@ -175,14 +149,13 @@ class DrugDetailVC: UIViewController {
         infoTitles.append(addictiveTitle)
         infoTitles.append(damageReduceTitle1)
         infoTitles.append(damageReduceTitle2)
-        
     }
     
     func setInfoTexts() {
-        definitionText.text = decomposeStringArray(array: _drug.drugDescription! as! [String])
-        addictiveText.text = decomposeStringArray(array: _drug.addictive! as! [String])
-        risksText.text = decomposeStringArray(array: _drug.risks! as! [String])
-        damageReduceText.text = decomposeStringArray(array: _drug.riskAvoiding! as! [String])
+        definitionText.text = decomposeStringArray(array: _drug.drugDescription)
+        addictiveText.text = decomposeStringArray(array: _drug.addictive)
+        risksText.text = decomposeStringArray(array: _drug.risks)
+        damageReduceText.text = decomposeStringArray(array: _drug.riskAvoiding)
         
         infoTexts.append(definitionText)
         
@@ -233,9 +206,9 @@ class DrugDetailVC: UIViewController {
             infoTexts.append(damageReduceText)
         }
         
-        effectsText.text = decomposeStringArray(array: _drug.effects! as! [String])
+        effectsText.text = decomposeStringArray(array: _drug.effects)
         
-        mixesText.text = decomposeStringArray(array: _drug.mixes! as! [String])
+        mixesText.text = decomposeStringArray(array: _drug.mixes)
     }
     
     func loadInfoCards() {
@@ -412,7 +385,6 @@ class DrugDetailVC: UIViewController {
         for i in 0  ..< infoConstraints.count  {
             view.removeConstraint(infoConstraints[i])
         }
-        
     }
     
     func setInfoConstraints(text: UILabel,draggableView: DraggableView) {
@@ -439,9 +411,6 @@ class DrugDetailVC: UIViewController {
         } else {
             text.font = UIFont(name: "HelveticaNeue", size: CGFloat(12))
         }
-        //print(screenWidth)
-        //print(screenHeight)
-        
         
         let leadingConstraint = NSLayoutConstraint(item: text, attribute: .leading, relatedBy: .equal, toItem: draggableView, attribute: .leading, multiplier: 1, constant: 5)
         
@@ -529,60 +498,71 @@ class DrugDetailVC: UIViewController {
     func removeInfoCards() {
         for (index, card) in infoCards.enumerated() {
             card.removeFromSuperview()
-            infoCards.remove(at: index)
+           // infoCards.remove(at: index)
         }
     }
     
     func removeInfoTitles() {
         for (index, infoTitle) in infoTitles.enumerated() {
-            infoTitles.remove(at: index)
+         //   infoTitles.remove(at: index)
         }
     }
     
     func removeInfoTexts() {
         for (index, text) in infoTexts.enumerated() {
-            infoTexts.remove(at: index)
+         //   infoTexts.remove(at: index)
         }
     }
     
     func removeEffectsCards() {
         for (index, effectsCard) in effectsCards.enumerated() {
             effectsCard.removeFromSuperview()
-            effectsCards.remove(at: index)
+           // effectsCards.remove(at: index)
         }
     }
     
     func removeEffectsTitles() {
         for (index, effectTitle) in effectsTitles.enumerated() {
-            effectsTitles.remove(at: index)
+          //  effectsTitles.remove(at: index)
         }
     }
     
     func removeEffectsTexts() {
         for (index, effectText) in effectsTextArray.enumerated() {
-            effectsTextArray.remove(at: index)
+         //   effectsTextArray.remove(at: index)
         }
     }
     
     func removeMixesCards() {
         for (index, mixesCard) in mixesCards.enumerated() {
             mixesCard.removeFromSuperview()
-            mixesCards.remove(at: index)
+          //  mixesCards.remove(at: index)
         }
     }
     
     func removeMixesTitles() {
         for (index, mixesTitle) in mixesTitles.enumerated() {
-            mixesTitles.remove(at: index)
+     //       mixesTitles.remove(at: index)
         }
     }
     
     func removeMixesTexts() {
         for (index, mixesText) in mixesTextArray.enumerated() {
-            mixesTextArray.remove(at: index)
+    //        mixesTextArray.remove(at: index)
         }
     }
     
+    func decomposeStringArray(array: [String]) -> String {
+        var fullText = ""
+        for paragraph in array {
+            fullText += paragraph
+            fullText += "\n\n"
+        }
+        return fullText
+    }
+}
+
+extension DrugDetailVC: DraggableViewDelegate {
     func cardSwipedLeft(card: UIView){
         if(selectedSegment == 1) {
             infoCards.remove(at: 0)
@@ -602,14 +582,5 @@ class DrugDetailVC: UIViewController {
         } else if (selectedSegment == 3) {
             mixesCards.remove(at: 0)
         }
-    }
-    
-    func decomposeStringArray(array: [String]) -> String {
-        var fullText = ""
-        for paragraph in array {
-            fullText += paragraph
-            fullText += "\n\n"
-        }
-        return fullText
     }
 }

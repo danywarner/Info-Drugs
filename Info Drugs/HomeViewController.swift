@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  Info Drugs
 //
 //  Created by Daniel Warner on 12/15/15.
@@ -12,29 +12,24 @@ import CoreData
 import Flurry_iOS_SDK
 import SwiftOverlays
 
+final class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout {
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
-
-    @IBOutlet weak var collection: UICollectionView!
+    @IBOutlet private weak var collection: UICollectionView!
+    @IBOutlet private weak var drugLabelHeight: NSLayoutConstraint!
+    @IBOutlet private weak var topBarHeight: NSLayoutConstraint!
+    @IBOutlet private weak var drugLabelBottom: NSLayoutConstraint!
+    @IBOutlet private weak var appNameLabel: UILabel!
     
-    @IBOutlet weak var drugLabelHeight: NSLayoutConstraint!
-    @IBOutlet weak var topBarHeight: NSLayoutConstraint!
-    
-    @IBOutlet weak var drugLabelBottom: NSLayoutConstraint!
-    
-    @IBOutlet weak var appNameLabel: UILabel!
-    
-    var drugs = [Drug]()
-    var filteredDrugs = [Drug]()
-    var inSearchMode = false
-    var previousOrientationIsPortrait = true
-    var versions = [Version]();
-    var currentDataVersion = 0
-    var onlineDataVersion = 0
+    private var drugs: [Drug] = []
+    private var filteredDrugs: [Drug] = []
+    private var inSearchMode = false
+    private var versions = [Version]()
+    private var currentDataVersion = 0
+    private var onlineDataVersion = 0
     private var transitionManager = TransitionManager()
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
         let flurryKey = "Keys.FlurryKey" //todo dww
         //dispatch_async(dispatch_get_global_queue(DispatchQueue.GlobalQueuePriority.background, 0)) {
             Flurry.startSession(flurryKey);
@@ -51,16 +46,25 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             currentDataVersion = Int(currentVersion!.versionNumber!)
         }
         
-       
         collection.reloadData()
-        
-        
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DrugDetailVC" {
+            if let detailsVC = segue.destination as? DrugDetailVC {
+                if let drug = sender as? Drug {
+                    detailsVC.drug = drug
+                }
+            detailsVC.transitioningDelegate = self.transitionManager
+            }
+        }
+    }
     
-    func checkDataVersion() {
+    private func checkDataVersion() {
         DataService.ds.REF_DATA_VERSION.observe(.value, with: { snapshot in
-            let onlineVersion = snapshot.value as! Int
+            guard let onlineVersion = snapshot.value as? Int else {
+                return
+            }
             self.onlineDataVersion = onlineVersion
             
             if (self.onlineDataVersion > self.currentDataVersion) {
@@ -77,7 +81,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         })
     }
     
-    func createVersion(versionNumber: Int) {
+    private func createVersion(versionNumber: Int) {
         let app = UIApplication.shared.delegate as! AppDelegate
         let context = app.managedObjectContext
         let entity = NSEntityDescription.entity(forEntityName: "Version", in: context)!
@@ -93,7 +97,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
-    func downloadData() {
+    private func downloadData() {
         
         //dispatch_async(dispatch_get_main_queue()) {
             self.showWaitOverlayWithText(NSLocalizedString("descargando info.", comment: "descargando info."))
@@ -116,13 +120,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         })
     }
     
-    func createDrug(name: String, dictionary: Dictionary<String, AnyObject>) {
+    private func createDrug(name: String, dictionary: Dictionary<String, AnyObject>) {
         
         var _description = [String]()
         var _effects = [String]()
         var _risks = [String]()
         var _addictive = [String]()
-        //var _legal = [String]()
         var _riskAvoiding = [String]()
         var _mixes = [String]()
         
@@ -137,42 +140,42 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             for effect in effects {
                 _effects.append(effect)
             }
-            drug.effects = _effects as NSObject
+            drug.effects = _effects
         }
         
         if let definitionArr = dictionary["definition"] as? [String] {
             for definition in definitionArr {
                 _description.append(definition)
             }
-            drug.drugDescription = _description as NSObject
+            drug.drugDescription = _description
         }
         
         if let risks = dictionary["risks"] as? [String] {
             for risk in risks {
                 _risks.append(risk)
             }
-            drug.risks = _risks as NSObject
+            drug.risks = _risks
         }
         
         if let addictiveText = dictionary["addictive"] as? [String] {
             for addictive in addictiveText {
                 _addictive.append(addictive)
             }
-            drug.addictive = _addictive as NSObject
+            drug.addictive = _addictive
         }
         
         if let damageReduceOptions = dictionary["damageReduce"] as? [String] {
             for damageReduce in damageReduceOptions {
                 _riskAvoiding.append(damageReduce)
             }
-            drug.riskAvoiding = _riskAvoiding as NSObject
+            drug.riskAvoiding = _riskAvoiding
         }
         
         if let mixes = dictionary["mixes"] as? [String] {
             for mix in mixes {
                 _mixes.append(mix)
             }
-            drug.mixes = _mixes as NSObject
+            drug.mixes = _mixes
         }
         
         drugs.append(drug)
@@ -185,19 +188,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DrugCell", for: indexPath) as? DrugCell {
-            let drug: Drug!
-            drug = drugs[indexPath.row]
-            cell.configureCell(drug: drug)
-            return cell
-        } else {
-            return UICollectionViewCell()
-        }
-    }
-    
-    func fetchVersion() {
+    private func fetchVersion() {
         let app = UIApplication.shared.delegate as! AppDelegate
         let context = app.managedObjectContext
         let fetchRequest1 = NSFetchRequest<NSFetchRequestResult>(entityName: "Version")
@@ -211,7 +202,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
-    func deleteStoredDrugs() {
+    private func deleteStoredDrugs() {
         let app = UIApplication.shared.delegate as! AppDelegate
         let context = app.managedObjectContext
         
@@ -225,7 +216,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
-    func fetchAndSetResults() {
+   private func fetchAndSetResults() {
         
         let app = UIApplication.shared.delegate as! AppDelegate
         let context = app.managedObjectContext
@@ -233,18 +224,30 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         do {
             let results = try context.fetch(fetchRequest1)
-            self.drugs = results as! [Drug]
+            if let drugs = results as? [Drug] {
+                self.drugs = drugs
+            }
             
         } catch let err as NSError {
             print(err.debugDescription)
         }
     }
-    
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var drug: Drug!
-        drug = drugs[indexPath.row]
+        let drug = drugs[indexPath.row]
         performSegue(withIdentifier: "DrugDetailVC", sender: drug)
     }
+}
+
+extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -258,19 +261,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return CGSize(width: 85, height: 85)
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        view.endEditing(true)
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "DrugDetailVC" {
-            if let detailsVC = segue.destination as? DrugDetailVC {
-                if let drug = sender as? Drug {
-                    detailsVC.drug = drug
-                }
-            detailsVC.transitioningDelegate = self.transitionManager
-            }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DrugCell", for: indexPath) as? DrugCell {
+            let drug = drugs[indexPath.row]
+            cell.configureCell(drugName: drug.name)
+            return cell
+        } else {
+            return UICollectionViewCell()
         }
     }
 }
-

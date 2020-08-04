@@ -15,6 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        return true
+    }
+    
     // MARK: - Core Data stack
     
     lazy var applicationDocumentsDirectory: URL = {
@@ -64,11 +69,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Core Data Saving support
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        FirebaseApp.configure()
-        return true
-    }
-    
     func saveContext () {
         if managedObjectContext.hasChanges {
             do {
@@ -82,8 +82,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
-
-
 }
-

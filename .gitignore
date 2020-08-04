@@ -2,6 +2,8 @@ Info\ Drugs/Keys.swift
 .DS_Store
 */.DS_Store
 *.DS_Store
+*Breakpoints_v2.xcbkptlist
+*/Breakpoints_v2.xcbkptlist
 
 #Pods
 Pods/

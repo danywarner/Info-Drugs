@@ -9,25 +9,24 @@
 import Foundation
 import UIKit
 
-protocol DraggableViewDelegate {
-    
+protocol DraggableViewDelegate: AnyObject {
     func cardSwipedLeft(card: UIView)
     func cardSwipedRight(card: UIView)
 }
 
-class DraggableView: UIView{
+final class DraggableView: UIView{
     
-    var xFromCenter: CGFloat!
-    var yFromCenter: CGFloat!
-    var originalPoint: CGPoint!
-    var delegate: DrugDetailVC!
-    var information: UILabel!
-    let ACTION_MARGIN: CGFloat = 120
-    let SCALE_STRENGTH: CGFloat = 4
-    let SCALE_MAX: CGFloat = 0.93
-    let ROTATION_MAX: CGFloat = 1
-    let ROTATION_STRENGTH: CGFloat = 320
-    let ROTATION_ANGLE: CGFloat = CGFloat(M_PI / 8.0)
+    weak var delegate: DraggableViewDelegate?
+    
+    private var xFromCenter: CGFloat!
+    private var yFromCenter: CGFloat!
+    private var originalPoint: CGPoint!
+    private let ACTION_MARGIN: CGFloat = 120
+    private let SCALE_STRENGTH: CGFloat = 4
+    private let SCALE_MAX: CGFloat = 0.93
+    private let ROTATION_MAX: CGFloat = 1
+    private let ROTATION_STRENGTH: CGFloat = 320
+    private let ROTATION_ANGLE: CGFloat = CGFloat(Double.pi / 8.0)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -104,7 +103,7 @@ class DraggableView: UIView{
                 (value: Bool) in
                 self.removeFromSuperview()
         })
-        delegate.cardSwipedRight(card: self)
+        delegate?.cardSwipedRight(card: self)
     }
     
     func leftAction() {
@@ -115,6 +114,6 @@ class DraggableView: UIView{
                 (value: Bool) in
                 self.removeFromSuperview()
         })
-        delegate.cardSwipedLeft(card: self)
+        delegate?.cardSwipedLeft(card: self)
     }
 }

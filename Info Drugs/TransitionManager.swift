@@ -8,9 +8,9 @@
 
 import UIKit
 
-class TransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate  {
+final class TransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate  {
     
-    var presenting = false
+    private var presenting = false
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         

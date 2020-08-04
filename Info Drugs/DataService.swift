@@ -30,8 +30,4 @@ class DataService {
     var REF_DATA_VERSION: DatabaseReference {
         return _REF_DATA_VERSION
     }
-    
-    
-
-
 }
