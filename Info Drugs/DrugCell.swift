@@ -8,51 +8,40 @@
 
 import UIKit
 
-class DrugCell: UICollectionViewCell {
+final class DrugCell: UICollectionViewCell {
     
-    @IBOutlet weak var thumbImg: UIImageView!
-    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet private weak var thumbImg: UIImageView!
+    @IBOutlet private weak var nameLbl: UILabel!
     
-    var drug: Drug!
+    func configureCell(drugName: String) {
+        configureLabel(drugName: drugName)
+        configureImage(drugName: drugName)
+    }
     
-    func configureCell(drug: Drug) {
-        
-        self.drug = drug
-        if let drugName = drug.name {
-            
-            if(drugName == "Metanfetamina" || drugName == "Methamphetamine") {
-                nameLbl.text = "Meth"
-            } else {
-                nameLbl.text = drugName
-            }
-            
-            if drugName == "Cocaine" {
-                
-                thumbImg.image = UIImage(named: "Cocaina")
-                
-            } else if drugName == "Heroine" {
-                
-                thumbImg.image = UIImage(named: "Heroina")
-                
-            } else if drugName == "Ketamine" {
-                
-                thumbImg.image = UIImage(named: "Ketamina")
-                
-            } else if drugName == "Methamphetamine" {
-                
-                thumbImg.image = UIImage(named: "Metanfetamina")
-                
-            } else if drugName == "Solvents" {
-                
-                thumbImg.image = UIImage(named: "Solventes")
-                
-            } else if drugName == "Tobacco" {
-                
-                thumbImg.image = UIImage(named: "Tabaco")
-                
-            } else {
-                thumbImg.image = UIImage(named: "\(drugName)")
-            }
+    private func configureLabel(drugName: String) {
+       if(drugName == "Metanfetamina" || drugName == "Methamphetamine") {
+           nameLbl.text = "Meth"
+       } else {
+           nameLbl.text = drugName
+       }
+    }
+    
+    private func configureImage(drugName: String) {
+        switch drugName {
+        case "Cocaine":
+            thumbImg.image = UIImage(named: "Cocaina")
+        case "Heroine":
+            thumbImg.image = UIImage(named: "Heroina")
+        case "Ketamine":
+            thumbImg.image = UIImage(named: "Ketamina")
+        case "Methamphetamine":
+            thumbImg.image = UIImage(named: "Metanfetamina")
+        case "Solvents":
+            thumbImg.image = UIImage(named: "Solventes")
+        case "Tobacco":
+            thumbImg.image = UIImage(named: "Tabaco")
+        default:
+            thumbImg.image = UIImage(named: "\(drugName)")
         }
     }
 }

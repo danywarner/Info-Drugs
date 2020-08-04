@@ -9,6 +9,6 @@
 import Foundation
 import CoreData
 
-
 class Version: NSManagedObject {
+    @NSManaged var versionNumber: NSNumber?
 }
